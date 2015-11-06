@@ -1,7 +1,13 @@
 # Kultlinge
 
-Map Size: 17x10 Tiles
-Tile Size: 128x128 Pixel
+Das wird voll das krasse spiel
+
+## Dimensions
+
+- Map Size: 17x10 Tiles
+- Tile Size: 128x128 Pixel
+- Map Size: 2176x1280 Pixel
+- Screen Size: 2272x1280 Pixel
 
 ## Hindernisse
 
