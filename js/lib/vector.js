@@ -71,7 +71,12 @@ Rect.prototype.grid = function( w, h ) {
 	this.p2.grid( w, h );
 };
 
-
+Rect.prototype.inside = function( v ) {
+	return this.p1.x < v.x
+			&& this.p2.x > v.x
+			&& this.p1.y < v.y
+			&& this.p2.y > v.y;
+}
 
 function limit( v, m ) {
 	return Math.min( m, Math.max( -m, v ));
