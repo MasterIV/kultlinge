@@ -35,6 +35,7 @@ Entity.prototype.draw = function (ctx) {
 
 Entity.prototype.click = function (pos) {
 	if( !this.getArea().inside(pos)) return;
+	if( this.onClick ) this.onClick();
 	pos.sub(this.position);
 
 	for (var i = 0; i < this.entities.length; i++)
@@ -44,6 +45,7 @@ Entity.prototype.click = function (pos) {
 
 Entity.prototype.mousedown = function (pos) {
 	if( !this.getArea().inside(pos)) return;
+	if( this.onMouseDown ) this.onMouseDown();
 	pos.sub(this.position);
 
 	for (var i = 0; i < this.entities.length; i++)
@@ -53,6 +55,7 @@ Entity.prototype.mousedown = function (pos) {
 
 Entity.prototype.mouseup = function (pos) {
 	if( !this.getArea().inside(pos)) return;
+	if( this.onMouseUp ) this.onMouseUp();
 	pos.sub(this.position);
 
 	for (var i = 0; i < this.entities.length; i++)
