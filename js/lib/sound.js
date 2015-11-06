@@ -18,4 +18,4 @@ var sound = {
 			return sound;
 		}
 	}
-}
+};

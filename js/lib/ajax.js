@@ -34,5 +34,6 @@ var ajax = {
 			callback( eval( '('+data+')' ));
 		});
 	}
-}
+};
+
 
