@@ -26,6 +26,8 @@
 
 		<script type="text/javascript" src="js/scene/map.js"></script>
 		<script type="text/javascript" src="js/scene/ritual.js"></script>
+		<script type="text/javascript" src="js/scene/main.js"></script>
+		<script type="text/javascript" src="js/scene/credits.js"></script>
 
 		<script type="text/javascript">
 			var scenes = {};
@@ -33,9 +35,12 @@
 			function init() {
 				g.load(function() {
 					scenes.map = new MapScene();
+					scenes.main = new MainScene();
+					scenes.credits = new CreditsScene();
+					
 					mouse.init();
 
-					game.scene = scenes.map;
+					game.scene = scenes.main;
 					game.init();
 				});
 			}

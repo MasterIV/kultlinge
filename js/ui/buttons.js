@@ -64,7 +64,7 @@ TextButton.prototype.draw = function(ctx ) {
 /* Shared Source */
 TextButton.prototype.click =
 Button.prototype.click =
-SpriteButton.prototype.click = function(pos ) {
+SpriteButton.prototype.click = function( pos ) {
 	if( this.area.inside( pos )) {
 		if( this.sound ) sound.play(this.sound);
 		this.callback();
