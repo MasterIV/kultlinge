@@ -1,6 +1,6 @@
 function Scene() {
 	this.position = new V2(0, 0);
-	this.size = new V2(0, 0);
+	this.size = new V2(game.width, game.height);
 	this.entities = [];
 
 	this.oldDraw = this.draw;

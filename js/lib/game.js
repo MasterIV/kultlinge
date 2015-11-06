@@ -19,14 +19,19 @@ var game = {
 	buffer: null,
 	bufferCtx: null,
 
+	width: 2272,
+	height: 1280,
+
 	init: function() {
 		this.display = document.getElementById('gameframe');
 		this.displayCtx = this.display.getContext('2d');
+		this.display.width = this.width;
+		this.display.height = this.height;
 
 		this.buffer = document.createElement('canvas');
 		this.bufferCtx = this.buffer.getContext('2d');
-		this.buffer.width = this.display.width;
-		this.buffer.height = this.display.height;
+		this.buffer.width = this.width;
+		this.buffer.height = this.height;
 
 		var self = this;
 		setInterval( function() { self.updateFramerate(); }, 1000 );
