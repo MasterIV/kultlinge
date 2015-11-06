@@ -5,8 +5,8 @@ mouse.init = function() {
 	var gameframe = document.getElementById('gameframe');
 
 	gameframe.onmousemove = function( ev ) {
-		self.x = ( ev.clientX - gameframe.offsetLeft ) * game.scale;
-		self.y = ( ev.clientY - gameframe.offsetTop ) * game.scale;
+		self.x = ( ev.clientX - gameframe.offsetLeft ) / game.scale;
+		self.y = ( ev.clientY - gameframe.offsetTop ) / game.scale;
 	};
 
 	gameframe.onclick = function( ev ) {
