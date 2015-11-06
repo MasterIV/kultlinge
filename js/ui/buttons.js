@@ -3,7 +3,7 @@ function Button(img, hover, x, y, callback, sound ) {
 	this.img = new Sprite( img );
 	this.hover = new Sprite( hover );
 	this.sound = sound;
-	this.area = new Rect( new V2( x, y ), new V2( x+this.image.width, y+this.image.height ));
+	this.area = new Rect( new V2( x, y ), new V2( x+this.img.width, y+this.img.height ));
 	this.callback = callback;
 	this.x = x;
 	this.y = y;
@@ -57,7 +57,7 @@ TextButton.prototype.draw = function(ctx ) {
 	ctx.strokeStyle = c.border ? c.border : 'black';
 	ctx.strokeRect( this.area.p1.x, this.area.p1.y, this.area.width(), this.area.height());
 
-	ctx.strokeStyle = c.text ? c.text : 'black';
+	ctx.fillStyle = c.text ? c.text : 'black';
 	ctx.fillText( this.text, this.area.p1.x, this.area.p1.y, this.area.width());
 };
 
