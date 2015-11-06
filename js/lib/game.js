@@ -21,12 +21,13 @@ var game = {
 
 	width: 2272,
 	height: 1280,
+	scale:.5,
 
 	init: function() {
 		this.display = document.getElementById('gameframe');
 		this.displayCtx = this.display.getContext('2d');
-		this.display.width = this.width;
-		this.display.height = this.height;
+		this.display.width = this.width*this.scale;
+		this.display.height = this.height*this.scale;
 
 		this.buffer = document.createElement('canvas');
 		this.bufferCtx = this.buffer.getContext('2d');
@@ -69,7 +70,7 @@ var game = {
 		this.scene.draw( this.bufferCtx );
 
 		this.display.width = this.display.width;
-		this.displayCtx.drawImage( this.buffer, 0, 0 );
+		this.displayCtx.drawImage( this.buffer, 0, 0, this.width*this.scale, this.height*this.scale );
 
 		// fsps display
 		this.displayCtx.fillStyle = 'white';
