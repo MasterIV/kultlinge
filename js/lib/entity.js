@@ -4,27 +4,27 @@ function Entity() {
 	this.entities = [];
 }
 
-Entity.prototype.setSize = function( w, h ) {
+Entity.prototype.setSize = function(w, h) {
 	this.size.x = w;
 	this.size.y = h;
 };
 
-Entity.prototype.setPosition = function( x, y ) {
+Entity.prototype.setPosition = function(x, y) {
 	this.position.x = x;
 	this.position.y = y;
 };
 
-Entity.prototype.update = function (delta) {
+Entity.prototype.update = function(delta) {
 	for (var i = 0; i < this.entities.length; i++)
 		if (this.entities[i].update)
 			this.entities[i].update(delta);
 };
 
 Entity.prototype.getArea = function() {
-	return new Rect( this.position, this.position.sum(this.size));
+	return new Rect(this.position, this.position.sum(this.size));
 };
 
-Entity.prototype.draw = function (ctx) {
+Entity.prototype.draw = function(ctx) {
 	ctx.save();
 	ctx.translate(this.position.x, this.position.y);
 	for (var i = 0; i < this.entities.length; i++)
@@ -33,9 +33,9 @@ Entity.prototype.draw = function (ctx) {
 	ctx.restore();
 };
 
-Entity.prototype.click = function (pos) {
-	if( !this.getArea().inside(pos)) return;
-	if( this.onClick ) this.onClick();
+Entity.prototype.click = function(pos) {
+	if (!this.getArea().inside(pos)) return;
+	if (this.onClick) this.onClick();
 	pos.sub(this.position);
 
 	for (var i = 0; i < this.entities.length; i++)
@@ -43,9 +43,9 @@ Entity.prototype.click = function (pos) {
 			this.entities[i].click(pos);
 };
 
-Entity.prototype.mousedown = function (pos) {
-	if( !this.getArea().inside(pos)) return;
-	if( this.onMouseDown ) this.onMouseDown();
+Entity.prototype.mousedown = function(pos) {
+	if (!this.getArea().inside(pos)) return;
+	if (this.onMouseDown) this.onMouseDown();
 	pos.sub(this.position);
 
 	for (var i = 0; i < this.entities.length; i++)
@@ -53,9 +53,9 @@ Entity.prototype.mousedown = function (pos) {
 			this.entities[i].mousedown(pos);
 };
 
-Entity.prototype.mouseup = function (pos) {
-	if( !this.getArea().inside(pos)) return;
-	if( this.onMouseUp ) this.onMouseUp();
+Entity.prototype.mouseup = function(pos) {
+	if (!this.getArea().inside(pos)) return;
+	if (this.onMouseUp) this.onMouseUp();
 	pos.sub(this.position);
 
 	for (var i = 0; i < this.entities.length; i++)

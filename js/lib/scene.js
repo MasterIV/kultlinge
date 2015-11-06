@@ -3,11 +3,11 @@ function Scene() {
 	this.size = new V2(0, 0);
 	this.entities = [];
 
-	var oldDraw = this.draw;
+	this.oldDraw = this.draw;
 	this.draw = function(ctx ) {
 		if( this.bg )
 			this.bg.draw( ctx, 0 ,0 );
-		oldDraw( ctx );
+		this.oldDraw( ctx );
 	};
 }
 
