@@ -1,9 +1,9 @@
-= Kultlinge =
+# Kultlinge
 
 Map Size: 17x10 Tiles
 Tile Size: 128x128 Pixel
 
-== Hindernisse ==
+## Hindernisse
 
 - wasser			-> einfrieren
 - feuer			-> löschen
@@ -12,7 +12,7 @@ Tile Size: 128x128 Pixel
 - schlucht		-> brücke / leiter
 - kreissäge		-> pech gehabt
 
-== Zutatten ==
+## Zutaten
 
 - Hühnerkopf
 - Blutwurst
@@ -21,7 +21,7 @@ Tile Size: 128x128 Pixel
 - Vollkornbrezeln
 - Lammzunge / Kalbszunge
 	
-== UI ==
+## UI
 
 - Opferschalen & altar
 - Opfercounter
@@ -33,7 +33,7 @@ Tile Size: 128x128 Pixel
 - Credits
 - Victory / Loos Screen
 	
-== Sound ==
+## Sound
 
 - Background Music
 - Sterben
