@@ -3,10 +3,110 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Editor</title>
+	<style>
+		.tile {
+			position: absolute;
+			width: 50px;
+			height: 50px;
+			background-color: lightgray;
+			border: 1px solid black;
+			text-align: center;
+			font-size: 30px;
+		}
+
+		.tile:hover {
+			background-color: orange;
+		}
+
+		.tile.platform {
+			background-color: #555;
+		}
+
+		#action {
+			border-radius: 4px;
+			width: 300px;
+		}
+
+		#action option {
+			font-size: 20px;
+		}
+
+		#action optgroup {
+			font-size: 22px;
+		}
+	</style>
+
+	<script>
+		var map = [];
+
+		for(var x = 0; x<17;x++) {
+			map[x] = [];
+			for(var y=0;y<10;y++)
+				map[x][y] = {p: false, e: null};
+		}
+
+		function clickTile( x, y, t ) {
+			var action = document.getElementById('action');
+
+			var a = action.options[action.selectedIndex].value;
+			var l = action.options[action.selectedIndex].innerHTML;
+
+			if( a == 'clear' ) {
+				map[x][y].p = false;
+				map[x][y].e = null;
+				t.className = "tile";
+				t.innerHTML = "";
+			} else if( a == 'platform' ) {
+				map[x][y].p = true;
+				t.className += " platform";
+			} else {
+				map[x][y].e = a;
+				t.innerHTML = l[0].toUpperCase();
+			}
+
+			document.getElementById('out').value = JSON.stringify(map);
+		}
+
+	</script>
 </head>
 <body>
 
+<div style="margin: 10px; float: right">
+	<select id="action" size="20">
+		<optgroup label="Geografie">
+			<option value="clear">Clear</option>
+			<option value="platform">Platform</option>
+			<option value="ladder">Leiter</option>
+		</optgroup>
 
+		<optgroup label="Positionen">
+			<option value="start">Start</option>
+			<option value="goal">Ziel</option>
+		</optgroup>
+
+		<optgroup label="Hindernisse">
+			<option value="water">Wasser</option>
+			<option value="fire">Feuer</option>
+			<option value="stone">Steine</option>
+			<option value="thorns">Dornen</option>
+		</optgroup>
+
+		<optgroup label="Limitierung">
+			<option value="saw">Kreissäge</option>
+			<option value="rock">Massiver Fels</option>
+		</optgroup>
+	</select>
+</div>
+
+<div style="position: relative; margin: 10px;" id="map">
+	<script>
+		for(var x = 0; x<17;x++)
+			for(var y=0;y<10;y++)
+				document.write('<div class="tile" onclick="clickTile('+x+', '+y+', this );" style="top: '+(y*50)+'px; left: '+(x*50)+'px"></div>');
+	</script>
+</div>
+
+<div style="margin: 10px;  clear: both"><textarea id="out" rows="20" cols="130"></textarea></div>
 
 </body>
 </html>
