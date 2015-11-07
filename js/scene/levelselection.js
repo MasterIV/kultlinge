@@ -25,8 +25,8 @@ function LevelSelectionScene() {
 			if(level !== undefined) {
 				
 				var color = this.buttonTextColor,
-					levelData = localStorage.getItem('level-' + i),
-					levelDataBefore = i > 0 ? localStorage.getItem('level-'+(i-1)) : null,
+					levelData = ScoreRegister.get(i),
+					levelDataBefore = i > 0 ? ScoreRegister.get(i-1) : null,
 					locked = false;
 				
 				if(!levelData && !levelDataBefore && i != 0) {
