@@ -56,6 +56,9 @@ function RitualScene() {
 	goButton.setPosition(spellOverlay.position.x + spellOverlay.getArea().width()/2 - 150, spellOverlay.position.y + spellOverlay.getArea().height() - 150);
 	goButton.setSize(300, 100);
 	this.entities.push(goButton);
+	goButton.onClick = function(){
+		self.entities.pop(); self.entities.pop();
+	}
 		
 	this.olderDraw = this.draw;
 	this.draw = function(ctx ) {
