@@ -11,7 +11,19 @@ function LevelScene( i ) {
 	this.entities = [
 		this.level = new Level(level, this),
 		this.mix = new ThermoMix(level.ingredients, this)
-	]
+	];
 }
 
 LevelScene.prototype = new Scene();
+
+LevelScene.prototype.kultlingKilled = function() {
+
+};
+
+LevelScene.prototype.kultlingSacrificed = function() {
+
+};
+
+LevelScene.prototype.checkComplete = function() {
+
+};

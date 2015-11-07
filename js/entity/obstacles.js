@@ -2,10 +2,12 @@ g.add('img/obstacles/fire.png');
 g.add('img/obstacles/water.png');
 
 function Obstacle() {}
+Obstacle.prototype = new Entity;
 
 Obstacle.prototype.assign = function(o, level, x, y, img) {
 	this.map = new V2( x, y );
 	this.position = new V2(x* m.t, y* m.t);
+	this.size = new V2( 128, 128 );
 	this.sprite = new Sprite(img);
 	this.level = level;
 };
@@ -14,10 +16,11 @@ Obstacle.prototype.draw = function(ctx) {
 	this.sprite.draw( ctx, this.position.x, this.position.y );
 };
 
-Obstacle.prototype.remove = function(tile) {
+Obstacle.prototype.remove = function() {
 	this.level.map[this.map.x][this.map.y] = null;
 	arrayRemove(this.level.entities, this);
 };
+
 
 // =================================================================== //
 
@@ -29,6 +32,12 @@ Fire.prototype = new Obstacle();
 
 Fire.prototype.onKultistTouch = function(kultling) {
 	kultling.die();
+};
+
+Fire.prototype.onClick = function() {
+	if( this.level.consumeSpell('rain')) {
+		this.remove();
+	}
 };
 
 // =================================================================== //

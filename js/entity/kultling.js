@@ -6,7 +6,8 @@ function Kultling( parent ) {
 	this.entering = parent.start;
 
 	this.position = this.grid.prd(m.t);
-	this.sprite = new Sprite('img/kultling.png');
+	this.sprite = new AnimationSprite('img/kultling.png', 4);
+	this.counter = new Framecounter(200);
 
 	this.speed = 60;
 	this.horizontal = this.speed;
@@ -15,10 +16,11 @@ function Kultling( parent ) {
 }
 
 Kultling.prototype.draw = function( ctx ) {
-	this.sprite.draw(ctx, this.position.x, this.position.y);
+	this.sprite.draw(ctx, this.position.x, this.position.y, this.counter.frame % 4);
 };
 
 Kultling.prototype.update = function( delta ) {
+	this.counter.update( delta );
 	this.position.x += ( this.horizontal ) / delta;
 	this.position.y += ( this.vertical ) / delta;
 
