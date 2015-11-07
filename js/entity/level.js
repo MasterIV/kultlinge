@@ -70,6 +70,24 @@ function Level( level, parent ) {
 		return false;
 	};
 
+	this.onClick = function(pos) {
+		if( this.spell && pos.y < 1000) {
+			var tilePos = pos.dif(new V2(m.t/2, m.t/2));
+			tilePos.grid(m.t, m.t);
+			console.log( pos, tilePos );
+
+			console.log( this.map[tilePos.x][tilePos.y] );
+
+			if( this.map[tilePos.x][tilePos.y] == null ) {
+				if( this.consumeSpell('wall')) {
+					var wall =  new Stone(this, tilePos.x, tilePos.y);
+					this.map[tilePos.x][tilePos.y] = wall;
+					this.entities.push(wall);
+				}
+			}
+		}
+	};
+
 	this.entities = [{
 		draw: function(ctx) { ctx.drawImage( canvas, 0, 0 ); },
 		update: function(delta) {

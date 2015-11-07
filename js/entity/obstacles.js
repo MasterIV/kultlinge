@@ -75,7 +75,6 @@ g.add('img/obstacles/stone.png');
 function Stone(level, x, y) {
 	this.assign(this, level, x, y, 'img/obstacles/stone.png');
 }
-
 Stone.prototype = new Obstacle();
 
 Stone.prototype.onKultistTouch = function(kultling) {

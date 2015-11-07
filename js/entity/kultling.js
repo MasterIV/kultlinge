@@ -75,7 +75,7 @@ Kultling.prototype.tileReached = function() {
 	} else if( current == 'goal' ) {
 		return this.sacrifice();
 	} else if( this.vertical ) {
-		if( below == 'platform' || current != 'ladder_up' ) {
+		if( below == 'platform' || ( current != 'ladder_up' && current != 'ladder_down' ) ) {
 			this.vertical = 0;
 			this.horizontal = this.speed;
 		}

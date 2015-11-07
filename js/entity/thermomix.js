@@ -1,9 +1,13 @@
+g.add('img/ui/opfergabe.png');
+
 function ThermoMix(levelIngredients, levelScene) {
 	var self = this;
-	
+
+	this.entities = [];
 	this.levelScene = levelScene;
-	
 	this.slots = [];
+	
+	this.size = new V2(game.width, game.height);
 	
 	var ingWidth = 256;
 	var ingHeight = 256;
@@ -28,9 +32,11 @@ function ThermoMix(levelIngredients, levelScene) {
 		dragable.returnsToOrigin = true;
 
 		ingredientObjects.push(dragable);
+		
+		var dish = new ImageEntity('img/ui/opfergabe.png', new V2(left, top));
+		this.entities.push(dish);
 		this.entities.push(dragable);
 		
-
 		i++;
 	}
 	
