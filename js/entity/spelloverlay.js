@@ -33,6 +33,7 @@ function SpellOverlay(spell) {
 		new Placeholder(),
 		new Placeholder()
 	];
+
 	for(var i = 0; i < this.slots.length; i++) {
 		var slot = this.slots[i];
 		slot.color = 'orange';

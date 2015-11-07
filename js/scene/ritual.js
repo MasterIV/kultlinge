@@ -9,11 +9,13 @@ function RitualScene() {
 		{ img:"img", type:"tobi" }, 
 		{ img:"img", type:"rabbit" }
 	];
+
 	var heights = [
 		game.height - 176 * 3 - 20 * 3,
 		game.height - 176 * 2 - 20 * 2,
 		game.height - 176 * 1 - 20 * 1
 	];
+
 	var rightmargin = game.width - 20 - 176;
 	var positions = [
 		new V2(20, heights[0]),
@@ -23,6 +25,7 @@ function RitualScene() {
 		new V2(rightmargin, heights[1]),
 		new V2(rightmargin, heights[0]),
 	];
+
 	var ingredientObjects = [];
 	for(var i = 0; i < ingredients.length; i++) {
 		var ingredient = ingredients[i];
@@ -58,7 +61,7 @@ function RitualScene() {
 	this.entities.push(goButton);
 	goButton.onClick = function(){
 		self.entities.pop(); self.entities.pop();
-	}
+	};
 		
 	this.olderDraw = this.draw;
 	this.draw = function(ctx ) {
