@@ -12,7 +12,7 @@ function MainScene() {
 						game.width / 2 - 400, 
 						game.height / 2 - 225, 
 						function() {
-							game.scene = scenes.map;
+							game.scene = scenes.levelselection;
 						}),
 			new Button("img/ui/credits-button.png", 
 						"img/ui/credits-button.png", 
