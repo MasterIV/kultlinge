@@ -35,11 +35,6 @@ var spells = {
 		ingredients: ['chicken', 'sausage', 'tongue'],
 		description: "Somehow reminds me of Hamburg."
 	},
-	bridge: {
-		name: "Bridge",
-		ingredients: ['sausage', 'voodoo', 'pretzel'],
-		description: "The hardest thing in life to learn is which bridge to cross and which to burn."
-	},
 	ladder: {
 		name: "Beanstalk",
 		ingredients: ['chicken', 'voodoo', 'tongue'],

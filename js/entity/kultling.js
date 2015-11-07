@@ -16,7 +16,10 @@ function Kultling( parent ) {
 	this.speedLadder = 30;
 	this.horizontal = this.speed;
 	this.vertical = 0;
+
 	this.falling = false;
+	this.burning = false;
+	this.ttl = false;
 }
 
 Kultling.prototype.draw = function( ctx ) {
@@ -27,11 +30,22 @@ Kultling.prototype.draw = function( ctx ) {
 Kultling.prototype.click = function(pos) {
 	var area = new Rect(this.position, this.position.sum( new V2(m.t, m.t)));
 	if( area.inside( pos )) {
-		// du something
+		if( this.level.consumeSpell('burn')) {
+			this.burning = true;
+			this.ttl = 1200;
+			this.speed *= 1.5;
+			this.horizontal *= 1.5;
+		}
 	}
 };
 
 Kultling.prototype.update = function( delta ) {
+	if( this.burning ) {
+		this.ttl -= delta;
+		if( this.ttl < 0 )
+			this.die();
+	}
+
 	this.counter.update( delta );
 	this.position.x += ( this.horizontal ) / delta;
 	this.position.y += ( this.vertical ) / delta;

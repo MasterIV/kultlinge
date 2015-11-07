@@ -138,7 +138,7 @@ function Level( level, parent ) {
 
 	// display start and goal
 	this.entities.push(new AnimatedImage("img/altar.png", this.goal.prd(m.t), 3, 200));
-	this.entities.push(new ImageEntity("img/spawn.png", this.start.prd(m.t) ));
+	this.entities.push(new AnimatedImage("img/spawn.png", this.start.prd(m.t), 8, 100 ));
 }
 
 Level.prototype = new Entity();
