@@ -21,6 +21,7 @@ V2.prototype.dist = function( v ) { return Math.sqrt( Math.pow( v.x-this.x, 2 ) 
 V2.prototype.grid = function( w, h ) { this.x = Math.floor( this.x / w ); this.y = Math.floor( this.y / h ); 	};
 V2.prototype.invert = function() { this.x *= -1; this.y *= -1;};
 
+V2.prototype.copy = function(){ return new V2( this.x, this.y ); };
 
 
 function Rect( p1, p2 ) {
@@ -98,4 +99,8 @@ function rad_to_deg( rad ) {
 
 function arrayRemove( arr, element ) {
 	arr.splice( arr.indexOf( element ), 1 );
+}
+
+function rand( min, max ) {
+	return min+Math.round(Math.random()*(max-min));
 }

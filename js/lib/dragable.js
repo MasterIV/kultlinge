@@ -1,71 +1,60 @@
-function Dragable(entity, dragstart){
-	this.entity = entity;
-	this.offset = new V2(0, 0);
+function Dragable(entities){
 	this.isDragging = false;
+	// was dragging: to catch all mouse-up events
+	this.wasDragging = false;
+	this.entities = entities;
+	this.returnsToOrigin = false;
 	
-	this.setSize = function( w, h ) {
-		this.entity.setSize(w, h);
-	};
-	
-	this.setPosition = function(x, y) {
-		this.entity.setPosition(x, y);
-	};
-	
-	this.getArea = function() {
-		return this.entity.getArea();
-	};
-
+	this._update = this.update;
 	this.update = function(delta) {
 		if(this.isDragging) {
-			this.position = mouse.add(this.offset);
+			var offset = this.getOffsetSinceLastDrag();
+			this.position.add(offset);
 		}
 		
-		if(this.entity.update) {
-			this.entity.update(delta);
-		}
+		this._update(delta);
 	}
 
-	this.draw = function(ctx) {
-		if(this.entity.draw) {
-			this.entity.draw(ctx);
-		}
-	}
-
-	this.click = function(pos) {
-		if(this.entity.click) {
-			this.entity.click(pos);
-		}
-	}
-	
-	this.onDragStart = dragstart || (function() {
+	this.onDragStart = function() {
 		// implement in main
-	});
+	};
 	
-	this.onDragEnd = dragend || (function() {
+	this.onDragEnd = function() {
 		// implement in main
-	});
+	};
 
 	this.onMouseDown = function() {
-		this.offset = mouse.dif(this.position);
 		this.isDragging = true;
-		
-		if(this.entity.onMouseDown) {
-			this.entity.onMouseDown();
-		}
-		
-		this.ondragstart();
-	}
-
+		this.origin = this.position.copy();
+		this.onDragStart();
+	};
+	
+	this._mouseup = this.mouseup;	
 	this.mouseup = function(pos) {
-		this.offset = new V2(0, 0);
-		this.isDragging = false;
-		this.onDragEnd();
-		
-		if(this.entity.mouseup) {
-			this.entity.mouseup(pos);
+		if(this.isDragging) {
+			this.isDragging = false;
+			this.wasDragging = true;
+			this.lastDragPosition = null;
+			this.onDragEnd();
+			if(this.returnsToOrigin) {
+				this.position = this.origin;
+			}
 		}
-	}
 
+		this._mouseup(pos);
+	};
+	
+	this.getOffsetSinceLastDrag = function() {
+		var prevDragPosition = this.lastDragPosition;
+		this.lastDragPosition = new V2(mouse.x, mouse.y);
+		if(prevDragPosition) {
+			var offset = this.lastDragPosition.dif(prevDragPosition);
+			return offset;
+		}
+		return new V2(0,0);
+	}
+	
 }
 
 Dragable.prototype = new Entity();
+Dragable.prototype.constructor = Dragable;

@@ -4,7 +4,8 @@ body {
 }
 
 #gameframe {
+	background-color: white;
 	position: absolute;
-	top: 0px;
-	left: 0px;
+	top: 0;
+	left: 0;
 }

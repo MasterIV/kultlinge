@@ -9,6 +9,20 @@ Entity.prototype.setSize = function(w, h) {
 	this.size.y = h;
 };
 
+Entity.prototype.inheritSize = function() {
+	var origin = new V2(0, 0);
+	var end = new V2(0, 0);
+	for (var i = 0; i < this.entities.length; i++) {
+		var entity = this.entities[i];
+		
+		origin.x = Math.min(entity.position.x, origin.x);
+		origin.y = Math.min(entity.position.y, origin.y);
+		end.x = Math.max(entity.getArea().p2.x, end.x);
+		end.y = Math.max(entity.getArea().p2.y, end.y);
+	}
+	this.size = end.sub(origin);
+}
+
 Entity.prototype.setPosition = function(x, y) {
 	this.position.x = x;
 	this.position.y = y;
@@ -21,6 +35,7 @@ Entity.prototype.update = function(delta) {
 };
 
 Entity.prototype.getArea = function() {
+	if(this.size.x == 0 && this.size.y == 0) this.inheritSize();
 	return new Rect(this.position, this.position.sum(this.size));
 };
 
@@ -36,7 +51,7 @@ Entity.prototype.draw = function(ctx) {
 Entity.prototype.click = function(pos) {
 	if (!this.getArea().inside(pos)) return;
 	if (this.onClick) this.onClick();
-	pos.sub(this.position);
+	var pos = pos.dif(this.position);
 
 	for (var i = 0; i < this.entities.length; i++)
 		if (this.entities[i].click)
@@ -46,7 +61,7 @@ Entity.prototype.click = function(pos) {
 Entity.prototype.mousedown = function(pos) {
 	if (!this.getArea().inside(pos)) return;
 	if (this.onMouseDown) this.onMouseDown();
-	pos.sub(this.position);
+	var pos = pos.dif(this.position);
 
 	for (var i = 0; i < this.entities.length; i++)
 		if (this.entities[i].mousedown)
@@ -56,7 +71,7 @@ Entity.prototype.mousedown = function(pos) {
 Entity.prototype.mouseup = function(pos) {
 	if (!this.getArea().inside(pos)) return;
 	if (this.onMouseUp) this.onMouseUp();
-	pos.sub(this.position);
+	var pos = pos.dif(this.position);
 
 	for (var i = 0; i < this.entities.length; i++)
 		if (this.entities[i].mouseup)
