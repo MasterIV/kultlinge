@@ -9,7 +9,7 @@ function SpellOverlay(spell, maxChars) {
 	
 	this.background = new Placeholder();
 	this.background.size = this.size;
-	this.background.color = 'red';
+	this.background.color = 'white';
 	
 	this.heading = new Text(spell.name);
 	this.heading.color = 'green';
@@ -21,7 +21,7 @@ function SpellOverlay(spell, maxChars) {
 	for(var i = 0; i < descriptionLines.length; i++) {
 		var descriptionLine = descriptionLines[i];
 		var desc = new Text(descriptionLine);
-		desc.color = 'green';
+		desc.color = 'black';
 		//desc.align = 'left';
 		desc.font = '40px sans-serif';
 		this.descriptions.push(desc);
@@ -29,9 +29,9 @@ function SpellOverlay(spell, maxChars) {
 	}
 	
 	this.slots = [
-		new Ingredient(spell.ingredients[0]),
-		new Ingredient(spell.ingredients[1]),
-		new Ingredient(spell.ingredients[2])
+		new Ingredient(spell.ingredients[0], 0.8),
+		new Ingredient(spell.ingredients[1], 0.8),
+		new Ingredient(spell.ingredients[2], 0.8)
 	];
 
 	for(var i = 0; i < this.slots.length; i++) {
@@ -49,7 +49,7 @@ function SpellOverlay(spell, maxChars) {
 
 		for(var i = 0; i < this.descriptions.length; i++) {
 			var description = this.descriptions[i];
-			description.position = new V2(this.getArea().width()/2, 416 + 50*i);
+			description.position = new V2(this.getArea().width()/2, 426 + 50*i);
 			description.size = new V2(this.getArea().width()-100, 40);
 		}
 		

@@ -34,8 +34,8 @@ function ThermoMix(levelIngredients, levelScene) {
 		i++;
 	}
 	
-	var dropable = new Dropable([new Placeholder(0, 0, 400, 176, 'red')], ingredientObjects);
-	dropable.setPosition((game.width-400)/2, game.height-176);
+	var dropable = new Dropable([new Placeholder(0, 0, 400, 220, 'rgba(0,0,0,.5)')], ingredientObjects);
+	dropable.setPosition((game.width-400)/2, game.height-220);
 	dropable.onDrop = function(dragable) { self.handleDrop(dragable); };	
 	this.entities.unshift(dropable);
 }
@@ -44,6 +44,10 @@ ThermoMix.prototype = new Entity();
 
 ThermoMix.prototype.handleDrop = function(dragable) {
 	this.slots.push(dragable.data);
+	var entity = new Ingredient(dragable.data, 0.5);
+	entity.position = new V2(game.width/2 - 128*2.5 + 128*this.slots.length, game.height - 172);
+	this.entities.push(entity);
+				
 	if(this.slots.length >= 3) {
 		for(var spellName in spells) {
 			var spell = spells[spellName];
