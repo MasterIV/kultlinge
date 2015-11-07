@@ -26,7 +26,10 @@ function ThermoMix(levelIngredients, level) {
 	for(var i in ingredients) {
 		var ingredient = ingredients[i];
 		var representation = new Placeholder(0, 0, 176, 176, 'blue');
-		var dragable = new Dragable([representation]);
+		var text = new Text(i);
+		text.position = new V2(100, 100);
+		text.size = new V2(80, 80);
+		var dragable = new Dragable([representation, text]);
 		dragable.data = i;
 		dragable.position = positions[count++];
 		dragable.inheritSize();
@@ -53,6 +56,27 @@ function ThermoMix(levelIngredients, level) {
 	};	
 	
 	this.entities.unshift(dropable);
+	
+	this.showSpelloverlay("frost");
 }
 
 ThermoMix.prototype = new Entity();
+
+ThermoMix.prototype.showSpelloverlay = function(spell) {
+	var self = this;
+	
+	var spellOverlay = new SpellOverlay(spell, true);
+	spellOverlay.setPosition(600, 300);
+	spellOverlay.setSize(this.getArea().width()-1200, this.getArea().height()-600);
+	this.entities.push(spellOverlay);
+	
+	var goButton = new Placeholder();
+	goButton.color = "black";
+	goButton.setPosition(800, 220);
+	goButton.setPosition(spellOverlay.position.x + spellOverlay.getArea().width()/2 - 150, spellOverlay.position.y + spellOverlay.getArea().height() - 150);
+	goButton.setSize(300, 100);
+	this.entities.push(goButton);
+	goButton.onClick = function(){
+		self.entities.pop(); self.entities.pop();
+	};	
+}
