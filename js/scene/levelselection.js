@@ -34,12 +34,7 @@ function LevelSelectionScene() {
 					locked = true;
 				}
 				
-				var button = new LevelButton( new V2(bx, by), !locked ? 0 : 1, !locked ? self.selectLevel : function() {
-					var finished = new FinishedOverlay();
-					
-					self.entities.push(finished);
-					console.log(self);
-				});
+				var button = new LevelButton( new V2(bx, by), !locked ? 0 : 1, !locked ? self.selectLevel : null);
 				button.setLevel(i);
 				
 				var text = new Text('Level ' + (i + 1), 

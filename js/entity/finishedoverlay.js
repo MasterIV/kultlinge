@@ -22,14 +22,13 @@ function FinishedOverlay(stars, level) {
 		})
 	];
 
-	
 	for(var s = 0; s < 3; s++) {	
 		var star = new Star(2 - (stars >= s), new V2( s * 110 + 245, 220 ));
 		this.entities.push(star);
 	}
 	
 	if(stars > 0) {
-	//	ScoreRegister.put(level, stars);
+		ScoreRegister.put(level, stars);
 	}
 	
 	console.log(this.entities);
