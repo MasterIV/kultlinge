@@ -1,6 +1,4 @@
 function FinishedOverlay(stars, level) {
-	console.log(stars);
-	console.log(level);
 	this.size = new V2(800, 400);
 	this.position = new V2(game.width / 2 - 400 , game.height / 2 - 200);
 	
