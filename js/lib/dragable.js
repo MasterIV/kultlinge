@@ -1,6 +1,9 @@
 function Dragable(entities){
 	this.isDragging = false;
+	// was dragging: to catch all mouse-up events
+	this.wasDragging = false;
 	this.entities = entities;
+	this.returnsToOrigin = false;
 	
 	this._update = this.update;
 	this.update = function(delta) {
@@ -22,6 +25,7 @@ function Dragable(entities){
 
 	this.onMouseDown = function() {
 		this.isDragging = true;
+		this.origin = this.position.copy();
 		this.onDragStart();
 	};
 	
@@ -29,8 +33,12 @@ function Dragable(entities){
 	this.mouseup = function(pos) {
 		if(this.isDragging) {
 			this.isDragging = false;
+			this.wasDragging = true;
 			this.lastDragPosition = null;
 			this.onDragEnd();
+			if(this.returnsToOrigin) {
+				this.position = this.origin;
+			}
 		}
 
 		this._mouseup(pos);
@@ -41,7 +49,6 @@ function Dragable(entities){
 		this.lastDragPosition = new V2(mouse.x, mouse.y);
 		if(prevDragPosition) {
 			var offset = this.lastDragPosition.dif(prevDragPosition);
-			if(offset.x > 100) console.log(this.lastDragPosition, prevDragPosition);
 			return offset;
 		}
 		return new V2(0,0);

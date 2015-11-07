@@ -1,19 +1,47 @@
-function RitualScene() {	
-	var drag1 = new Placeholder(10, 10, 100, 100, 'blue');
-	var drag2 = new Placeholder(120, 10, 100, 100, 'red');
-	var drag3 = new Placeholder(230, 10, 100, 100, 'green');
-	var drop1 = new Placeholder(0, 0, 320, 100, 'yellow');
+function RitualScene() {
+	var ingredients = [
+		{ img:"img", type:"rabbit" },
+		{ img:"img", type:"chicken" },
+		{ img:"img", type:"rosencole" }, 
+		{ img:"img", type:"crowdsalat" }, 
+		{ img:"img", type:"tobi" }, 
+		{ img:"img", type:"rabbit" }
+	];
+	var heights = [
+		game.height - 88 * 3 - 20 * 3,
+		game.height - 88 * 2 - 20 * 2,
+		game.height - 88 * 1 - 20 * 1
+	];
+	var rightmargin = game.width - 20 - 88;
+	var positions = [
+		new V2(20, heights[0]),
+		new V2(20, heights[1]),
+		new V2(20, heights[2]),
+		new V2(rightmargin, heights[2]),
+		new V2(rightmargin, heights[1]),
+		new V2(rightmargin, heights[0]),
+	];
+	var ingredientObjects = [];
+	for(var i = 0; i < ingredients.length; i++) {
+		var ingredient = ingredients[i];
+		var representation = new Placeholder(0, 0, 88, 88, 'blue');
+		representation.data = ingredient;
+		var dragable = new Dragable([representation]);
+		dragable.position = positions[i];
+		dragable.inheritSize();
+		dragable.returnsToOrigin = true;
 
-	var dragable = new Dragable([drag1, drag2, drag3]);
-	var dropable = new Dropable([drop1], [dragable]);
-
-	dragable.setPosition(10, 10);
-
-	dropable.setPosition(10, 300);
+		ingredientObjects.push(dragable);
+		this.entities.push(dragable);
+	}
+	
+	var dropable = new Dropable([new Placeholder(0, 0, 400, 88, 'red')], ingredientObjects);
+	dropable.setPosition((game.width-400)/2, game.height-88);
 	
 	dropable.onDrop = function(dragable) { console.log(dragable); };	
 	
-	this.entities = [dropable, dragable];
+	this.entities.push(dropable);
+	this.entities.unshift(scenes.map);	
 	
 	this.olderDraw = this.draw;
 	this.draw = function(ctx ) {
