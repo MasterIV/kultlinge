@@ -18,27 +18,27 @@ Button.prototype.draw = function(ctx ) {
 }
 
 /* Sprite Button */
-
-function SpriteButton(img, position, hover, x, y, callback, sound ) {
+function SpriteButton(img, position, spriteRect, hoverRect, callback, sound ) {
 	this.img = new Sprite( img );
 	this.position = position;
-	this.hover = hover;
+	this.spriteRect = spriteRect;
+	this.hoverRect = hoverRect;
 	this.sound = sound;
-	this.size = new V2(position.width(), pos.height());
+	this.size = new V2(this.spriteRect.width(), this.spriteRect.height());
 	this.callback = callback;
-	this.x = x;
-	this.y = y;
 }
+
+SpriteButton.prototype = new Entity();
 
 SpriteButton.prototype.draw = function(ctx ) {
 	if( this.hover &&  this.getArea().inside( mouse )) {
-		this.img.draw( ctx,
-				this.hover.p1.x, this.hover.p1.y, this.hover.width(), this.hover.height(),
-				this.x, this.y, this.hover.width(), this.hover.height());
+		this.img.area( ctx,
+				this.hoverRect.p1.x, this.hoverRect.p1.y, this.hoverRect.width(), this.hoverRect.height(),
+				this.position.x, this.position.y);
 	} else {
-		this.img.draw( ctx,
-				this.position.p1.x, this.position.p1.y, this.position.width(), this.position.height(),
-				this.x, this.y, this.position.width(), this.position.height());
+		this.img.area( ctx,
+				this.spriteRect.p1.x, this.spriteRect.p1.y, this.spriteRect.width(), this.spriteRect.height(),
+				this.position.x, this.position.y);
 	}
 };
 
