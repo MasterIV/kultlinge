@@ -7,9 +7,9 @@ function FinishedOverlay(stars, level) {
 	var background = new Placeholder();
 	background.color = 'yellow';
 	background.size = this.size;
+	var text = stars > 0 ? 'Victory!' : "Failed!";
 	
-	
-	var looseText = new Text("Failed!", new V2(this.size.x / 2, 180));
+	var looseText = new Text(text, new V2(this.size.x / 2, 180));
 	looseText.font = "140px sans-serif";
 	looseText.setSize(700, 140);
 
@@ -20,6 +20,7 @@ function FinishedOverlay(stars, level) {
 			game.scene = new LevelScene(level);
 		}),
 		new TextButton("Level selecttion",  new V2(this.size.x / 2 , 330), new V2(250, 50), {background: 'green'}, function() {
+			scenes.levelselection.updateLevels();
 			game.scene = scenes.levelselection;
 		})
 	];
