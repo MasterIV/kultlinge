@@ -9,30 +9,23 @@ function LevelScene( i ) {
 
 	if( level.spell ) {
 		var overlay = new SpellOverlay(level.spell);
-		overlay.setPosition(600, 300);
-		overlay.setSize(this.getArea().width()-1200, this.getArea().height()-600);
+		overlay.setPosition(600, 275);
+		overlay.setSize(this.getArea().width()-1200, this.getArea().height()-550);
 		
 		var goButton = new Placeholder();
-		goButton.color = 'black';
-		goButton.setPosition(overlay.position.x + overlay.getArea().width()/2 - 150, overlay.position.y + overlay.getArea().height() - 150);
-		goButton.setSize(300, 100);
+		goButton.color = 'rgba(0,0,0,.2)';
+		goButton.setPosition(overlay.position.x + overlay.getArea().width()/2 - 200, overlay.position.y + overlay.getArea().height() - 200);
+		goButton.setSize(400, 160);
 		goButton.onClick = function(){
 			self.blocking = [];
 		}
 		
-		this.blocking = [overlay, goButton];
-		/*
+		var text = new Text("Start");
+		text.color = "#333333";
+		text.size = goButton.size;
+		text.position = new V2(overlay.position.x + overlay.getArea().width()/2, overlay.position.y + overlay.getArea().height()-100);
 		
-		spellOverlay.setPosition(600, 300);
-		spellOverlay.setSize(this.getArea().width()-1200, this.getArea().height()-600);
-		
-		var goButton = new Placeholder();
-		goButton.setPosition(800, 220);
-		this.entities.push(goButton);
-		goButton.onClick = function(){
-		self.entities.pop(); self.entities.pop();
-		
-		*/
+		this.blocking = [overlay, goButton, text];
 	
 	}
 

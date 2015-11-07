@@ -18,6 +18,7 @@ function ThermoMix(levelIngredients, levelScene) {
 	
 	var i = 0;
 	this.ingredientMap = {};
+	this.counterMap = {};
 	ingredientObjects = [];
 	for(var ingredient in ingredients) {
 		var step = Math.floor(Math.abs((Object.keys(ingredients).length-1)/2 - i));
@@ -39,6 +40,15 @@ function ThermoMix(levelIngredients, levelScene) {
 		
 		var dish = new ImageEntity('img/ui/opfergabe.png', new V2(left, top));
 		this.entities.push(dish);
+		
+		var circle = new PlaceholderCircle(left + 20, top + 40, 40, 'rgba(255, 255, 255, 0.6)');
+		this.entities.push(circle);
+		
+		var text = new Text("0", new V2(left + 20, top + 57));
+		this.entities.push(text);
+		this.counterMap[ingredient] = text;
+				
+		
 		if(levelIngredients[ingredient] > 0) this.entities.push(dragable);
 		
 		i++;
@@ -48,6 +58,8 @@ function ThermoMix(levelIngredients, levelScene) {
 	dropable.setPosition((game.width-400)/2, game.height-220);
 	dropable.onDrop = function(dragable) { self.handleDrop(dragable); };	
 	this.entities.unshift(dropable);
+	
+	this.updateIngredients();
 }
 
 ThermoMix.prototype = new Entity();
@@ -93,6 +105,8 @@ ThermoMix.prototype.addLoot = function(updates) {
 ThermoMix.prototype.updateIngredients = function(){
 	for(var ingredient in this.levelIngredients) {
 		var num = this.levelIngredients[ingredient];
+		
+		this.counterMap[ingredient].text = num+"";
 		
 		var search = this.ingredientMap[ingredient];
 		if(num <= 0) {
