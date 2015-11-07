@@ -99,3 +99,7 @@ function rad_to_deg( rad ) {
 function arrayRemove( arr, element ) {
 	arr.splice( arr.indexOf( element ), 1 );
 }
+
+function rand( min, max ) {
+	return min+Math.round(Math.random()*(max-min));
+}
