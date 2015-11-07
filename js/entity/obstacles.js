@@ -22,7 +22,7 @@ Obstacle.prototype.remove = function(tile) {
 // =================================================================== //
 
 function Fire(level, x, y) {
-	this.assign(this, level, x, y, 'img/obstacles/fire.png')
+	this.assign(this, level, x, y, 'img/obstacles/fire.png');
 }
 
 Fire.prototype = new Obstacle();
@@ -34,7 +34,7 @@ Fire.prototype.onKultistTouch = function(kultling) {
 // =================================================================== //
 
 function Thorns(level, x, y) {
-	this.assign(this, level, x, y, 'img/obstacles/fire.png')
+	this.assign(this, level, x, y, 'img/obstacles/fire.png');
 }
 
 Thorns.prototype = new Obstacle();
@@ -46,7 +46,7 @@ Thorns.prototype.onKultistTouch = function(kultling) {
 // =================================================================== //
 
 function Water(level, x, y) {
-	this.assign(this, level, x, y, 'img/obstacles/water.png')
+	this.assign(this, level, x, y, 'img/obstacles/water.png');
 }
 
 Water.prototype = new Obstacle();
@@ -62,7 +62,7 @@ Water.prototype.onKultistCollisionBelow = function(kultling) {
 // =================================================================== //
 
 function Stone(level, x, y) {
-	this.assign(this, level, x, y, 'img/obstacles/fire.png')
+	this.assign(this, level, x, y, 'img/obstacles/fire.png');
 }
 
 Stone.prototype = new Obstacle();
@@ -74,7 +74,7 @@ Stone.prototype.onKultistTouch = function(kultling) {
 // =================================================================== //
 
 function Rock(level, x, y) {
-	this.assign(this, level, x, y, 'img/obstacles/fire.png')
+	this.assign(this, level, x, y, 'img/obstacles/fire.png');
 }
 
 Rock.prototype = new Obstacle();
@@ -86,11 +86,26 @@ Rock.prototype.onKultistTouch = function(kultling) {
 // =================================================================== //
 
 function Saw(level, x, y) {
-	this.assign(this, level, x, y, 'img/obstacles/fire.png')
+	this.assign(this, level, x, y, 'img/obstacles/fire.png');
 }
 
 Saw.prototype = new Obstacle();
 
 Saw.prototype.onKultistTouch = function(kultling) {
 	kultling.die();
+};
+
+// =================================================================== //
+
+function Chest(level, x, y) {
+	this.assign(this, level, x, y, 'img/obstacles/fire.png');
+	this.closed = true;
+}
+
+Chest.prototype = new Obstacle();
+
+Chest.prototype.onKultistTouch = function(kultling) {
+	if( this.closed ) {
+
+	}
 };

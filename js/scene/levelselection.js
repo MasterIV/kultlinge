@@ -43,8 +43,9 @@ function LevelSelectionScene() {
 					locked = true;
 				}
 				
-				var button = new Button(img, img, 
+				var button = new Button(img, img,
 											bx, by, !locked ? self.selectLevel : null );
+				button.level = i;
 				
 				var text = new Text('Level ' + (i + 1), 
 									new V2( bx + this.buttonSize / 2, by + this.buttonSize / 2), 
@@ -73,5 +74,5 @@ function LevelSelectionScene() {
 LevelSelectionScene.prototype = new Scene();
 
 LevelSelectionScene.prototype.selectLevel = function() {
-	game.scene = scenes.rituals;		
+	game.scene = new LevelScene(this.level);
 };

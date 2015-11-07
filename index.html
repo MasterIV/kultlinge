@@ -7,6 +7,7 @@
 
 		<script type="text/javascript" src="data/config.js"></script>
 		<script type="text/javascript" src="data/levels.js"></script>
+		<script type="text/javascript" src="data/spells.js"></script>
 
 		<script type="text/javascript" src="js/lib/vector.js"></script>
 		<script type="text/javascript" src="js/lib/entity.js"></script>
@@ -30,23 +31,22 @@
 		<script type="text/javascript" src="js/entity/kultling.js"></script>
 		<script type="text/javascript" src="js/entity/spelloverlay.js"></script>
 		<script type="text/javascript" src="js/entity/star.js"></script>
-
-		<script type="text/javascript" src="js/scene/map.js"></script>
-		<script type="text/javascript" src="js/scene/ritual.js"></script>
+		<script type="text/javascript" src="js/entity/thermomix.js"></script>
 		<script type="text/javascript" src="js/scene/main.js"></script>
 		<script type="text/javascript" src="js/scene/credits.js"></script>
 		<script type="text/javascript" src="js/scene/levelselection.js"></script>
+		<script type="text/javascript" src="js/scene/spellbook.js"></script>
+		<script type="text/javascript" src="js/scene/level.js"></script>
 
 		<script type="text/javascript">
 			var scenes = {};
 
 			function init() {
 				g.load(function() {
-					scenes.map = new MapScene();
 					scenes.main = new MainScene();
 					scenes.credits = new CreditsScene();
 					scenes.levelselection = new LevelSelectionScene();
-					scenes.rituals = new RitualScene();
+					scenes.spellbook = new SpellbookScene();
 
 					mouse.init();
 
