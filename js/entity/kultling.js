@@ -1,4 +1,5 @@
 g.add('img/kultling.png');
+g.add('img/kultling_m.png');
 g.add('img/kultling_tot.png');
 
 function Kultling( parent ) {
@@ -8,6 +9,7 @@ function Kultling( parent ) {
 
 	this.position = this.grid.prd(m.t);
 	this.sprite = new AnimationSprite('img/kultling.png', 4);
+	this.spriteM = new AnimationSprite('img/kultling_m.png', 4);
 	this.counter = new Framecounter(200);
 
 	this.speed = 50;
@@ -18,7 +20,8 @@ function Kultling( parent ) {
 }
 
 Kultling.prototype.draw = function( ctx ) {
-	this.sprite.draw(ctx, this.position.x, this.position.y, this.counter.frame % 4);
+	if( this.horizontal < 0 ) this.spriteM.draw(ctx, this.position.x, this.position.y, this.counter.frame % 4);
+	else this.sprite.draw(ctx, this.position.x, this.position.y, this.counter.frame % 4);
 };
 
 Kultling.prototype.click = function(pos) {

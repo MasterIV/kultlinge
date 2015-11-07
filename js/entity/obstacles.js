@@ -30,7 +30,7 @@ Obstacle.prototype.remove = function() {
 
 g.add('img/obstacles/fire.png');
 function Fire(level, x, y) {
-	this.assign(this, level, x, y, 'img/obstacles/fire.png', 4);
+	this.assign(this, level, x, y, 'img/obstacles/fire.png', 6);
 }
 
 Fire.prototype = new Obstacle();
