@@ -3,14 +3,17 @@ function Button(img, hover, x, y, callback, sound ) {
 	this.img = new Sprite( img );
 	this.hover = new Sprite( hover );
 	this.sound = sound;
-	this.area = new Rect( new V2( x, y ), new V2( x+this.img.width, y+this.img.height ));
+	this.position = new V2(x, y)
+	this.size = new V2(this.img.width, this.img.height);
 	this.callback = callback;
 	this.x = x;
 	this.y = y;
 }
 
+Button.prototype = new Entity;
+
 Button.prototype.draw = function(ctx ) {
-	if( this.hover &&  this.area.inside( mouse )) this.hover.draw( ctx, this.x, this.y );
+	if( this.hover &&  this.getArea().inside( mouse )) this.hover.draw( ctx, this.x, this.y );
 	else this.img.draw( ctx, this.x, this.y );
 }
 
@@ -21,14 +24,14 @@ function SpriteButton(img, position, hover, x, y, callback, sound ) {
 	this.position = position;
 	this.hover = hover;
 	this.sound = sound;
-	this.area = new Rect( new V2( x, y ), new V2( x+position.width(), y+position.height()));
+	this.size = new V2(position.width(), pos.height());
 	this.callback = callback;
 	this.x = x;
 	this.y = y;
 }
 
 SpriteButton.prototype.draw = function(ctx ) {
-	if( this.hover &&  this.area.inside( mouse )) {
+	if( this.hover &&  this.getArea().inside( mouse )) {
 		this.img.draw( ctx,
 				this.hover.p1.x, this.hover.p1.y, this.hover.width(), this.hover.height(),
 				this.x, this.y, this.hover.width(), this.hover.height());
@@ -65,7 +68,7 @@ TextButton.prototype.draw = function(ctx ) {
 TextButton.prototype.click =
 Button.prototype.click =
 SpriteButton.prototype.click = function( pos ) {
-	if( this.area.inside( pos )) {
+	if( this.getArea().inside( pos )) {
 		if( this.sound ) sound.play(this.sound);
 		if( this.callback ) this.callback();
 	}
