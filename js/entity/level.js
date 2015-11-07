@@ -8,6 +8,10 @@ function Level( level, parent ) {
 	var data = level.map;
 	var spawn = level.spawnNumber;
 
+	var cooldown = 0;
+	var killed = 0;
+	var sacrificed = 0;
+
 	this.map = [];
 	this.spell = null;
 
@@ -30,6 +34,23 @@ function Level( level, parent ) {
 		ctx.drawImage(imgPlatform, f*m.t, 0, m.t, m.t, x*m.t, y*m.t, m.t, m.t );
 	}
 
+	function checkLevelComplete() {
+		if( killed + sacrificed >=  level.spawnNumber ) {
+			var stars = ( sacrificed >= level.bronze ) + ( sacrificed >= level.silver ) + ( sacrificed >= level.gold );
+			parent.blocking = [new FinishedOverlay( stars, parent.i )];
+		}
+	}
+
+	this.killKultling = function() {
+		killed++;
+		checkLevelComplete();
+	};
+
+	this.sacrificeKultling = function() {
+		sacrificed++;
+		checkLevelComplete();
+	};
+
 	this.getTile = function( x, y ) {
 		if( x < 0 || x > m.w-1 || y < 0 || y > m.h-1 ) return null;
 		return this.map[x][y];
@@ -50,10 +71,7 @@ function Level( level, parent ) {
 	};
 
 	this.entities = [{
-		draw: function(ctx) {
-			ctx.drawImage( canvas, 0, 0 );
-		},
-
+		draw: function(ctx) { ctx.drawImage( canvas, 0, 0 ); },
 		update: function(delta) {
 			if( spawn ) {
 				cooldown -= delta;
@@ -66,6 +84,8 @@ function Level( level, parent ) {
 		}
 	}];
 
+
+	// Generate map images and convert entities
 	for (var x = 0; x < m.w; x++) {
 		this.map[x] = [];
 
@@ -100,8 +120,7 @@ function Level( level, parent ) {
 		}
 	}
 
-	var cooldown = 0;
-
+	// display start and goal
 	this.entities.push(new AnimatedImage("img/altar.png", this.goal.prd(m.t), 3, 200));
 	this.entities.push(new ImageEntity("img/spawn.png", this.start.prd(m.t) ));
 }

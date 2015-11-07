@@ -9,10 +9,12 @@ function Text(text, position, font, color, align) {
 Text.prototype = new Entity();
 
 Text.prototype.draw = function(ctx) {
+	var oldFont = ctx.font;
 	ctx.fillStyle = this.color;
 	ctx.font = this.font;
 	ctx.textAlign = this.align;
 	ctx.fillText(this.text, this.position.x, this.position.y, this.getArea().width());
+	ctx.font = oldFont;
 };
 
 Text.prototype.wordwrap = function(text, maxLength){

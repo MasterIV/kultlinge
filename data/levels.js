@@ -1,6 +1,6 @@
 var levels = [
 	{
-		spell: "frost",
+		spell: "rain",
 
 		spawnRate: 1600,
 		spawnNumber: 5,

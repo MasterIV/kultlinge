@@ -22,22 +22,22 @@ function SpellOverlay(spell, maxChars) {
 		var descriptionLine = descriptionLines[i];
 		var desc = new Text(descriptionLine);
 		desc.color = 'green';
-		desc.align = 'left';
+		//desc.align = 'left';
 		desc.font = '40px sans-serif';
 		this.descriptions.push(desc);
 		this.entities.push(desc);
 	}
 	
 	this.slots = [
-		new Placeholder(),
-		new Placeholder(),
-		new Placeholder()
+		new Ingredient(spell.ingredients[0]),
+		new Ingredient(spell.ingredients[1]),
+		new Ingredient(spell.ingredients[2])
 	];
 
 	for(var i = 0; i < this.slots.length; i++) {
 		var slot = this.slots[i];
-		slot.color = 'orange';
-		slot.size = new V2(176, 176);
+		slot.size = new V2(0, 0);
+		slot.position = new V2(0, 0);
 		this.entities.push(slot);
 	}
 
@@ -49,14 +49,14 @@ function SpellOverlay(spell, maxChars) {
 
 		for(var i = 0; i < this.descriptions.length; i++) {
 			var description = this.descriptions[i];
-			description.position = new V2(50, 416 + 50*i);
+			description.position = new V2(this.getArea().width()/2, 416 + 50*i);
 			description.size = new V2(this.getArea().width()-100, 40);
 		}
 		
-		var offsetLeft = (this.getArea().width() - (176*3 + 20*2))/2;
+		var offsetLeft = (this.getArea().width() - (256*3 + 20*2))/2 + 32;
 		for(var i = 0; i < this.slots.length; i++) {
 			var slot = this.slots[i];
-			slot.position = new V2(196*i + offsetLeft, 140);
+			slot.position = new V2(256*i + offsetLeft, 140);
 		}
 	}
 }
