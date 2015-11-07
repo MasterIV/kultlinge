@@ -57,7 +57,7 @@ LevelSelectionScene.prototype.updateLevels = function() {
 					var type = locked ? 0 : s < Number(levelData) ? 1 : 2;
 					
 					var star = new Star(type);
-					star.setPosition(bx + ( 27 * (s + 1 )) + s * star.width , by + this.buttonSize - star.width - 27);
+					star.setPosition(bx + ( 15 * (s + 1 )) + s * star.width , by + this.buttonSize - star.width - 15);
 					this.entities.push(star);
 				}
 			}
