@@ -1,13 +1,16 @@
+g.add('img/level/bg.png');
+
 function LevelScene( i ) {
 	var level = levels[i];
+	this.bg = new Sprite('img/level/bg.png');
 
 	if( level.spell ) {
 		this.blocking = [new SpellOverlay(level.spell)];
 	}
 
 	this.entities = [
-		this.level = new Level(level),
-		this.mix = new ThermoMix(level.ingredients, this.level)
+		this.level = new Level(level, this),
+		this.mix = new ThermoMix(level.ingredients, this)
 	]
 }
 

@@ -1,5 +1,35 @@
 var levels = [
-	{ spawnRate: 1600 },
+	{
+		spell: null,
+
+		spawnRate: 1600,
+		spawnNumber: 5,
+
+		gold: 5,
+		silver: 4,
+		bronze: 3,
+
+		ingredients: {
+			chicken: 1,
+			sausage: 1,
+			voodoo: 0,
+			pretzel: 0,
+			vegetable: 0,
+			tongue: 1
+		},
+
+		loot: {
+			chicken: 0,
+			sausage: 0,
+			voodoo: 0,
+			pretzel: 0,
+			vegetable: 0,
+			tongue: 0
+		}
+	},
+
+
+
 	{ spawnRate: 500 }
 ];
 
