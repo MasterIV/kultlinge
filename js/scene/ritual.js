@@ -40,8 +40,13 @@ function RitualScene() {
 	
 	dropable.onDrop = function(dragable) { console.log(dragable); };	
 	
-	this.entities.push(dropable);
+	this.entities.unshift(dropable);
 	this.entities.unshift(scenes.map);	
+	
+	var spellOverlay = new SpellOverlay();
+	spellOverlay.setPosition(40, 40);
+	spellOverlay.setSize(500, 500);
+	this.entities.push(spellOverlay);
 	
 	this.olderDraw = this.draw;
 	this.draw = function(ctx ) {
