@@ -1,7 +1,7 @@
-function ThermoMix(levelIngredients, level) {
+function ThermoMix(levelIngredients, levelScene) {
 	var self = this;
 	
-	this.level = level;
+	this.levelScene = levelScene;
 	
 	this.slots = [];
 	
@@ -48,7 +48,7 @@ function ThermoMix(levelIngredients, level) {
 			for(var spellName in spells) {
 				var spell = spells[spellName];
 				if(spell.ingredients.sort().toString() == self.slots.sort().toString()) {
-					self.level.setSpell(spellName);
+					self.levelScene.level.setSpell(spellName);
 				}
 			}
 			self.slots = [];
@@ -56,27 +56,6 @@ function ThermoMix(levelIngredients, level) {
 	};	
 	
 	this.entities.unshift(dropable);
-	
-	this.showSpelloverlay("frost");
 }
 
 ThermoMix.prototype = new Entity();
-
-ThermoMix.prototype.showSpelloverlay = function(spell) {
-	var self = this;
-	
-	var spellOverlay = new SpellOverlay(spell, true);
-	spellOverlay.setPosition(600, 300);
-	spellOverlay.setSize(this.getArea().width()-1200, this.getArea().height()-600);
-	this.entities.push(spellOverlay);
-	
-	var goButton = new Placeholder();
-	goButton.color = "black";
-	goButton.setPosition(800, 220);
-	goButton.setPosition(spellOverlay.position.x + spellOverlay.getArea().width()/2 - 150, spellOverlay.position.y + spellOverlay.getArea().height() - 150);
-	goButton.setSize(300, 100);
-	this.entities.push(goButton);
-	goButton.onClick = function(){
-		self.entities.pop(); self.entities.pop();
-	};	
-}

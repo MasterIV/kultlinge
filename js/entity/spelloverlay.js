@@ -1,4 +1,4 @@
-function SpellOverlay(spell) {
+function SpellOverlay(spell, maxChars) {
 	var spell = spells[spell]; 
 	
 	/*{
@@ -16,7 +16,7 @@ function SpellOverlay(spell) {
 
 	this.entities = [this.background, this.heading];
 
-	var descriptionLines = Text.prototype.wordwrap(spell.description, 50);
+	var descriptionLines = Text.prototype.wordwrap(spell.description, maxChars || 50);
 	this.descriptions = [];
 	for(var i = 0; i < descriptionLines.length; i++) {
 		var descriptionLine = descriptionLines[i];

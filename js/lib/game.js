@@ -23,11 +23,21 @@ var game = {
 	height: 1280,
 	scale:.5,
 
+
+
+	resize: function() {
+		fw = window.innerWidth / 2271;
+		fh = window.innerHeight / 1280;
+
+		this.scale = Math.min(fw, fh);
+		this.display.width = this.width*this.scale;
+		this.display.height = this.height*this.scale;
+	},
+
 	init: function() {
 		this.display = document.getElementById('gameframe');
 		this.displayCtx = this.display.getContext('2d');
-		this.display.width = this.width*this.scale;
-		this.display.height = this.height*this.scale;
+		this.resize();
 
 		this.buffer = document.createElement('canvas');
 		this.bufferCtx = this.buffer.getContext('2d');
@@ -36,6 +46,7 @@ var game = {
 
 		var self = this;
 		setInterval( function() { self.updateFramerate(); }, 1000 );
+		window.onresize = function() { self.resize(); };
 
 		this.lastUpdate = Date.now();
 		this.loop();

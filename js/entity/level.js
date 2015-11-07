@@ -3,9 +3,10 @@ g.add("img/level/ladder_dummy.png");
 g.add("img/altar.png");
 g.add("img/spawn.png");
 
-function Level( level ) {
+function Level( level, parent ) {
 	var self = this;
 	var data = level.map;
+	var spawn = level.spawnNumber;
 
 	this.map = [];
 	this.spell = null;
@@ -35,6 +36,7 @@ function Level( level ) {
 	};
 
 	this.setSpell = function( spell ) {
+		console.log( spell );
 		this.spell = spell;
 	};
 
@@ -53,10 +55,13 @@ function Level( level ) {
 		},
 
 		update: function(delta) {
-			cooldown -= delta;
-			if( cooldown < 0 ) {
-				self.entities.push( new Kultling( self ));
-				cooldown = level.spawnRate;
+			if( spawn ) {
+				cooldown -= delta;
+				if (cooldown < 0) {
+					self.entities.push(new Kultling(self));
+					cooldown = level.spawnRate;
+					spawn--;
+				}
 			}
 		}
 	}];
