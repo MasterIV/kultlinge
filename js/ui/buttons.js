@@ -43,25 +43,31 @@ SpriteButton.prototype.draw = function(ctx ) {
 };
 
 /* Text Button */
-function TextButton(text, x, y, w, h, colors, hover, sound ) {
-	this.area = new Rect( new V2( x, y ), new V2( x+w, y+h));
+function TextButton(text, pos, size, colors, callback, hover, sound ) {
+	this.position = pos;
+	this.size = size;
 	this.text = text;
 	this.colors = colors;
 	this.hover = hover;
 	this.sound = sound;
+	this.callback = callback;
 }
 
+TextButton.prototype = new Entity();
+
 TextButton.prototype.draw = function(ctx ) {
-	var c = this.hover &&  this.area.inside( mouse ) ? this.hover : this.colors;
+	var c = this.hover &&  this.getArea().inside( mouse ) ? this.hover : this.colors;
 
 	ctx.fillStyle = c.background ? c.background : '#EEEEEE';
-	ctx.fillRect( this.area.p1.x, this.area.p1.y, this.area.width(), this.area.height());
+	ctx.fillRect( this.getArea().p1.x, this.getArea().p1.y, this.getArea().width(), this.getArea().height());
 
 	ctx.strokeStyle = c.border ? c.border : 'black';
-	ctx.strokeRect( this.area.p1.x, this.area.p1.y, this.area.width(), this.area.height());
+	ctx.strokeRect( this.getArea().p1.x, this.getArea().p1.y, this.getArea().width(), this.getArea().height());
 
 	ctx.fillStyle = c.text ? c.text : 'black';
-	ctx.fillText( this.text, this.area.p1.x, this.area.p1.y, this.area.width());
+	ctx.textAlign = 'center';
+	ctx.font = '30px sans-serif';
+	ctx.fillText( this.text, this.getArea().p1.x + this.getArea().width() / 2, this.getArea().p1.y + this.getArea().height() / 2, this.getArea().width());
 };
 
 /* Shared Source */
