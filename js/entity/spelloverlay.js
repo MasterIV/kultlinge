@@ -1,16 +1,22 @@
-function SpellOverlay() {
+function SpellOverlay(spell) {
+	var spell = spells[spell]; 
+	
+	/*{
+		SPELL: frost: { name: "Einfrieren", ingridients: [], description: "Nicht nur Jesus kann über Wasser gehen, zumindest wenn dieses Gefrohren ist." },
+	};*/
+	
 	var self = this;
 	
-	var background = new Placeholder();
-	background.size = this.size;
-	background.color = 'red';
+	this.background = new Placeholder();
+	this.background.size = this.size;
+	this.background.color = 'red';
 	
-	this.heading = new Text('Hallo Welt');
+	this.heading = new Text(spell.name);
 	this.heading.color = 'green';
 
-	this.entities = [background, this.heading];
+	this.entities = [this.background, this.heading];
 
-	var descriptionLines = Text.prototype.wordwrap('Heute back ich, morgen brau ich! Heute back ich, morgen brau ich! Heute back ich, morgen brau ich!', 50);
+	var descriptionLines = Text.prototype.wordwrap(spell.description, 50);
 	this.descriptions = [];
 	for(var i = 0; i < descriptionLines.length; i++) {
 		var descriptionLine = descriptionLines[i];
@@ -21,15 +27,6 @@ function SpellOverlay() {
 		this.descriptions.push(desc);
 		this.entities.push(desc);
 	}
-	
-	this.startbutton = new Placeholder(0, 0, 400, 88);
-	this.startbutton.onClick = function(){
-		self.onClose();
-	}
-	this.entities.push(this.startbutton);
-
-	this.onclose = function(){};
-	
 	
 	this.slots = [
 		new Placeholder(),
@@ -46,8 +43,8 @@ function SpellOverlay() {
 	this._setSize = this.setSize;
 	this.setSize = function(w, h){
 		this._setSize(w, h);
+		this.background.size = this.size;
 		this.heading.position = new V2(this.getArea().width()/2, 90);
-		this.startbutton.position = new V2((this.getArea().width()-400)/2 , this.getArea().height() - 138);
 
 		for(var i = 0; i < this.descriptions.length; i++) {
 			var description = this.descriptions[i];

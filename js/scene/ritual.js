@@ -45,12 +45,18 @@ function RitualScene() {
 	this.entities.unshift(dropable);
 	this.entities.unshift(scenes.map);	
 	
-	var spellOverlay = new SpellOverlay();
+	var spellOverlay = new SpellOverlay("frost", true);
 	spellOverlay.setPosition(600, 300);
 	spellOverlay.setSize(this.getArea().width()-1200, this.getArea().height()-600);
-	spellOverlay.onClose = function(){ self.entities.pop(); };
 	this.entities.push(spellOverlay);
 	
+	var goButton = new Placeholder();
+	goButton.color = "black";
+	goButton.setPosition(800, 220);
+	goButton.setPosition(spellOverlay.position.x + spellOverlay.getArea().width()/2 - 150, spellOverlay.position.y + spellOverlay.getArea().height() - 150);
+	goButton.setSize(300, 100);
+	this.entities.push(goButton);
+		
 	this.olderDraw = this.draw;
 	this.draw = function(ctx ) {
 		ctx.clearRect(0, 0, game.width, game.height);
