@@ -56,27 +56,6 @@ function ThermoMix(levelIngredients, levelScene) {
 	};	
 	
 	this.entities.unshift(dropable);
-	
-	this.showSpelloverlay("frost");
 }
 
 ThermoMix.prototype = new Entity();
-
-ThermoMix.prototype.showSpelloverlay = function(spell) {
-	var self = this;
-	
-	var spellOverlay = new SpellOverlay(spell, true);
-	spellOverlay.setPosition(600, 300);
-	spellOverlay.setSize(this.getArea().width()-1200, this.getArea().height()-600);
-	this.blocking.push(spellOverlay);
-	
-	var goButton = new Placeholder();
-	goButton.color = "black";
-	goButton.setPosition(800, 220);
-	goButton.setPosition(spellOverlay.position.x + spellOverlay.getArea().width()/2 - 150, spellOverlay.position.y + spellOverlay.getArea().height() - 150);
-	goButton.setSize(300, 100);
-	this.blocking.push(goButton);
-	goButton.onClick = function(){
-		self.blocking = [];
-	};	
-}

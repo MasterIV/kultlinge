@@ -19,7 +19,7 @@ function MainScene() {
 						game.width / 2 - 400, 
 						game.height / 2 + 25,
 						function() {
-							game.scene = scenes.credits;
+							game.scene = scenes.spellbook;
 						}
 					),
 	];	
