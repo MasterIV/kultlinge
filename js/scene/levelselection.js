@@ -14,7 +14,13 @@ function LevelSelectionScene() {
 	this.startY = (game.height - this.gridY * this.buttonSize - (( this.gridY - 1 ) * this.gutter)) / 2;
 	this.buttonTextColor = 'black';
 	this.buttonTextColorLocked = '#342f2f';
-	
+	this.updateLevels();
+}
+
+LevelSelectionScene.prototype = new Scene();
+LevelSelectionScene.prototype.updateLevels = function() {
+	var self = this;
+	this.entities = [];
 	var i = 0;
 	for(var y = 0; y < this.gridY; y++) {
 		for(var x = 0; x < this.gridX; x++) {
@@ -25,8 +31,8 @@ function LevelSelectionScene() {
 			if(level !== undefined) {
 				
 				var color = this.buttonTextColor,
-					levelData = localStorage.getItem('level-' + i),
-					levelDataBefore = i > 0 ? localStorage.getItem('level-'+(i-1)) : null,
+					levelData = ScoreRegister.get(i),
+					levelDataBefore = i > 0 ? ScoreRegister.get(i-1) : null,
 					locked = false;
 				
 				if(!levelData && !levelDataBefore && i != 0) {
@@ -34,7 +40,7 @@ function LevelSelectionScene() {
 					locked = true;
 				}
 				
-				var button = new LevelButton( new V2(bx, by), !locked ? 0 : 1, !locked ? self.selectLevel : null );
+				var button = new LevelButton( new V2(bx, by), !locked ? 0 : 1, !locked ? self.selectLevel : null);
 				button.setLevel(i);
 				
 				var text = new Text('Level ' + (i + 1), 
@@ -59,11 +65,8 @@ function LevelSelectionScene() {
 			i++;
 		}
 	}
-}
-
-LevelSelectionScene.prototype = new Scene();
+};
 
 LevelSelectionScene.prototype.selectLevel = function() {
-	console.log(this.level);
 	game.scene = new LevelScene(this.level);
 };

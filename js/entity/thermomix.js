@@ -17,7 +17,7 @@ function ThermoMix(levelIngredients, levelScene) {
 		var top = game.height - ingHeight * (1 + 0.05*(step)*(step));
 		var left = xPos[i];
 
-		var representation = new Ingredient(ingredient, 2);
+		var representation = new Ingredient(ingredient);
 		var dragable = new Dragable([representation]);
 		dragable.data = ingredient;
 
