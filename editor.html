@@ -9,9 +9,10 @@
 			width: 50px;
 			height: 50px;
 			background-color: lightgray;
+			white-space: nowrap;
 			border: 1px solid black;
-			text-align: center;
-			font-size: 30px;
+			overflow: hidden;
+			font-size: 20px;
 		}
 
 		.tile:hover {
@@ -61,7 +62,7 @@
 				t.className += " platform";
 			} else {
 				map[x][y].e = a;
-				t.innerHTML = l[0].toUpperCase();
+				t.innerHTML = l;
 			}
 
 			document.getElementById('out').value = JSON.stringify(map);
@@ -76,7 +77,8 @@
 		<optgroup label="Geografie">
 			<option value="clear">Clear</option>
 			<option value="platform">Platform</option>
-			<option value="ladder">Leiter</option>
+			<option value="ladder_up">Leiter Rauf</option>
+			<option value="ladder_down">Leiter Runter</option>
 		</optgroup>
 
 		<optgroup label="Positionen">

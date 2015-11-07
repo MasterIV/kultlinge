@@ -1,6 +1,3 @@
-g.add('img/obstacles/fire.png');
-g.add('img/obstacles/water.png');
-
 function Obstacle() {}
 Obstacle.prototype = new Entity;
 
@@ -24,6 +21,7 @@ Obstacle.prototype.remove = function() {
 
 // =================================================================== //
 
+g.add('img/obstacles/fire.png');
 function Fire(level, x, y) {
 	this.assign(this, level, x, y, 'img/obstacles/fire.png');
 }
@@ -42,18 +40,21 @@ Fire.prototype.onClick = function() {
 
 // =================================================================== //
 
+g.add('img/obstacles/thorns.png');
 function Thorns(level, x, y) {
-	this.assign(this, level, x, y, 'img/obstacles/fire.png');
+	this.assign(this, level, x, y, 'img/obstacles/thorns.png');
 }
 
 Thorns.prototype = new Obstacle();
 
 Thorns.prototype.onKultistTouch = function(kultling) {
-	kultling.die();
+	if( kultling.burning ) this.remove();
+	else kultling.die();
 };
 
 // =================================================================== //
 
+g.add('img/obstacles/water.png');
 function Water(level, x, y) {
 	this.assign(this, level, x, y, 'img/obstacles/water.png');
 }
@@ -70,8 +71,9 @@ Water.prototype.onKultistCollisionBelow = function(kultling) {
 
 // =================================================================== //
 
+g.add('img/obstacles/stone.png');
 function Stone(level, x, y) {
-	this.assign(this, level, x, y, 'img/obstacles/fire.png');
+	this.assign(this, level, x, y, 'img/obstacles/stone.png');
 }
 
 Stone.prototype = new Obstacle();
@@ -82,8 +84,9 @@ Stone.prototype.onKultistTouch = function(kultling) {
 
 // =================================================================== //
 
+g.add('img/obstacles/rock.png');
 function Rock(level, x, y) {
-	this.assign(this, level, x, y, 'img/obstacles/fire.png');
+	this.assign(this, level, x, y, 'img/obstacles/rock.png');
 }
 
 Rock.prototype = new Obstacle();
@@ -94,8 +97,9 @@ Rock.prototype.onKultistTouch = function(kultling) {
 
 // =================================================================== //
 
+g.add('img/obstacles/saw.png');
 function Saw(level, x, y) {
-	this.assign(this, level, x, y, 'img/obstacles/fire.png');
+	this.assign(this, level, x, y, 'img/obstacles/saw.png');
 }
 
 Saw.prototype = new Obstacle();
@@ -106,8 +110,10 @@ Saw.prototype.onKultistTouch = function(kultling) {
 
 // =================================================================== //
 
+g.add('img/obstacles/chest_closed.png');
+g.add('img/obstacles/chest_open.png');
 function Chest(level, x, y) {
-	this.assign(this, level, x, y, 'img/obstacles/fire.png');
+	this.assign(this, level, x, y, 'img/obstacles/chest_closed.png');
 	this.closed = true;
 }
 
@@ -115,6 +121,7 @@ Chest.prototype = new Obstacle();
 
 Chest.prototype.onKultistTouch = function(kultling) {
 	if( this.closed ) {
-
+		this.closed = false;
+		this.sprite = new Sprite('img/obstacles/chest_open.png');
 	}
 };

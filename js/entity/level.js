@@ -106,7 +106,8 @@ function Level( level, parent ) {
 			}
 
 			switch( data[x][y].e ) {
-				case 'ladder': ctx.drawImage(imgLadder, x * m.t, y * m.t); this.map[x][y] = 'ladder'; break;
+				case 'ladder_up': ctx.drawImage(imgLadder, x * m.t, y * m.t); this.map[x][y] = 'ladder_up'; break;
+				case 'ladder_down': ctx.drawImage(imgLadder, x * m.t, y * m.t); this.map[x][y] = 'ladder_down'; break;
 				case 'start': this.start = new V2(x, y); break;
 				case 'goal': this.goal = new V2(x, y); this.map[x][y] = 'goal'; break;
 				case 'fire': this.entities.push( this.map[x][y] = new Fire( self, x, y )); break;

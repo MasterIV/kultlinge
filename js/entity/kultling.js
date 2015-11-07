@@ -10,7 +10,8 @@ function Kultling( parent ) {
 	this.sprite = new AnimationSprite('img/kultling.png', 4);
 	this.counter = new Framecounter(200);
 
-	this.speed = 60;
+	this.speed = 50;
+	this.speedLadder = 30;
 	this.horizontal = this.speed;
 	this.vertical = 0;
 	this.falling = false;
@@ -74,17 +75,17 @@ Kultling.prototype.tileReached = function() {
 	} else if( current == 'goal' ) {
 		return this.sacrifice();
 	} else if( this.vertical ) {
-		if( below == 'platform' || current != 'ladder' ) {
+		if( below == 'platform' || current != 'ladder_up' ) {
 			this.vertical = 0;
 			this.horizontal = this.speed;
 		}
 	} else {
-		if( current == 'ladder' ) {
+		if( current == 'ladder_up' ) {
 			this.horizontal = 0;
-			this.vertical = -40;
-		} else if( below == 'ladder' ) {
+			this.vertical = -this.speedLadder;
+		} else if( below == 'ladder_down' ) {
 			this.horizontal = 0;
-			this.vertical = 40;
+			this.vertical = this.speedLadder;
 		} else if( !below ) {
 			this.horizontal = 0;
 			this.vertical = 200;
