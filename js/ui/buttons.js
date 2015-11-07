@@ -67,6 +67,6 @@ Button.prototype.click =
 SpriteButton.prototype.click = function( pos ) {
 	if( this.area.inside( pos )) {
 		if( this.sound ) sound.play(this.sound);
-		this.callback();
+		if( this.callback ) this.callback();
 	}
 };
