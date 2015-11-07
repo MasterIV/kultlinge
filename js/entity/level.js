@@ -49,7 +49,6 @@ function Level( level ) {
 
 	this.entities = [{
 		draw: function(ctx) {
-			ctx.clearRect(0, 0, self.size.x, self.size.y);
 			ctx.drawImage( canvas, 0, 0 );
 		},
 
@@ -66,7 +65,7 @@ function Level( level ) {
 		this.map[x] = [];
 
 		for (var y = 0; y < m.h; y++) {
-			ctx.strokeRect(x * m.t, y * m.t, m.t, m.t );
+			//ctx.strokeRect(x * m.t, y * m.t, m.t, m.t );
 			this.map[x][y] = null;
 
 			if (data[x][y].p) {
@@ -91,14 +90,15 @@ function Level( level ) {
 				case 'thorns': this.entities.push( this.map[x][y] = new Thorns( self, x, y )); break;
 				case 'saw': this.entities.push( this.map[x][y] = new Saw( self, x, y )); break;
 				case 'rock': this.entities.push( this.map[x][y] = new Rock( self, x, y )); break;
+				case 'chest': this.entities.push( this.map[x][y] = new Chest( self, x, y )); break;
 			}
 		}
 	}
 
 	var cooldown = 0;
 
-	this.entities.push(new ImageEntity("img/altar.png", this.goal.prd(m.t)));
-	this.entities.push(new ImageEntity("img/spawn.png", this.start.prd(m.t)));
+	this.entities.push(new AnimatedImage("img/altar.png", this.goal.prd(m.t), 3, 200));
+	this.entities.push(new ImageEntity("img/spawn.png", this.start.prd(m.t) ));
 }
 
 Level.prototype = new Entity();
