@@ -1,6 +1,7 @@
 g.add('img/kultling.png');
 g.add('img/kultling_m.png');
 g.add('img/kultling_tot.png');
+g.add('img/explosion.png');
 
 function Kultling( parent ) {
 	this.level = parent;
@@ -35,6 +36,18 @@ Kultling.prototype.click = function(pos) {
 			this.ttl = 1200;
 			this.speed *= 1.5;
 			this.horizontal *= 1.5;
+		}
+
+		if( this.level.consumeSpell('detonate')) {
+			this.die();
+			this.level.entities.push(new Animation('img/explosion.png', this.position.dif(new V2(64, 64)), 16, 100, this.level ));
+
+			for( x = this.entering.x -1; x < this.entering.x+2; x++)
+				if( x >= 0 && x < m.w ) {
+					var current = this.level.getTile( x, this.entering.y);
+					if( current && current.detonate )
+						current.detonate();
+				}
 		}
 	}
 };
