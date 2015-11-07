@@ -1,6 +1,7 @@
 function Text(text, position, font, color, align) {
 	this.text = text;
 	this.position = position;
+	this.size = new V2(game.width, 50);
 	this.align = align || 'center';
 	this.color = color || 'black';
 	this.font = font || '50px sans-serif';
