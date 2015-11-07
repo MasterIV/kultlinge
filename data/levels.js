@@ -13,9 +13,9 @@ var levels = [
 		bronze: 3,
 
 		ingredients: {
-			chicken: 1,
+			chicken: 2,
 			sausage: 1,
-			voodoo: 0,
+			voodoo: 1,
 			pretzel: 0,
 			vegetable: 0,
 			tongue: 1
@@ -65,7 +65,7 @@ var levels = [
 // ======================= Level 3 ========================= //
 // ========================================================= //
 	{
-		spell: "ignite",
+		spell: "burn",
 
 		spawnRate: 1600,
 		spawnNumber: 7,
