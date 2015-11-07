@@ -5,6 +5,7 @@ function LevelScene( i ) {
 	
 	var level = levels[i];
 	this.bg = new Sprite('img/level/bg.png');
+	this.i = i;
 
 	if( level.spell ) {
 		var overlay = new SpellOverlay(level.spell);

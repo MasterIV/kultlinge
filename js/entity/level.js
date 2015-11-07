@@ -37,7 +37,7 @@ function Level( level, parent ) {
 	function checkLevelComplete() {
 		if( killed + sacrificed >=  level.spawnNumber ) {
 			var stars = ( sacrificed >= level.bronze ) + ( sacrificed >= level.silver ) + ( sacrificed >= level.gold );
-			parent.blocking = [new FinishedOverlay( stars )];
+			parent.blocking = [new FinishedOverlay( stars, parent.i )];
 		}
 	}
 
