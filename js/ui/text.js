@@ -14,3 +14,25 @@ Text.prototype.draw = function(ctx) {
 	ctx.textAlign = this.align;
 	ctx.fillText(this.text, this.position.x, this.position.y, this.getArea().width());
 };
+
+Text.prototype.wordwrap = function(text, maxLength){
+	var words = text.split(' ');
+	
+	var lines = [];
+	var buffer = [];
+	length = 0;
+	for(var i = 0; i < words.length; i++) {
+		word = words[i];
+		var wordLength = word.length;
+		if(length + wordLength > maxLength) {
+			lines.push(buffer.join(" "));
+			buffer = [];
+			length = 0;
+		}
+		buffer.push(word);
+		length += wordLength + 1;
+	}
+	lines.push(buffer.join(" "));
+	
+	return lines;
+}

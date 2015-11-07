@@ -73,8 +73,8 @@ var game = {
 		this.displayCtx.drawImage( this.buffer, 0, 0, this.width*this.scale, this.height*this.scale );
 
 		// fsps display
-		this.displayCtx.fillStyle = 'white';
+		this.displayCtx.fillStyle = 'red';
 		this.displayCtx.font = '10px monospace';
-		this.displayCtx.fillText( this.fps, 600, 460 );
+		this.displayCtx.fillText( this.fps, 20, 20 );
 	}
 };
