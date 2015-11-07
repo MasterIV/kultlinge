@@ -9,8 +9,7 @@ function Dropable(entities, acceptedDragables){
 	this.onMouseUp = function(pos) {
 		for(var i = 0; i < this.acceptedDragables.length; i++) {
 			var dragable = this.acceptedDragables[i];
-			if(dragable.isDragging || dragable.wasDragging){
-				dragable.wasDragging = false;
+			if(dragable.isDragging){
 				this.onDrop(dragable);
 			}
 		}

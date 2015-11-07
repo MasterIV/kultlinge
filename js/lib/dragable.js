@@ -1,7 +1,5 @@
 function Dragable(entities){
 	this.isDragging = false;
-	// was dragging: to catch all mouse-up events
-	this.wasDragging = false;
 	this.entities = entities;
 	this.returnsToOrigin = false;
 	
@@ -33,7 +31,6 @@ function Dragable(entities){
 	this.mouseup = function(pos) {
 		if(this.isDragging) {
 			this.isDragging = false;
-			this.wasDragging = true;
 			this.lastDragPosition = null;
 			this.onDragEnd();
 			if(this.returnsToOrigin) {
