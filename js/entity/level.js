@@ -74,9 +74,6 @@ function Level( level, parent ) {
 		if( this.spell && pos.y < 1000) {
 			var tilePos = pos.dif(new V2(m.t/2, m.t/2));
 			tilePos.grid(m.t, m.t);
-			console.log( pos, tilePos );
-
-			console.log( this.map[tilePos.x][tilePos.y] );
 
 			if( this.map[tilePos.x][tilePos.y] == null ) {
 				if( this.consumeSpell('wall')) {

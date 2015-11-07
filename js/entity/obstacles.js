@@ -1,16 +1,23 @@
 function Obstacle() {}
 Obstacle.prototype = new Entity;
 
-Obstacle.prototype.assign = function(o, level, x, y, img) {
+Obstacle.prototype.assign = function(o, level, x, y, img, frames) {
 	this.map = new V2( x, y );
 	this.position = new V2(x* m.t, y* m.t);
 	this.size = new V2( 128, 128 );
-	this.sprite = new Sprite(img);
+	this.sprite = frames ? new AnimationSprite(img, frames) : new Sprite(img);
+	this.counter = frames ? new Framecounter(100) : null;
 	this.level = level;
+
 };
 
 Obstacle.prototype.draw = function(ctx) {
-	this.sprite.draw( ctx, this.position.x, this.position.y );
+	var frame = this.counter ? this.counter.frame % this.sprite.f : 0;
+	this.sprite.draw( ctx, this.position.x, this.position.y, frame );
+};
+
+Obstacle.prototype.update = function(delta) {
+	if( this.counter ) this.counter.update( delta);
 };
 
 Obstacle.prototype.remove = function() {
@@ -23,7 +30,7 @@ Obstacle.prototype.remove = function() {
 
 g.add('img/obstacles/fire.png');
 function Fire(level, x, y) {
-	this.assign(this, level, x, y, 'img/obstacles/fire.png');
+	this.assign(this, level, x, y, 'img/obstacles/fire.png', 4);
 }
 
 Fire.prototype = new Obstacle();

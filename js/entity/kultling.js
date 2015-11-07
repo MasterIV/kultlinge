@@ -21,6 +21,13 @@ Kultling.prototype.draw = function( ctx ) {
 	this.sprite.draw(ctx, this.position.x, this.position.y, this.counter.frame % 4);
 };
 
+Kultling.prototype.click = function(pos) {
+	var area = new Rect(this.position, this.position.sum( new V2(m.t, m.t)));
+	if( area.inside( pos )) {
+		// du something
+	}
+};
+
 Kultling.prototype.update = function( delta ) {
 	this.counter.update( delta );
 	this.position.x += ( this.horizontal ) / delta;
