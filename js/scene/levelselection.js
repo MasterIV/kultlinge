@@ -1,9 +1,12 @@
 g.add('img/ui/bg.png');
 g.add('img/ui/level-button.png');
+g.add('img/ui/level-button-1.png');
+g.add('img/ui/level-button-2.png');
+g.add('img/ui/level-button-3.png');
 g.add('img/ui/level-button-locked.png');
 
 function LevelSelectionScene() {
-	var sels = this;
+	var self = this;
 	this.bg = new Sprite('img/ui/bg.png');
 	this.gridX = 5;
 	this.gridY = 3;
@@ -29,6 +32,10 @@ function LevelSelectionScene() {
 					levelDataBefore = i > 0 ? localStorage.getItem('level-'+i) : null,
 					locked = false;
 					
+				if(levelData) {
+					img = 'img/ui/level-button-' + levelData + '.png';
+				}
+				
 				if(!levelData && !levelDataBefore && i != 0) {
 					color = this.buttonTextColorLocked;
 					img = 'img/ui/level-button-locked.png';
@@ -36,9 +43,7 @@ function LevelSelectionScene() {
 				}
 				
 				var button = new Button(img, img, 
-											bx, by, !locked ? function() {
-													game.scene = scenes.rituals;		
-											} : null );
+											bx, by, !locked ? self.selectLevel : null );
 				
 				var text = new Text('Level ' + (i + 1), 
 									new V2( bx + this.buttonSize / 2, by + this.buttonSize / 2), 
@@ -57,3 +62,7 @@ function LevelSelectionScene() {
 }
 
 LevelSelectionScene.prototype = new Scene();
+
+LevelSelectionScene.prototype.selectLevel = function() {
+	game.scene = scenes.rituals;		
+};
