@@ -47,7 +47,7 @@ ThermoMix.prototype.handleDrop = function(dragable) {
 	if(this.slots.length >= 3) {
 		for(var spellName in spells) {
 			var spell = spells[spellName];
-			if(spell.ingredients.sort().toString() == self.slots.sort().toString()) {
+			if(spell.ingredients.sort().toString() == this.slots.sort().toString()) {
 				this.levelScene.level.setSpell(spellName);
 			}
 		}
