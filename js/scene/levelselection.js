@@ -4,14 +4,19 @@ g.add('img/ui/level-button-1.png');
 g.add('img/ui/level-button-2.png');
 g.add('img/ui/level-button-3.png');
 g.add('img/ui/level-button-locked.png');
+g.add('img/ui/stars.png');
+
 
 function LevelSelectionScene() {
 	var self = this;
 	this.bg = new Sprite('img/ui/bg.png');
-	this.gridX = 5;
-	this.gridY = 3;
+	
+	// grid settings
+	this.gridX = 4;
+	this.gridY = 2;
 	this.buttonSize = 360;
 	this.gutter = 50;
+	
 	this.startX = (game.width - this.gridX * this.buttonSize - (( this.gridX - 1 ) * this.gutter)) / 2;
 	this.startY = (game.height - this.gridY * this.buttonSize - ((this.gridY - 1 ) * this.gutter)) / 2;
 	this.buttonTextColor = 'black';
@@ -28,13 +33,9 @@ function LevelSelectionScene() {
 				
 				var color = this.buttonTextColor,
 					img = 'img/ui/level-button.png',
-					levelData = localStorage.getItem('level-' + ( i + 1 )),
-					levelDataBefore = i > 0 ? localStorage.getItem('level-'+i) : null,
+					levelData = localStorage.getItem('level-' + i),
+					levelDataBefore = i > 0 ? localStorage.getItem('level-'+(i-1)) : null,
 					locked = false;
-					
-				if(levelData) {
-					img = 'img/ui/level-button-' + levelData + '.png';
-				}
 				
 				if(!levelData && !levelDataBefore && i != 0) {
 					color = this.buttonTextColorLocked;
@@ -54,6 +55,14 @@ function LevelSelectionScene() {
 				
 				this.entities.push(button);
 				this.entities.push(text);
+				
+				for(var s = 0; s < 3; s++) {	
+					var type = locked ? 0 : s < Number(levelData) ? 1 : 2;
+					
+					var star = new Star(type);
+					star.setPosition(bx + ( 27 * (s + 1 )) + s * star.width , by + this.buttonSize - star.width - 27);
+					this.entities.push(star);
+				}
 			}
 			
 			i++;
