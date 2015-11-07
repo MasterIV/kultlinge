@@ -1,4 +1,5 @@
 g.add('img/kultling.png');
+g.add('img/kultling_tot.png');
 
 function Kultling( parent ) {
 	this.level = parent;
@@ -40,13 +41,15 @@ Kultling.prototype.update = function( delta ) {
 };
 
 Kultling.prototype.die = function() {
-	console.log( 'toooooooot' );
 	arrayRemove( this.level.entities, this );
+	this.level.entities.push( new Animation('img/kultling_tot.png', this.position, 6, 120, this.level));
+	this.level.killKultling();
 };
 
 Kultling.prototype.sacrifice = function() {
-	console.log( 'victory' );
 	arrayRemove( this.level.entities, this );
+	this.level.entities.push( new Animation('img/kultling_tot.png', this.position, 6, 120, this.level));
+	this.level.sacrificeKultling();
 };
 
 Kultling.prototype.tileEntered = function() {

@@ -2,12 +2,12 @@ g.add('img/ingredients/Chicken.png');
 g.add('img/ingredients/Vookie.png');
 
 var ingredients = {
-	chicken: {img: "Chicken.png", name: "chicken head"},
-	sausage: {img: "Chicken.png", name: "blood sausage "},
-	voodoo: {img: "Vookie.png", name: "voodoo gingerbread man"},
-	pretzel: {img: "Chicken.png", name: "wholemeal pretzel"},
-	vegetable: {img: "Chicken.png", name: "brussels sprouts"},
-	tongue: {img: "Chicken.png", name: "lamb tongue"}
+	chicken: {img: "img/ingredients/Chicken.png", name: "chicken head"},
+	sausage: {img: "img/ingredients/Chicken.png", name: "blood sausage "},
+	voodoo: {img: "img/ingredients/Vookie.png", name: "voodoo gingerbread man"},
+	pretzel: {img: "img/ingredients/Chicken.png", name: "wholemeal pretzel"},
+	vegetable: {img: "img/ingredients/Chicken.png", name: "brussels sprouts"},
+	tongue: {img: "img/ingredients/Chicken.png", name: "lamb tongue"}
 };
 
 var spells = {

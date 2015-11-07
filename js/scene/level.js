@@ -5,6 +5,7 @@ function LevelScene( i ) {
 	
 	var level = levels[i];
 	this.bg = new Sprite('img/level/bg.png');
+	this.i = i;
 
 	if( level.spell ) {
 		var overlay = new SpellOverlay(level.spell);
@@ -12,7 +13,7 @@ function LevelScene( i ) {
 		overlay.setSize(this.getArea().width()-1200, this.getArea().height()-600);
 		
 		var goButton = new Placeholder();
-		goButton.color = "black";
+		goButton.color = 'black';
 		goButton.setPosition(overlay.position.x + overlay.getArea().width()/2 - 150, overlay.position.y + overlay.getArea().height() - 150);
 		goButton.setSize(300, 100);
 		goButton.onClick = function(){
@@ -42,15 +43,3 @@ function LevelScene( i ) {
 }
 
 LevelScene.prototype = new Scene();
-
-LevelScene.prototype.kultlingKilled = function() {
-
-};
-
-LevelScene.prototype.kultlingSacrificed = function() {
-
-};
-
-LevelScene.prototype.checkComplete = function() {
-
-};

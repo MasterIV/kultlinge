@@ -5,57 +5,52 @@ function ThermoMix(levelIngredients, levelScene) {
 	
 	this.slots = [];
 	
-	var heights = [
-		game.height - 176 * 3 - 20 * 3,
-		game.height - 176 * 2 - 20 * 2,
-		game.height - 176 * 1 - 20 * 1
-	];
+	var ingWidth = 256;
+	var ingHeight = 256;
+	var xPos = [0.04, 0.15, 0.26, 0.64, 0.75, 0.86].map(function(x){ return x*game.width });
+	
+	
+	var i = 0;
+	ingredientObjects = [];
+	for(var ingredient in ingredients) {
+		var step = Math.floor(Math.abs((Object.keys(ingredients).length-1)/2 - i));
+		var top = game.height - ingHeight * (1 + 0.05*(step)*(step));
+		var left = xPos[i];
 
-	var rightmargin = game.width - 20 - 176;
-	var positions = [
-		new V2(20, heights[0]),
-		new V2(20, heights[1]),
-		new V2(20, heights[2]),
-		new V2(rightmargin, heights[2]),
-		new V2(rightmargin, heights[1]),
-		new V2(rightmargin, heights[0]),
-	];
+		var representation = new Ingredient(ingredient, 2);
+		var dragable = new Dragable([representation]);
+		dragable.data = ingredient;
 
-	var ingredientObjects = [];
-	var count = 0;
-	for(var i in ingredients) {
-		var ingredient = ingredients[i];
-		var representation = new Placeholder(0, 0, 176, 176, 'blue');
-		var text = new Text(i);
-		text.position = new V2(100, 100);
-		text.size = new V2(80, 80);
-		var dragable = new Dragable([representation, text]);
-		dragable.data = i;
-		dragable.position = positions[count++];
-		dragable.inheritSize();
+		dragable.position = new V2(0, 0);
+		dragable.size = new V2(0, 0);
+		
+		dragable.setPosition(left, top);
 		dragable.returnsToOrigin = true;
 
 		ingredientObjects.push(dragable);
 		this.entities.push(dragable);
+		
+
+		i++;
 	}
 	
 	var dropable = new Dropable([new Placeholder(0, 0, 400, 176, 'red')], ingredientObjects);
 	dropable.setPosition((game.width-400)/2, game.height-176);
-	
-	dropable.onDrop = function(dragable) { 
-		self.slots.push(dragable.data);
-		if(self.slots.length >= 3) {
-			for(var spellName in spells) {
-				var spell = spells[spellName];
-				if(spell.ingredients.sort().toString() == self.slots.sort().toString()) {
-					self.levelScene.level.setSpell(spellName);
-				}
-			}
-			self.slots = [];
-		}
-	};	
-	
+	dropable.onDrop = function(dragable) { self.handleDrop(dragable); };	
 	this.entities.unshift(dropable);
 }
 
 ThermoMix.prototype = new Entity();
+
+ThermoMix.prototype.handleDrop = function(dragable) {
+	this.slots.push(dragable.data);
+	if(this.slots.length >= 3) {
+		for(var spellName in spells) {
+			var spell = spells[spellName];
+			if(spell.ingredients.sort().toString() == this.slots.sort().toString()) {
+				this.levelScene.level.setSpell(spellName);
+			}
+		}
+		this.slots = [];
+	}	
+};
