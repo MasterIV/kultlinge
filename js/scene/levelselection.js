@@ -50,5 +50,5 @@ function LevelSelectionScene() {
 LevelSelectionScene.prototype = new Scene();
 
 LevelSelectionScene.prototype.selectLevel = function() {
-	game.scene = scenes.map;
+	game.scene = scenes.rituals;
 };
