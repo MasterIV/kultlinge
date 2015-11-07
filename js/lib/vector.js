@@ -18,8 +18,9 @@ V2.prototype.div = function( s ) { this.x /= s; this.y /= s; return this; };
 V2.prototype.angle = function( v ) { return Math.atan2( v.y-this.y, v.x-this.x ); };
 V2.prototype.dist = function( v ) { return Math.sqrt( Math.pow( v.x-this.x, 2 ) + Math.pow( v.y - this.y, 2)); };
 
-V2.prototype.grid = function( w, h ) { this.x = Math.floor( this.x / w ); this.y = Math.floor( this.y / h ); 	};
+V2.prototype.grid = function( w, h ) { this.x = Math.round( this.x / w ); this.y = Math.round( this.y / h ); 	};
 V2.prototype.invert = function() { this.x *= -1; this.y *= -1;};
+V2.prototype.clone = function() { return new V2( this.x, this.y );};
 
 V2.prototype.copy = function(){ return new V2( this.x, this.y ); };
 
