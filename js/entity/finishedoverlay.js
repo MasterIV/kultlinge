@@ -24,11 +24,11 @@ function FinishedOverlay(stars, level) {
 	];
 
 	for(var s = 0; s < 3; s++) {	
-		var star = new Star(2 - (stars >= s + 1), new V2( s * 110 + 245, 220 ));
+		var star = new Star(2 - (stars >= s + 1), new V2( s * 110 + 230, 220 ));
 		this.entities.push(star);
 	}
 	
-	if(stars > 0) {
+	if(stars > 0 && stars > Number(ScoreRegister.get(level))) {
 		ScoreRegister.put(level, stars);
 	}	
 }
