@@ -51,8 +51,8 @@ Entity.prototype.getArea = function() {
 Entity.prototype.draw = function(ctx) {
 	ctx.save();
 	ctx.translate(this.position.x, this.position.y);
-	this.dispatch(this.blocking, 'draw', ctx );
 	this.dispatch(this.entities, 'draw', ctx );
+	this.dispatch(this.blocking, 'draw', ctx );
 	ctx.restore();
 };
 
