@@ -5,7 +5,7 @@ function LevelButton(pos, state, callback) {
 		new SpriteButton(
 			'img/ui/level-button.png', 
 			pos, 
-			Rect.create(360* state, 0, 360 * (state + 1), 360), 
+			Rect.create(450* state, 0, 450 * (state + 1), 360), 
 			null, 
 			callback,
 			'sound/button.wav'

@@ -7,13 +7,19 @@ function LevelSelectionScene() {
 	// grid settings
 	this.gridX = 4;
 	this.gridY = 2;
-	this.buttonSize = 360;
+	this.buttonSizeY = 360;
+	this.buttonSizeX = 450;
 	this.gutter = 50;
 	
-	this.startX = (game.width - this.gridX * this.buttonSize - (( this.gridX - 1 ) * this.gutter)) / 2;
-	this.startY = (game.height - this.gridY * this.buttonSize - (( this.gridY - 1 ) * this.gutter)) / 2;
+	this.startX = (game.width - this.gridX * this.buttonSizeX - (( this.gridX - 1 ) * this.gutter)) / 2;
+	this.startY = (game.height - this.gridY * this.buttonSizeY - (( this.gridY - 1 ) * this.gutter)) / 2;
 	this.buttonTextColor = 'black';
 	this.buttonTextColorLocked = '#342f2f';
+	
+	this.starGutter = 25;
+	this.starXOffset = 50;
+	this.starYOffset = -37;
+	
 	this.updateLevels();
 }
 
@@ -24,8 +30,8 @@ LevelSelectionScene.prototype.updateLevels = function() {
 	var i = 0;
 	for(var y = 0; y < this.gridY; y++) {
 		for(var x = 0; x < this.gridX; x++) {
-			var bx = this.startX + x * this.buttonSize + x * this.gutter;
-			var by = this.startY + y * this.buttonSize + y * this.gutter;
+			var bx = this.startX + x * this.buttonSizeX + x * this.gutter;
+			var by = this.startY + y * this.buttonSizeY + y * this.gutter;
 			var level = levels[i];
 			
 			if(level !== undefined) {
@@ -43,9 +49,9 @@ LevelSelectionScene.prototype.updateLevels = function() {
 				var button = new LevelButton( new V2(bx, by), !locked ? 0 : 1, !locked ? self.selectLevel : null);
 				button.setLevel(i);
 				
-				var text = new Text('Level ' + (i + 1), 
-									new V2( bx + this.buttonSize / 2, by + this.buttonSize / 2), 
-									'50px sans-serif', 
+				var text = new Text('' + (i + 1), 
+									new V2( bx + this.buttonSizeX / 2, by + this.buttonSizeY / 2), 
+									'100px sans-serif', 
 									color
 								);
 				text.setSize(360, 50);
@@ -55,9 +61,9 @@ LevelSelectionScene.prototype.updateLevels = function() {
 				
 				for(var s = 0; s < 3; s++) {	
 					var type = locked ? 0 : s < Number(levelData) ? 1 : 2;
-					
 					var star = new Star(type);
-					star.setPosition(bx + ( 15 * (s + 1 )) + s * star.width , by + this.buttonSize - star.width - 15);
+										
+					star.setPosition(bx + this.starXOffset + ( this.starGutter * ( s )) + s * star.width, by + this.buttonSizeY - star.width + this.starYOffset);
 					this.entities.push(star);
 				}
 			}
