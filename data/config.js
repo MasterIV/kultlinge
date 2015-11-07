@@ -1,3 +1,1 @@
-var config = {
-	
-}
+var m = {w: 17, h: 10, t: 128};
