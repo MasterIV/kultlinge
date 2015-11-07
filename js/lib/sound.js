@@ -1,7 +1,7 @@
 var s = {
 	sampels: [],
 
-	play: function( file ) {
+	play: function( file, repeat ) {
 		var self = this;
 
 		if( !this.sampels[file] )
@@ -13,7 +13,12 @@ var s = {
 			return sound;
 		} else {
 			var sound = new Audio( file );
-			sound.onended = function() { self.sampels[file].push( this ); };
+			sound.onended = function() {
+				self.sampels[file].push( this ); 
+				if(repeat) {
+					self.play(file);
+				}
+			};
 			sound.play();
 			return sound;
 		}

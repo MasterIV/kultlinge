@@ -13,14 +13,16 @@ function MainScene() {
 						game.height / 2 - 225, 
 						function() {
 							game.scene = scenes.levelselection;
-						}),
+						},
+						'sound/button.wav'),
 			new Button("img/ui/credits-button.png", 
 						"img/ui/credits-button.png", 
 						game.width / 2 - 400, 
 						game.height / 2 + 25,
 						function() {
 							game.scene = scenes.spellbook;
-						}
+						},
+						'sound/button.wav'
 					),
 	];	
 }

@@ -75,7 +75,7 @@ TextButton.prototype.click =
 Button.prototype.click =
 SpriteButton.prototype.click = function( pos ) {
 	if( this.getArea().inside( pos )) {
-		if( this.sound ) sound.play(this.sound);
+		if( this.sound ) s.play(this.sound);
 		if( this.callback ) this.callback();
 	}
 };

@@ -14,13 +14,29 @@ function FinishedOverlay(stars, level) {
 	this.entities = [
 		background,
 		looseText,
-		new TextButton("Try again", new V2(this.size.x / 2 - 270, 330), new V2(250, 50), {background: 'green'}, function() {
-			game.scene = new LevelScene(level);
-		}),
-		new TextButton("Level selecttion",  new V2(this.size.x / 2 , 330), new V2(250, 50), {background: 'green'}, function() {
-			scenes.levelselection.updateLevels();
-			game.scene = scenes.levelselection;
-		})
+		new TextButton(
+			"Try again", 
+			new V2(this.size.x / 2 - 270, 330), 
+			new V2(250, 50), 
+			{background: 'green'}, 
+			function() {
+				game.scene = new LevelScene(level);
+			},
+			null,
+			'sound/button.wav'
+		),
+		new TextButton(
+			"Level selecttion",  
+			new V2(this.size.x / 2 , 330), 
+			new V2(250, 50), 
+			{background: 'green'},
+			function() {
+				scenes.levelselection.updateLevels();
+				game.scene = scenes.levelselection;
+			},
+			null,
+			'sound/button.wav'
+		)
 	];
 
 	for(var s = 0; s < 3; s++) {	

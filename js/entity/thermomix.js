@@ -53,6 +53,9 @@ ThermoMix.prototype.handleDrop = function(dragable) {
 			var spell = spells[spellName];
 			if(spell.ingredients.sort().toString() == this.slots.sort().toString()) {
 				this.levelScene.level.setSpell(spellName);
+
+				s.play('sound/thermomix.wav');
+				
 			}
 		}
 		this.slots = [];
