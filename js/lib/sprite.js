@@ -8,6 +8,10 @@ Sprite.prototype.draw = function(ctx, x, y ) {
 	ctx.drawImage( this.img, x, y );
 };
 
+Sprite.prototype.drawScaled = function(ctx, x, y, scale){
+	ctx.drawImage( this.img, x, y, this.img.width*scale, this.img.height*scale);
+}
+
 Sprite.prototype.center = function(ctx, x, y ) {
 	ctx.drawImage( this.img, x-this.img.width/2, y-this.img.height/2 );
 };

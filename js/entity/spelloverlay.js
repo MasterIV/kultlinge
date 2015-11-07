@@ -22,7 +22,7 @@ function SpellOverlay(spell, maxChars) {
 		var descriptionLine = descriptionLines[i];
 		var desc = new Text(descriptionLine);
 		desc.color = 'green';
-		desc.align = 'left';
+		//desc.align = 'left';
 		desc.font = '40px sans-serif';
 		this.descriptions.push(desc);
 		this.entities.push(desc);
@@ -49,7 +49,7 @@ function SpellOverlay(spell, maxChars) {
 
 		for(var i = 0; i < this.descriptions.length; i++) {
 			var description = this.descriptions[i];
-			description.position = new V2(50, 416 + 50*i);
+			description.position = new V2(this.getArea().width()/2, 416 + 50*i);
 			description.size = new V2(this.getArea().width()-100, 40);
 		}
 		

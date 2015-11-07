@@ -12,7 +12,7 @@ function LevelScene( i ) {
 		overlay.setSize(this.getArea().width()-1200, this.getArea().height()-600);
 		
 		var goButton = new Placeholder();
-		goButton.color = "black";
+		goButton.color = 'black';
 		goButton.setPosition(overlay.position.x + overlay.getArea().width()/2 - 150, overlay.position.y + overlay.getArea().height() - 150);
 		goButton.setSize(300, 100);
 		goButton.onClick = function(){
