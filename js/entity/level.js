@@ -70,6 +70,21 @@ function Level( level, parent ) {
 		return false;
 	};
 
+	this.onClick = function(pos) {
+		if( this.spell && pos.y < 1000) {
+			var tilePos = pos.dif(new V2(m.t/2, m.t/2));
+			tilePos.grid(m.t, m.t);
+
+			if( this.map[tilePos.x][tilePos.y] == null ) {
+				if( this.consumeSpell('wall')) {
+					var wall =  new Stone(this, tilePos.x, tilePos.y);
+					this.map[tilePos.x][tilePos.y] = wall;
+					this.entities.push(wall);
+				}
+			}
+		}
+	};
+
 	this.entities = [{
 		draw: function(ctx) { ctx.drawImage( canvas, 0, 0 ); },
 		update: function(delta) {
@@ -106,7 +121,8 @@ function Level( level, parent ) {
 			}
 
 			switch( data[x][y].e ) {
-				case 'ladder': ctx.drawImage(imgLadder, x * m.t, y * m.t); this.map[x][y] = 'ladder'; break;
+				case 'ladder_up': ctx.drawImage(imgLadder, x * m.t, y * m.t); this.map[x][y] = 'ladder_up'; break;
+				case 'ladder_down': ctx.drawImage(imgLadder, x * m.t, y * m.t); this.map[x][y] = 'ladder_down'; break;
 				case 'start': this.start = new V2(x, y); break;
 				case 'goal': this.goal = new V2(x, y); this.map[x][y] = 'goal'; break;
 				case 'fire': this.entities.push( this.map[x][y] = new Fire( self, x, y )); break;
@@ -122,7 +138,7 @@ function Level( level, parent ) {
 
 	// display start and goal
 	this.entities.push(new AnimatedImage("img/altar.png", this.goal.prd(m.t), 3, 200));
-	this.entities.push(new ImageEntity("img/spawn.png", this.start.prd(m.t) ));
+	this.entities.push(new AnimatedImage("img/spawn.png", this.start.prd(m.t), 8, 100 ));
 }
 
 Level.prototype = new Entity();

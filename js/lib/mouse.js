@@ -24,6 +24,11 @@ mouse.init = function() {
 			game.scene.mouseup( self );
 	};
 
+	// Testing
+	document.mouseout = function( ev ) {
+		gameframe.onmouseup( ev );
+	}
+	
 	/* Support for mobile devices */
 	gameframe.ontouchstart = function( ev ) {
 		this.onmousemove( ev.changedTouches[0] );
@@ -45,5 +50,10 @@ mouse.init = function() {
 		self.y = -1;
 
 		ev.preventDefault();
+	}
+	
+	// Testing
+	gameframe.touchcancel = function( ev ) {
+		this.onmouseup( ev );
 	}
 };

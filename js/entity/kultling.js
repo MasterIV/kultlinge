@@ -1,4 +1,5 @@
 g.add('img/kultling.png');
+g.add('img/kultling_m.png');
 g.add('img/kultling_tot.png');
 
 function Kultling( parent ) {
@@ -8,19 +9,43 @@ function Kultling( parent ) {
 
 	this.position = this.grid.prd(m.t);
 	this.sprite = new AnimationSprite('img/kultling.png', 4);
+	this.spriteM = new AnimationSprite('img/kultling_m.png', 4);
 	this.counter = new Framecounter(200);
 
-	this.speed = 60;
+	this.speed = 50;
+	this.speedLadder = 30;
 	this.horizontal = this.speed;
 	this.vertical = 0;
+
 	this.falling = false;
+	this.burning = false;
+	this.ttl = false;
 }
 
 Kultling.prototype.draw = function( ctx ) {
-	this.sprite.draw(ctx, this.position.x, this.position.y, this.counter.frame % 4);
+	if( this.horizontal < 0 ) this.spriteM.draw(ctx, this.position.x, this.position.y, this.counter.frame % 4);
+	else this.sprite.draw(ctx, this.position.x, this.position.y, this.counter.frame % 4);
+};
+
+Kultling.prototype.click = function(pos) {
+	var area = new Rect(this.position, this.position.sum( new V2(m.t, m.t)));
+	if( area.inside( pos )) {
+		if( this.level.consumeSpell('burn')) {
+			this.burning = true;
+			this.ttl = 1200;
+			this.speed *= 1.5;
+			this.horizontal *= 1.5;
+		}
+	}
 };
 
 Kultling.prototype.update = function( delta ) {
+	if( this.burning ) {
+		this.ttl -= delta;
+		if( this.ttl < 0 )
+			this.die();
+	}
+
 	this.counter.update( delta );
 	this.position.x += ( this.horizontal ) / delta;
 	this.position.y += ( this.vertical ) / delta;
@@ -74,17 +99,17 @@ Kultling.prototype.tileReached = function() {
 	} else if( current == 'goal' ) {
 		return this.sacrifice();
 	} else if( this.vertical ) {
-		if( below == 'platform' || current != 'ladder' ) {
+		if( below == 'platform' || ( current != 'ladder_up' && current != 'ladder_down' ) ) {
 			this.vertical = 0;
 			this.horizontal = this.speed;
 		}
 	} else {
-		if( current == 'ladder' ) {
+		if( current == 'ladder_up' ) {
 			this.horizontal = 0;
-			this.vertical = -40;
-		} else if( below == 'ladder' ) {
+			this.vertical = -this.speedLadder;
+		} else if( below == 'ladder_down' ) {
 			this.horizontal = 0;
-			this.vertical = 40;
+			this.vertical = this.speedLadder;
 		} else if( !below ) {
 			this.horizontal = 0;
 			this.vertical = 200;
