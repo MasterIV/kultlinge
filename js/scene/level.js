@@ -42,15 +42,3 @@ function LevelScene( i ) {
 }
 
 LevelScene.prototype = new Scene();
-
-LevelScene.prototype.kultlingKilled = function() {
-
-};
-
-LevelScene.prototype.kultlingSacrificed = function() {
-
-};
-
-LevelScene.prototype.checkComplete = function() {
-
-};
