@@ -35,7 +35,7 @@ function LevelSelectionScene() {
 				}
 				
 				var button = new LevelButton( new V2(bx, by), !locked ? 0 : 1, !locked ? self.selectLevel : null );
-				button.level = i;
+				button.setLevel(i);
 				
 				var text = new Text('Level ' + (i + 1), 
 									new V2( bx + this.buttonSize / 2, by + this.buttonSize / 2), 
@@ -64,5 +64,6 @@ function LevelSelectionScene() {
 LevelSelectionScene.prototype = new Scene();
 
 LevelSelectionScene.prototype.selectLevel = function() {
+	console.log(this.level);
 	game.scene = new LevelScene(this.level);
 };

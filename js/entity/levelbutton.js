@@ -7,3 +7,7 @@ function LevelButton(pos, state, callback) {
 }
 
 LevelButton.prototype = new Entity();
+
+LevelButton.prototype.setLevel = function(level) {
+	this.entities[0].level = level;
+};
