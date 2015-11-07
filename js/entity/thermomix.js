@@ -15,6 +15,19 @@ function ThermoMix(levelIngredients, levelScene) {
 	var ingHeight = 256;
 	var xPos = [0.04, 0.15, 0.26, 0.63, 0.74, 0.85].map(function(x){ return x*game.width });
 	
+	// Back-Button
+	var back = new PlaceholderCircle(80, 80, 44, 'rgba(255, 255, 255, 0.6)');
+	this.entities.push(back);
+	var text = new Text("◀", new V2(75, 100));
+	text.size = new V2(40, 40);
+	this.entities.push(text);
+	var area = new Placeholder(20, 20, 128, 128);
+	area.color = "rgba(0,0,0,0)";
+	this.entities.push(area);
+	area.onClick = function() {
+		game.scene = scenes.levelselection;
+	};
+	// End Back Button
 	
 	var i = 0;
 	this.ingredientMap = {};

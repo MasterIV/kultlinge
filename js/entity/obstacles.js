@@ -88,6 +88,10 @@ Stone.prototype.onKultistTouch = function(kultling) {
 	kultling.horizontal = -kultling.horizontal;
 };
 
+Stone.prototype.detonate = function() {
+	this.remove();
+};
+
 // =================================================================== //
 
 g.add('img/obstacles/rock.png');
