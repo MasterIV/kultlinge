@@ -73,7 +73,6 @@ ThermoMix.prototype.handleDrop = function(dragable) {
 		if(!found) {
 			// Restore items
 			for(var i = 0; i < this.slots.length; i++) {
-				console.log(this.slots[i], i);
 				this.levelIngredients[this.slots[i]]++;
 			}
 		}
@@ -83,6 +82,13 @@ ThermoMix.prototype.handleDrop = function(dragable) {
 	
 	this.updateIngredients();
 };
+
+ThermoMix.prototype.addLoot = function(updates) {
+	for(var ingredient in updates) {
+		this.levelIngredients[ingredient] += updates[ingredient];
+	}
+	this.updateIngredients();
+}
 
 ThermoMix.prototype.updateIngredients = function(){
 	for(var ingredient in this.levelIngredients) {
