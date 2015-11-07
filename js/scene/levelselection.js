@@ -30,10 +30,14 @@ function LevelSelectionScene() {
 				
 				var button = new Button('img/ui/level-button.png', 'img/ui/level-button.png', 
 											bx, by, this.selectLevel);
+				
 				var text = new Text('Level ' + (i + 1), 
-											bx + this.buttonSize / 2, 
-											by + this.buttonSize / 2);
+									new V2(
+										bx + this.buttonSize / 2, 
+										by + this.buttonSize / 2
+									));
 				text.setSize(360, 50);
+				
 				this.entities.push(button);
 				this.entities.push(text);
 			}
