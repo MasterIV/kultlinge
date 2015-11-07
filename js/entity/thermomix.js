@@ -13,7 +13,7 @@ function ThermoMix(levelIngredients, levelScene) {
 	
 	var ingWidth = 256;
 	var ingHeight = 256;
-	var xPos = [0.04, 0.15, 0.26, 0.64, 0.75, 0.86].map(function(x){ return x*game.width });
+	var xPos = [0.04, 0.15, 0.26, 0.63, 0.74, 0.85].map(function(x){ return x*game.width });
 	
 	
 	var i = 0;
@@ -41,10 +41,10 @@ function ThermoMix(levelIngredients, levelScene) {
 		var dish = new ImageEntity('img/ui/opfergabe.png', new V2(left, top));
 		this.entities.push(dish);
 		
-		var circle = new PlaceholderCircle(left + 20, top + 40, 40, 'rgba(255, 255, 255, 0.6)');
+		var circle = new PlaceholderCircle(left + 20 + (i>=3?210:0), top + 40, 40, 'rgba(255, 255, 255, 0.6)');
 		this.entities.push(circle);
 		
-		var text = new Text("0", new V2(left + 20, top + 57));
+		var text = new Text("0", new V2(left + 20 + (i>=3?210:0), top + 57));
 		this.entities.push(text);
 		this.counterMap[ingredient] = text;
 				
@@ -54,8 +54,8 @@ function ThermoMix(levelIngredients, levelScene) {
 		i++;
 	}
 	
-	var dropable = new Dropable([new Placeholder(0, 0, 400, 220, 'rgba(0,0,0,.5)')], ingredientObjects);
-	dropable.setPosition((game.width-400)/2, game.height-220);
+	var dropable = new Dropable([new Placeholder(0, 0, 600, 256, 'rgba(0,0,0,.5)')], ingredientObjects);
+	dropable.setPosition((game.width-600)/2, game.height-256);
 	dropable.onDrop = function(dragable) { self.handleDrop(dragable); };	
 	this.entities.unshift(dropable);
 	
