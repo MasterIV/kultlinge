@@ -3,7 +3,7 @@ g.add('img/spells/spell_ready_wall.png');
 g.add('img/spells/spell_ready_rain.png');
 g.add('img/spells/spell_ready_burn.png');
 g.add('img/spells/spell_ready_detonate.png');
-
+g.add('img/ui/main_menu_button.png');
 
 function LevelScene( i ) {
 	var self = this;
@@ -18,7 +18,7 @@ function LevelScene( i ) {
 		overlay.setSize(this.getArea().width()-700, this.getArea().height()-500);
 		
 		var goButton = new Placeholder();
-		goButton.color = 'rgba(0,0,0,.2)';
+		goButton.color = 'rgba(0,0,0,0)';
 		goButton.setPosition(overlay.position.x + overlay.getArea().width()/2 - 200, overlay.position.y + overlay.getArea().height() - 200);
 		goButton.setSize(400, 160);
 		goButton.onClick = function(){
@@ -26,13 +26,15 @@ function LevelScene( i ) {
 			s.play('sound/button.mp3');
 			AddBackbutton(scenes.levelselection, self.entities);
 		};
+		var bimage = new AnimatedImage('img/ui/main_menu_button.png', new V2(985, 840), 1, 10000);
+		bimage.scale = 0.5;
 		
 		var text = new Text("Start");
-		text.color = "#333333";
+		text.color = "white";
 		text.size = goButton.size;
 		text.position = new V2(overlay.position.x + overlay.getArea().width()/2, overlay.position.y + overlay.getArea().height()-100);
 		
-		this.blocking = [overlay, goButton, text];
+		this.blocking = [overlay, bimage, goButton, text];
 	
 	} else {
 		AddBackbutton(scenes.levelselection, this.entities);
