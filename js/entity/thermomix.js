@@ -71,6 +71,8 @@ ThermoMix.prototype.handleDrop = function(dragable) {
 	entity.position = new V2(game.width/2 - 128*2.5 + 128*this.slots.length, game.height - 172);
 	entity.deleteonclean = true;
 	this.entities.push(entity);
+	
+	s.play('sound/thermo-drop.wav');
 				
 	if(this.slots.length >= 3) {
 		var found = false;
