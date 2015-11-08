@@ -57,11 +57,15 @@
 
 					game.scene = scenes.main;
 					game.init();
-					s.play('sound/bg.wav', true);
+										
 				});
 			}
 		</script>
 	</head>
+
+	<audio loop autoplay="true">
+		<source src="sound/bg.ogg" type="audio/ogg">
+	</audio>
 
 	<body onload="init();" style="background-color: black;">
 		<canvas id="gameframe" width="640" height="480"></canvas>
