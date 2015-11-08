@@ -61,6 +61,10 @@ function Level( level, parent ) {
 		this.spell = spell;
 	};
 
+	this.loot = function() {
+		parent.mix.addLoot(level.loot);
+	};
+
 	this.consumeSpell = function( spell ) {
 		if( spell == this.spell ) {
 			this.spell = null;
