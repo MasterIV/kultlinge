@@ -30,10 +30,13 @@ function SpellOverlay(spell, maxChars, slim) {
 		this.entities.push(desc);
 	}
 	
+	var size = 0.8;
+	if(slim) size = 0.6;
+	
 	this.slots = [
-		new Ingredient(spell.ingredients[0], 0.8),
-		new Ingredient(spell.ingredients[1], 0.8),
-		new Ingredient(spell.ingredients[2], 0.8)
+		new Ingredient(spell.ingredients[0], size),
+		new Ingredient(spell.ingredients[1], size),
+		new Ingredient(spell.ingredients[2], size)
 	];
 
 	for(var i = 0; i < this.slots.length; i++) {
@@ -52,7 +55,7 @@ function SpellOverlay(spell, maxChars, slim) {
 
 		for(var i = 0; i < this.descriptions.length; i++) {
 			var description = this.descriptions[i];
-			description.position = new V2(this.getArea().width()/2, 426 + 50*i);
+			description.position = new V2(this.getArea().width()/2, 426 + 50*i - (slim?50:0));
 			description.size = new V2(this.getArea().width()-100, 40);
 		}
 		

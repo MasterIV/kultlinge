@@ -18,6 +18,8 @@ function LevelScene( i ) {
 		goButton.setSize(400, 160);
 		goButton.onClick = function(){
 			self.blocking = [];
+			s.play('sound/button.wav');
+			AddBackbutton(scenes.levelselection, self.entities);
 		}
 		
 		var text = new Text("Start");
@@ -27,6 +29,8 @@ function LevelScene( i ) {
 		
 		this.blocking = [overlay, goButton, text];
 	
+	} else {
+		AddBackbutton(scenes.levelselection, this.entities);
 	}
 
 	this.entities = [
