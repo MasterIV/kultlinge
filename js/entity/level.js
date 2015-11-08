@@ -2,6 +2,7 @@ g.add("img/level/platform_dummy.png");
 g.add("img/level/ladder_dummy.png");
 g.add("img/altar.png");
 g.add("img/spawn.png");
+g.add('img/spells/poof.png');
 
 function Level( level, parent ) {
 	var self = this;
@@ -86,6 +87,7 @@ function Level( level, parent ) {
 					var wall =  new Stone(this, tilePos.x, tilePos.y);
 					this.map[tilePos.x][tilePos.y] = wall;
 					this.entities.push(wall);
+					this.entities.push( new Animation('img/spells/poof.png', tilePos.prd(m.t), 5, 100, this ));
 				}
 			}
 		}

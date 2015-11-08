@@ -39,6 +39,7 @@ Kultling.prototype.click = function(pos) {
 			this.speed *= 1.5;
 			this.ttl = 1000 * ( 400 / this.speed );
 			this.horizontal *= 1.5;
+			this.level.entities.push( new Animation('img/spells/poof.png', this.position, 5, 100, this.level ));
 		}
 
 		if( this.level.consumeSpell('detonate')) {

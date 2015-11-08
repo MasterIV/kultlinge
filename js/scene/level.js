@@ -53,8 +53,5 @@ LevelScene.prototype.shuffle = function( ingredients ) {
 	for( var i = 0; i < keys.length; i++ )
 		shuffled[keys[i]] = ingredients[keys[i]];
 
-	console.log( 'everey day im shufflein...');
-	console.log( ingredients, shuffled );
-
 	return shuffled;
 };
