@@ -1,14 +1,14 @@
-g.add("img/level/bg.png");
+g.add("img/ui/menu.png");
 
 function MainScene() {
 	
-	this.bg = new Sprite("img/level/bg.png");
+	this.bg = new Sprite("img/ui/menu.png");
 	
 	this.entities = [
 		new TextButton(
 			"Start", 
-			new V2(game.width/2 - 400, 150), 
-			new V2(800, 300), 
+			new V2(game.width/2 - 1000, 800), 
+			new V2(600, 300), 
 			{ background: 'rgba(255,255,255,0.8)' }, 
 			function() {
 				backgroundsound.play('sound/bg2.mp3');
@@ -20,8 +20,8 @@ function MainScene() {
 		),
 		new TextButton(
 			"Spellbook", 
-			new V2(game.width/2 - 400, 500), 
-			new V2(800, 300), 
+			new V2(game.width/2 - 300, 800), 
+			new V2(600, 300), 
 			{ background: 'rgba(255,255,255,0.8)' }, 
 			function() {
 				game.scene = scenes.spellbook;
@@ -32,8 +32,8 @@ function MainScene() {
 		),
 		new TextButton(
 			"Credits", 
-			new V2(game.width/2 - 400, 850), 
-			new V2(800, 300), 
+			new V2(game.width/2 +400, 800), 
+			new V2(600, 300), 
 			{ background: 'rgba(255,255,255,0.8)' }, 
 			function() {
 				game.scene = scenes.credits;

@@ -51,7 +51,7 @@ function TextButton(text, pos, size, colors, callback, hover, sound, font ) {
 	this.hover = hover;
 	this.sound = sound;
 	this.callback = callback;
-	this.font = font;
+	this.font = font || '50px sans-serif';
 }
 
 TextButton.prototype = new Entity();
@@ -67,7 +67,7 @@ TextButton.prototype.draw = function(ctx ) {
 
 	ctx.fillStyle = c.text ? c.text : 'black';
 	ctx.textAlign = 'center';
-	ctx.font = this.font||'30px sans-serif';
+	ctx.font = this.font;
 	ctx.textBaseline = 'middle';
 	ctx.fillText( this.text, this.getArea().p1.x + this.getArea().width() / 2, this.getArea().p1.y + this.getArea().height() / 2, this.getArea().width());
 };
