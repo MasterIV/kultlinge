@@ -133,5 +133,6 @@ Chest.prototype.onKultistTouch = function(kultling) {
 	if( this.closed ) {
 		this.closed = false;
 		this.sprite = new Sprite('img/obstacles/chest_open.png');
+		this.level.loot();
 	}
 };

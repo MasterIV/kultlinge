@@ -3,6 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Editor</title>
+	<script src="data/levels.js"></script>
+
 	<style>
 		.tile {
 			position: absolute;
@@ -12,7 +14,9 @@
 			white-space: nowrap;
 			border: 1px solid black;
 			overflow: hidden;
-			font-size: 20px;
+			font-size: 14px;
+			font-family: sans-serif;
+			line-height: 50px;
 		}
 
 		.tile:hover {
@@ -23,12 +27,12 @@
 			background-color: #555;
 		}
 
-		#action {
+		#action, #lvl {
 			border-radius: 4px;
 			width: 300px;
 		}
 
-		#action option {
+		#action option, #lvl option {
 			font-size: 20px;
 		}
 
@@ -38,12 +42,27 @@
 	</style>
 
 	<script>
-		var map = [];
+		var initial = [];
 
 		for(var x = 0; x<17;x++) {
-			map[x] = [];
+			initial[x] = [];
 			for(var y=0;y<10;y++)
-				map[x][y] = {p: false, e: null};
+				initial[x][y] = {p: false, e: null};
+		}
+
+		var map = initial;
+
+		function loadLevel(i) {
+			map = i >= 0 ? levels[i].map : initial;
+
+			for(var x = 0; x<17;x++)
+				for(var y=0;y<10;y++) {
+					var t = document.getElementById(x+'-'+y);
+					t.className = map[x][y].p ? "tile platform" : "tile";
+					t.innerHTML = map[x][y].e;
+				}
+
+			document.getElementById('out').value = JSON.stringify(map);
 		}
 
 		function clickTile( x, y, t ) {
@@ -73,7 +92,7 @@
 <body>
 
 <div style="margin: 10px; float: right">
-	<select id="action" size="20">
+	<select id="action" size="15">
 		<optgroup label="Geografie">
 			<option value="clear">Clear</option>
 			<option value="platform">Platform</option>
@@ -93,28 +112,32 @@
 			<option value="thorns">Dornen</option>
 		</optgroup>
 
-		<optgroup label="Limitierung">
-			<option value="saw">Kreissäge</option>
-			<option value="rock">Massiver Fels</option>
-		</optgroup>
-
 		<optgroup label="Aktivierbar">
 			<option value="chest">Truhe</option>
-			<option value="lever">Hebel</option>
-			<option value="gate">Gate</option>
 		</optgroup>
+	</select><br>
+
+
+	<select id="lvl" size="15">
+		<script>
+			for(var i in levels)
+				document.write('<option onclick="loadLevel('+i+');">Level '+i+'</option>');
+		</script>
+
+		<option selected onclick="loadLevel( -1 );">Neues Level</option>
 	</select>
 </div>
 
-<div style="position: relative; margin: 10px;" id="map">
+<div style=" margin: 10px; height: 500px;">
+<div style="position: relative;" id="map">
 	<script>
 		for(var x = 0; x<17;x++)
 			for(var y=0;y<10;y++)
-				document.write('<div class="tile" onclick="clickTile('+x+', '+y+', this );" style="top: '+(y*50)+'px; left: '+(x*50)+'px"></div>');
+				document.write('<div id="'+x+'-'+y+'" class="tile" onclick="clickTile('+x+', '+y+', this );" style="top: '+(y*50)+'px; left: '+(x*50)+'px"></div>');
 	</script>
-</div>
+</div></div>
 
-<div style="margin: 10px;  clear: both"><textarea id="out" rows="20" cols="130"></textarea></div>
+<div style="margin: 10px;"><textarea id="out" rows="20" cols="100"></textarea></div>
 
 </body>
 </html>
