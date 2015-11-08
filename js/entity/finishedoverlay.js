@@ -23,9 +23,8 @@ function FinishedOverlay(stars, level) {
 			function() {
 				game.scene = new LevelScene(level);
 			},
-			{font:'#333333'},
-			'sound/button.mp3',
 			null,
+			'sound/button.mp3',
 			'50px sans-serif'
 		),
 		new TextButton(
@@ -41,9 +40,8 @@ function FinishedOverlay(stars, level) {
 					game.scene = scenes.levelselection;
 				}
 			},
-			{font:'#333333'},
-			'sound/button.mp3',
 			null,
+			'sound/button.mp3',
 			'50px sans-serif'
 		)
 	];
