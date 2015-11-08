@@ -1,4 +1,5 @@
 g.add('img/ui/opfergabe.png');
+g.add('img/ui/opferschale.png');
 
 function ThermoMix(levelIngredients, levelScene) {
 	var self = this;
@@ -49,7 +50,9 @@ function ThermoMix(levelIngredients, levelScene) {
 		i++;
 	}
 	
-	var dropable = new Placeholder(0, 0, 600, 256, 'rgba(0,0,0,.5)');
+	var opferschale = new ImageEntity('img/ui/opferschale.png', new V2(game.width/2-300, game.height-256));
+	this.entities.unshift(opferschale);
+	var dropable = new Placeholder(0, 0, 600, 256, 'rgba(0,0,0,0)');
 	dropable.setPosition((game.width-600)/2, game.height-256);
 	dropable.onClick = function() { 
 		for(var i = 0; i < self.slots.length; i++) {
@@ -71,7 +74,7 @@ ThermoMix.prototype.handleDrop = function(dragable) {
 	
 	this.slots.push(dragable.data);
 	var entity = new Ingredient(dragable.data, 0.5);
-	entity.position = new V2(game.width/2 - 128*2.5 + 128*this.slots.length, game.height - 172);
+	entity.position = new V2(game.width/2 - 150*2.5 + 150*this.slots.length, game.height - 200);
 	entity.deleteonclean = true;
 	this.entities.push(entity);
 	

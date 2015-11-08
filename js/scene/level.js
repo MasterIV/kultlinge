@@ -9,8 +9,8 @@ function LevelScene( i ) {
 
 	if( level.spell ) {
 		var overlay = new SpellOverlay(level.spell);
-		overlay.setPosition(350, 275);
-		overlay.setSize(this.getArea().width()-700, this.getArea().height()-550);
+		overlay.setPosition(350, 250);
+		overlay.setSize(this.getArea().width()-700, this.getArea().height()-500);
 		
 		var goButton = new Placeholder();
 		goButton.color = 'rgba(0,0,0,.2)';
