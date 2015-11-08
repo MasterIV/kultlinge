@@ -15,10 +15,15 @@ var ingredients = {
 };
 
 var spells = {
-	frost: {
-		name: "Freeze",
-		ingredients: ['chicken', 'pretzel', 'vegetable'],
-		description: "Not only Jesus can walk on water, as long as it is frozen."
+	rain: {
+		name: "Rain",
+		ingredients: ['chicken', 'sausage', 'tongue'],
+		description: "Somehow reminds me of Hamburg."
+	},
+	wall: {
+		name: "Wall",
+		ingredients: ['sausage', 'pretzel', 'vegetable'],
+		description: "Sometimes we do not need to free a way but to block it."
 	},
 	burn: {
 		name: "Ignite",
@@ -30,19 +35,14 @@ var spells = {
 		ingredients: ['voodoo', 'pretzel', 'vegetable'],
 		description: "Now also works on living beings!"
 	},
-	rain: {
-		name: "Rain",
-		ingredients: ['chicken', 'sausage', 'tongue'],
-		description: "Somehow reminds me of Hamburg."
-	},
 	ladder: {
 		name: "Beanstalk",
 		ingredients: ['chicken', 'voodoo', 'tongue'],
 		description: "For the advanced amateur gardeners. Kultlings love climbing!"
 	},
-	wall: {
-		name: "Wall",
-		ingredients: ['pretzel', 'vegetable', 'tongue'],
-		description: "Sometimes we do not need to free a way but to block it."
+	frost: {
+		name: "Freeze",
+		ingredients: ['chicken', 'pretzel', 'vegetable'],
+		description: "Not only Jesus can walk on water, as long as it is frozen."
 	}
 };
