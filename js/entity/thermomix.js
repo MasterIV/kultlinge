@@ -17,7 +17,7 @@ function ThermoMix(levelIngredients, levelScene) {
 	var i = 0;
 	this.ingredientMap = {};
 	this.counterMap = {};
-	for(var ingredient in ingredients) {
+	for(var ingredient in levelIngredients) {
 		var step = Math.floor(Math.abs((Object.keys(ingredients).length-1)/2 - i));
 		var top = game.height - 256 * (1 + 0.05*(step)*(step));
 		var left = xPos[i];
