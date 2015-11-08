@@ -30,6 +30,9 @@ LevelSelectionScene.prototype = new Scene();
 LevelSelectionScene.prototype.updateLevels = function() {
 	var self = this;
 	this.entities = [];
+
+	AddBackbutton(scenes.main, this.entities);
+	
 	var i = 0;
 	for(var y = 0; y < this.gridY; y++) {
 		for(var x = 0; x < this.gridX; x++) {
