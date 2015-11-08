@@ -17,7 +17,7 @@ var ingredients = {
 var spells = {
 	rain: {
 		name: "Rain",
-		ingredients: ['chicken', 'sausage', 'tongue'],
+		ingredients: ['chicken', 'sausage', 'vegetable'],
 		description: "Somehow reminds me of Hamburg."
 	},
 	wall: {
@@ -32,9 +32,9 @@ var spells = {
 	},
 	detonate: {
 		name: "Cadaver explosion",
-		ingredients: ['sausage', 'pretzel', 'vegetable'],
+		ingredients: ['chicken', 'pretzel', 'tongue'],
 		description: "Now also works on living beings!"
-	},
+	} /*,
 	ladder: {
 		name: "Beanstalk",
 		ingredients: ['chicken', 'voodoo', 'tongue'],
@@ -42,7 +42,7 @@ var spells = {
 	},
 	frost: {
 		name: "Freeze",
-		ingredients: ['chicken', 'pretzel', 'vegetable'],
+		ingredients: ['sausage', 'pretzel', 'vegetable'],
 		description: "Not only Jesus can walk on water, as long as it is frozen."
-	}
+	}*/
 };

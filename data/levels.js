@@ -13,12 +13,12 @@ var levels = [
 		bronze: 3,
 
 		ingredients: {
-			chicken: 2,
+			chicken: 1,
 			sausage: 1,
-			voodoo: 1,
+			voodoo: 0,
 			pretzel: 0,
-			vegetable: 0,
-			tongue: 1
+			vegetable: 1,
+			tongue: 0
 		},
 
 		loot: {
@@ -48,8 +48,8 @@ var levels = [
 			sausage: 2,
 			voodoo: 1,
 			pretzel: 2,
-			vegetable: 1,
-			tongue: 3
+			vegetable: 3,
+			tongue: 0
 		},
 
 		loot: {
@@ -75,12 +75,12 @@ var levels = [
 		bronze: 2,
 
 		ingredients: {
-			chicken: 2,
+			chicken: 1,
 			sausage: 2,
-			voodoo: 1,
-			pretzel: 2,
-			vegetable: 1,
-			tongue: 3
+			voodoo: 2,
+			pretzel: 1,
+			vegetable: 2,
+			tongue: 1
 		},
 
 		loot: {
@@ -107,17 +107,81 @@ var levels = [
 		bronze: 3,
 
 		ingredients: {
+			chicken: 2,
+			sausage: 0,
+			voodoo: 1,
+			pretzel: 2,
+			vegetable: 1,
+			tongue: 2
+		},
+
+		loot: {
+			chicken: 1,
+			sausage: 1,
+			voodoo: 0,
+			pretzel: 0,
+			vegetable: 0,
+			tongue: 0
+		}
+	},
+
+// ========================================================= //
+// ======================= Level 5 ========================= //
+// ========================================================= //
+	{
+		spell: null,
+
+		spawnRate: 2200,
+		spawnNumber: 9,
+
+		gold: 6,
+		silver: 4,
+		bronze: 2,
+
+		ingredients: {
 			chicken: 1,
 			sausage: 0,
-			voodoo: 2,
+			voodoo: 1,
 			pretzel: 2,
 			vegetable: 2,
 			tongue: 1
 		},
 
 		loot: {
-			chicken: 1,
+			chicken: 0,
 			sausage: 1,
+			voodoo: 1,
+			pretzel: 0,
+			vegetable: 0,
+			tongue: 1
+		}
+	},
+
+// ========================================================= //
+// ======================= Level 6 ========================= //
+// ========================================================= //
+	{
+		spell: null,
+
+		spawnRate: 1200,
+		spawnNumber: 9,
+
+		gold: 8,
+		silver: 6,
+		bronze: 4,
+
+		ingredients: {
+			chicken: 3,
+			sausage: 3,
+			voodoo: 3,
+			pretzel: 3,
+			vegetable: 4,
+			tongue: 2
+		},
+
+		loot: {
+			chicken: 0,
+			sausage: 0,
 			voodoo: 0,
 			pretzel: 0,
 			vegetable: 0,
@@ -130,8 +194,8 @@ levels[0].map = [[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null}
 levels[1].map = [[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":"ladder_up"},{"p":false,"e":"ladder_up"},{"p":false,"e":"ladder_up"},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":"start"},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":"fire"},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":"fire"},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":"fire"},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":"ladder_down"},{"p":false,"e":"ladder_down"},{"p":false,"e":"ladder_down"},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":"goal"},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}]];
 levels[2].map = [[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":"start"},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":"thorns"},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":"ladder_up"},{"p":false,"e":"ladder_up"},{"p":false,"e":"ladder_up"},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":"fire"},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":"ladder_down"},{"p":false,"e":"ladder_down"},{"p":false,"e":"ladder_down"},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":"goal"},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}]];
 levels[3].map = [[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":"chest"},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":"start"},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":"stone"},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":"ladder_up"},{"p":false,"e":"ladder_up"},{"p":false,"e":"ladder_up"},{"p":false,"e":"ladder_up"},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":"stone"},{"p":true,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":"ladder_down"},{"p":false,"e":"ladder_down"},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":"fire"},{"p":true,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":"ladder_down"},{"p":false,"e":"ladder_down"},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":"goal"},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}]];
-
-
+levels[4].map = [[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":"chest"},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":"start"},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":"ladder_up"},{"p":false,"e":"ladder_up"},{"p":false,"e":"ladder_up"},{"p":false,"e":"ladder_up"},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":"ladder_down"},{"p":false,"e":"ladder_down"},{"p":false,"e":"ladder_down"},{"p":false,"e":"ladder_down"},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":"thorns"},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":"goal"},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null}]];
+levels[5].map = [[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":"ladder_up"},{"p":false,"e":"ladder_up"},{"p":false,"e":"ladder_up"},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":"fire"},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":"start"},{"p":true,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":"thorns"},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":"ladder_up"},{"p":false,"e":"ladder_up"},{"p":false,"e":"ladder_up"},{"p":true,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":"fire"},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":"goal"},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":"ladder_down"},{"p":false,"e":"ladder_down"},{"p":false,"e":"ladder_down"},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":true,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null}],[{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null},{"p":false,"e":null}]];
 
 
 

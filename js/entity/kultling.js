@@ -15,8 +15,8 @@ function Kultling( parent ) {
 	this.spriteB = new AnimationSprite('img/kultling_fire.png', 2);
 	this.counter = new Framecounter(200);
 
-	this.speed = 50;
-	this.speedLadder = 30;
+	this.speed = 180;
+	this.speedLadder = 90;
 	this.horizontal = this.speed;
 	this.vertical = 0;
 
@@ -63,8 +63,8 @@ Kultling.prototype.update = function( delta ) {
 	}
 
 	this.counter.update( delta );
-	this.position.x += ( this.horizontal ) / delta;
-	this.position.y += ( this.vertical ) / delta;
+	this.position.x += ( this.horizontal / 1000 ) * delta;
+	this.position.y += ( this.vertical / 1000 ) * delta;
 
 	var dg = this.grid.prd(m.t).dif( this.position );
 	if( Math.abs(dg.x) > m.t || Math.abs(dg.y) > m.t ) {
@@ -82,6 +82,7 @@ Kultling.prototype.update = function( delta ) {
 };
 
 Kultling.prototype.die = function() {
+	s.play('sound/death.wav');
 	arrayRemove( this.level.entities, this );
 	this.level.entities.push( new Animation('img/kultling_tot.png', this.position, 6, 120, this.level));
 	this.level.killKultling();
