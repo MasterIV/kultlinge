@@ -36,9 +36,10 @@ Kultling.prototype.click = function(pos) {
 	if( area.inside( pos )) {
 		if( this.level.consumeSpell('burn')) {
 			this.burning = true;
-			this.ttl = 1200;
 			this.speed *= 1.5;
+			this.ttl = 1000 * ( 400 / this.speed );
 			this.horizontal *= 1.5;
+			this.level.entities.push( new Animation('img/spells/poof.png', this.position, 5, 100, this.level ));
 		}
 
 		if( this.level.consumeSpell('detonate')) {
@@ -82,13 +83,14 @@ Kultling.prototype.update = function( delta ) {
 };
 
 Kultling.prototype.die = function() {
-	s.play('sound/death.wav');
+	s.play('sound/death.mp3');
 	arrayRemove( this.level.entities, this );
 	this.level.entities.push( new Animation('img/kultling_tot.png', this.position, 6, 120, this.level));
 	this.level.killKultling();
 };
 
 Kultling.prototype.sacrifice = function() {
+	s.play('sound/death2.mp3');
 	arrayRemove( this.level.entities, this );
 	this.level.entities.push( new Animation('img/kultling_tot.png', this.position, 6, 120, this.level));
 	this.level.sacrificeKultling();

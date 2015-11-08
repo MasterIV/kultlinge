@@ -23,8 +23,9 @@ function FinishedOverlay(stars, level) {
 			function() {
 				game.scene = new LevelScene(level);
 			},
+			{font:'#333333'},
+			'sound/button.mp3',
 			null,
-			'sound/button.wav', 
 			'50px sans-serif'
 		),
 		new TextButton(
@@ -40,8 +41,9 @@ function FinishedOverlay(stars, level) {
 					game.scene = scenes.levelselection;
 				}
 			},
+			{font:'#333333'},
+			'sound/button.mp3',
 			null,
-			'sound/button.wav',
 			'50px sans-serif'
 		)
 	];
@@ -53,7 +55,7 @@ function FinishedOverlay(stars, level) {
 	
 	if(stars > 0 && stars > Number(ScoreRegister.get(level))) {
 		ScoreRegister.put(level, stars);
-	}	
+	}		
 }
 
 FinishedOverlay.prototype = new Entity();

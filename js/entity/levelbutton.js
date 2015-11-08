@@ -8,7 +8,7 @@ function LevelButton(pos, state, callback) {
 			Rect.create(450* state, 0, 450 * (state + 1), 360), 
 			null, 
 			callback,
-			'sound/button.wav'
+			'sound/button.mp3'
 		)
 	];
 }

@@ -7,10 +7,10 @@ var backgroundsound = {
 	play: function( file ) {
 		var type = "mpeg";
 
-		if(this.mp3()) {
-			type = "mpeg";
-			file = file.replace(/ogg/g, "mp3");
-		}
+		//if(this.mp3()) {
+		//	type = "mpeg";
+		//	file = file.replace(/ogg/g, "mp3");
+		//}
 
 		if(!this.element)
 		{
