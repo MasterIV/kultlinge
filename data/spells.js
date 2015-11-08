@@ -17,7 +17,7 @@ var ingredients = {
 var spells = {
 	rain: {
 		name: "Rain",
-		ingredients: ['chicken', 'sausage', 'tongue'],
+		ingredients: ['chicken', 'sausage', 'vegetable'],
 		description: "Somehow reminds me of Hamburg."
 	},
 	wall: {
@@ -32,7 +32,7 @@ var spells = {
 	},
 	detonate: {
 		name: "Cadaver explosion",
-		ingredients: ['chicken', 'pretzel', 'vegetable'],
+		ingredients: ['chicken', 'pretzel', 'tongue'],
 		description: "Now also works on living beings!"
 	} /*,
 	ladder: {
