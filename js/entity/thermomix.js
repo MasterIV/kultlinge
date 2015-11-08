@@ -75,7 +75,7 @@ ThermoMix.prototype.handleDrop = function(dragable) {
 	entity.deleteonclean = true;
 	this.entities.push(entity);
 	
-	s.play('sound/thermo-drop.wav');
+	s.play('sound/thermo-drop.mp3');
 				
 	if(this.slots.length >= 3) {
 		var found = false;
@@ -84,7 +84,7 @@ ThermoMix.prototype.handleDrop = function(dragable) {
 			if(spell.ingredients.sort().toString() == this.slots.sort().toString()) {
 				this.levelScene.level.setSpell(spellName);
 
-				s.play('sound/thermomix.wav');				
+				s.play('sound/thermomix.mp3');				
 				found = true;
 			}
 		}

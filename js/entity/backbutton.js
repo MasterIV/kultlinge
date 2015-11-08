@@ -12,6 +12,6 @@ function AddBackbutton(action, entities) {
 	
 	area.onClick = function() {
 		game.scene = action;
-		s.play('sound/button.wav');
+		s.play('sound/button.mp3');
 	};
 }

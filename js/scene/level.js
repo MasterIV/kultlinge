@@ -18,7 +18,7 @@ function LevelScene( i ) {
 		goButton.setSize(400, 160);
 		goButton.onClick = function(){
 			self.blocking = [];
-			s.play('sound/button.wav');
+			s.play('sound/button.mp3');
 			AddBackbutton(scenes.levelselection, self.entities);
 		}
 		

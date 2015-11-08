@@ -23,7 +23,7 @@ function FinishedOverlay(stars, level) {
 				game.scene = new LevelScene(level);
 			},
 			{font:'#333333'},
-			'sound/button.wav'
+			'sound/button.mp3'
 		),
 		new TextButton(
 			stars && level < levels.length -1 ? "Next Level": "Level selection",
@@ -39,7 +39,7 @@ function FinishedOverlay(stars, level) {
 				}
 			},
 			{font:'#333333'},
-			'sound/button.wav'
+			'sound/button.mp3'
 		)
 	];
 
@@ -50,7 +50,7 @@ function FinishedOverlay(stars, level) {
 	
 	if(stars > 0 && stars > Number(ScoreRegister.get(level))) {
 		ScoreRegister.put(level, stars);
-	}	
+	}		
 }
 
 FinishedOverlay.prototype = new Entity();

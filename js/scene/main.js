@@ -14,7 +14,7 @@ function MainScene() {
 				game.scene = scenes.levelselection;
 			},
 			{ background: 'rgba(255,255,255,1)' },
-			'sound/button.wav',
+			'sound/button.mp3',
 			'50px sans-serif'
 		),
 		new TextButton(
@@ -26,7 +26,7 @@ function MainScene() {
 				game.scene = scenes.spellbook;
 			},
 			{ background: 'rgba(255,255,255,1)' },
-			'sound/button.wav',
+			'sound/button.mp3',
 			'50px sans-serif'
 		),
 		new TextButton(
@@ -38,7 +38,7 @@ function MainScene() {
 				game.scene = scenes.credits;
 			},
 			{ background: 'rgba(255,255,255,1)' },
-			'sound/button.wav',
+			'sound/button.mp3',
 			'50px sans-serif'
 		),
 		];	

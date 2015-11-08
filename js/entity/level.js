@@ -38,6 +38,7 @@ function Level( level, parent ) {
 		if( killed + sacrificed >=  level.spawnNumber ) {
 			var stars = ( sacrificed >= level.bronze ) + ( sacrificed >= level.silver ) + ( sacrificed >= level.gold );
 			parent.blocking = [new FinishedOverlay( stars, parent.i )];
+			s.play(stars == 0 ? 'sound/loose.mp3' : 'sound/win.mp3');
 		}
 	}
 
@@ -68,7 +69,7 @@ function Level( level, parent ) {
 	this.consumeSpell = function( spell ) {
 		if( spell == this.spell ) {
 			this.spell = null;
-			s.play('sound/spell.wav');
+			s.play('sound/spell.mp3');
 			return true;
 		}
 
