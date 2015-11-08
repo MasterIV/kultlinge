@@ -4,8 +4,23 @@ body {
 }
 
 #gameframe {
-	background-color: white;
 	position: absolute;
 	top: 0;
 	left: 0;
+}
+
+#loading {
+	width: 36px;
+	height: 36px;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin-left:-18px;
+	margin-top:-18px;
+	background:url(../img/loading.gif);
+}
+
+
+*:fullscreen, *:-webkit-full-screen, *:-moz-full-screen {
+    background-color: black!important;
 }

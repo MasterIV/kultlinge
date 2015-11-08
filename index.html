@@ -4,7 +4,9 @@
 		<title>Game</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="stylesheet" type="text/css" href="css/main.css">
-
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="mobile-web-app-capable" content="yes">
+				
 		<script type="text/javascript" src="js/lib/vector.js"></script>
 		<script type="text/javascript" src="js/lib/entity.js"></script>
 		<script type="text/javascript" src="js/lib/game.js"></script>
@@ -49,7 +51,11 @@
 			var scenes = {};
 
 			function init() {
+				window.scrollTo(0, 1);
 				g.load(function() {
+					document.body.style.backgroundColor = 'black';
+					document.querySelector('#loading').style.display = 'none';
+					
 					scenes.main = new MainScene();
 					scenes.credits = new CreditsScene();
 					scenes.levelselection = new LevelSelectionScene();
@@ -65,7 +71,8 @@
 		</script>
 	</head>
 
-	<body onload="init();" style="background-color: black;">
+	<body onload="init();">
+		<div id="loading"></div>
 		<canvas id="gameframe" width="640" height="480"></canvas>
 	</body>
 </html>
