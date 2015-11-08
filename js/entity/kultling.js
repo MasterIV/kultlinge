@@ -1,6 +1,7 @@
 g.add('img/kultling.png');
 g.add('img/kultling_m.png');
 g.add('img/kultling_tot.png');
+g.add('img/kultling_geist.png');
 g.add('img/kultling_fire.png');
 g.add('img/explosion.png');
 
@@ -92,7 +93,7 @@ Kultling.prototype.die = function() {
 Kultling.prototype.sacrifice = function() {
 	s.play('sound/death2.mp3');
 	arrayRemove( this.level.entities, this );
-	this.level.entities.push( new Animation('img/kultling_tot.png', this.position, 6, 120, this.level));
+	this.level.entities.push( new Animation('img/kultling_geist.png', this.position, 6, 120, this.level));
 	this.level.sacrificeKultling();
 };
 
