@@ -13,7 +13,7 @@ function LevelSelectionScene() {
 	
 	this.startX = (game.width - this.gridX * this.buttonSizeX - (( this.gridX - 1 ) * this.gutter)) / 2;
 	this.startY = (game.height - this.gridY * this.buttonSizeY - (( this.gridY - 1 ) * this.gutter)) / 2;
-	this.buttonTextColor = 'black';
+	this.buttonTextColor = 'white';
 	this.buttonTextColorLocked = '#342f2f';
 	
 	this.starGutter = 25;

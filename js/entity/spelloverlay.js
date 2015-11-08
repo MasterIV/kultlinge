@@ -11,11 +11,11 @@ function SpellOverlay(spell, maxChars, slim) {
 	
 	this.background = new Placeholder();
 	this.background.size = this.size;
-	this.background.color = 'rgba(255,255,255,.9)';
+	this.background.color = 'rgba(0,0,0,.8)';
 	
 	this.heading = new Text(spell.name);
 	this.heading.font = slim?'70px sans-serif':'90px sans-serif';
-	this.heading.color = 'green';
+	this.heading.color = headingColor;
 
 	this.entities = [this.background, this.heading];
 
@@ -24,7 +24,7 @@ function SpellOverlay(spell, maxChars, slim) {
 	for(var i = 0; i < descriptionLines.length; i++) {
 		var descriptionLine = descriptionLines[i];
 		var desc = new Text(descriptionLine);
-		desc.color = 'black';
+		desc.color = 'white';
 		//desc.align = 'left';
 		desc.font = '40px sans-serif';
 		this.descriptions.push(desc);

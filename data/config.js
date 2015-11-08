@@ -9,3 +9,5 @@ var buttonColorsHover = {
 	background: 'rgba(0,0,0,0.8)',
 	text: 'white'
 };
+
+var headingColor = 'green';
