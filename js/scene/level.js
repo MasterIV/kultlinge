@@ -1,4 +1,9 @@
 g.add('img/level/bg.png');
+g.add('img/spells/spell_ready_wall.png');
+g.add('img/spells/spell_ready_rain.png');
+g.add('img/spells/spell_ready_burn.png');
+g.add('img/spells/spell_ready_detonate.png');
+
 
 function LevelScene( i ) {
 	var self = this;
@@ -35,8 +40,12 @@ function LevelScene( i ) {
 
 	this.entities = [
 		this.level = new Level(level, this),
-		this.mix = new ThermoMix(level.shuffle ? this.shuffle(level.ingredients) : level.ingredients, this)
+		this.mix = new ThermoMix(level.shuffle ? this.shuffle(level.ingredients) : level.ingredients, this),
+		this.ready = new AnimatedImage('img/spells/spell_ready_wall.png', new V2(1010, 960), 10, 100 )
 	];
+
+	this.ready.visible = false;
+	this.ready.scale = 2;
 }
 
 LevelScene.prototype = new Scene();

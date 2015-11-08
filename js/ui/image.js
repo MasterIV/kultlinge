@@ -7,9 +7,14 @@ function ImageEntity( img, pos ) {
 function AnimatedImage( img, pos,  frames, speed) {
 	this.conuter = new Framecounter(speed);
 	this.sprite = new AnimationSprite(img, frames);
+	this.visible = true;
+	this.scale = 1;
 
-	this.update = function(d) { this.conuter.update(d); }
-	this.draw = function(ctx) { this.sprite.draw( ctx, pos.x, pos.y, this.conuter.frame % frames ); }
+	this.update = function(d) { if( !this.visible ) return; this.conuter.update(d); };
+	this.draw = function(ctx) {
+		if( !this.visible ) return;
+		this.sprite.drawScaled( ctx, pos.x, pos.y, this.conuter.frame % frames, this.scale );
+	};
 }
 
 function Animation( img, pos, frames, speed, parent) {
@@ -22,6 +27,8 @@ function Animation( img, pos, frames, speed, parent) {
 			arrayRemove( parent.entities, this );
 	};
 
-	this.draw = function(ctx) { this.sprite.draw( ctx, pos.x, pos.y, this.conuter.frame ); }
+	this.draw = function(ctx) {
+		this.sprite.draw( ctx, pos.x, pos.y, this.conuter.frame );
+	}
 }
 

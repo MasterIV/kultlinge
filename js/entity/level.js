@@ -59,7 +59,8 @@ function Level( level, parent ) {
 	};
 
 	this.setSpell = function( spell ) {
-		console.log( spell );
+		parent.ready.sprite = new AnimationSprite('img/spells/spell_ready_'+spell+'.png', 10);
+		parent.ready.visible = true;
 		this.spell = spell;
 	};
 
@@ -70,6 +71,7 @@ function Level( level, parent ) {
 	this.consumeSpell = function( spell ) {
 		if( spell == this.spell ) {
 			this.spell = null;
+			parent.ready.visible = false;
 			s.play('sound/spell.mp3');
 			return true;
 		}

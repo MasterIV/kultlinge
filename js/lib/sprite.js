@@ -10,7 +10,7 @@ Sprite.prototype.draw = function(ctx, x, y ) {
 
 Sprite.prototype.drawScaled = function(ctx, x, y, scale){
 	ctx.drawImage( this.img, x, y, this.img.width*scale, this.img.height*scale);
-}
+};
 
 Sprite.prototype.center = function(ctx, x, y ) {
 	ctx.drawImage( this.img, x-this.img.width/2, y-this.img.height/2 );
@@ -33,4 +33,8 @@ AnimationSprite.prototype.draw = function(ctx, x, y, f ) {
 
 AnimationSprite.prototype.center = function(ctx, x, y, f ) {
 	ctx.drawImage( this.img, f*this.w, 0, this.w, this.h, x-this.w/2, y-this.h/2, this.w, this.h );
+};
+
+AnimationSprite.prototype.drawScaled = function(ctx, x, y, f, scale){
+	ctx.drawImage( this.img, f*this.w, 0, this.w, this.h, x, y, this.w*scale, this.h*scale );
 };
