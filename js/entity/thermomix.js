@@ -34,7 +34,7 @@ function ThermoMix(levelIngredients, levelScene) {
 		var dish = new ImageEntity('img/ui/opfergabe.png', new V2(left, top));
 		this.entities.push(dish);
 		
-		var circle = new PlaceholderCircle(left + 20 + (i>=3?210:0), top + 40, 40, 'rgba(255, 255, 255, 0.6)');
+		var circle = new PlaceholderCircle(left + 20 + (i>=3?210:0), top + 40, 40, 'rgba(255, 255, 255, 0.9)');
 		this.entities.push(circle);
 		
 		var text = new Text("0", new V2(left + 20 + (i>=3?210:0), top + 57));
