@@ -26,13 +26,17 @@ function FinishedOverlay(stars, level) {
 			'sound/button.wav'
 		),
 		new TextButton(
-			"Level selection",  
+			stars && level < levels.length ? "Next Level": "Level selection",
 			new V2(this.size.x / 2 + 20, 370), 
 			new V2(280, 160), 
 			{background: 'rgba(0,0,0,0.2)'},
 			function() {
-				scenes.levelselection.updateLevels();
-				game.scene = scenes.levelselection;
+				if( stars && level < levels.length  ) {
+					game.scene = new LevelScene(level+1);
+				} else {
+					scenes.levelselection.updateLevels();
+					game.scene = scenes.levelselection;
+				}
 			},
 			{font:'#333333'},
 			'sound/button.wav'
