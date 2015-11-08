@@ -6,7 +6,8 @@
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="mobile-web-app-capable" content="yes">
-				
+		<link rel="apple-touch-icon" href="img/App-Icon.png">
+
 		<script type="text/javascript" src="js/lib/vector.js"></script>
 		<script type="text/javascript" src="js/lib/entity.js"></script>
 		<script type="text/javascript" src="js/lib/game.js"></script>
@@ -52,7 +53,8 @@
 
 			function init() {
 				window.scrollTo(0, 1);
-				g.load(function() {
+				document.body.style.backgroundColor = 'white';
+					g.load(function() {
 					document.body.style.backgroundColor = 'black';
 					document.querySelector('#loading').style.display = 'none';
 					
