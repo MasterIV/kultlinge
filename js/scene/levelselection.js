@@ -1,8 +1,8 @@
-g.add('img/ui/bg.png');
+g.add('img/level/bg.png');
 
 function LevelSelectionScene() {
 	var self = this;
-	this.bg = new Sprite('img/ui/bg.png');
+	this.bg = new Sprite('img/level/bg.png');
 	
 	// grid settings
 	this.gridX = 4;
@@ -21,6 +21,9 @@ function LevelSelectionScene() {
 	this.starYOffset = -37;
 	
 	this.updateLevels();
+	
+	AddBackbutton(scenes.main, this.entities);
+	
 }
 
 LevelSelectionScene.prototype = new Scene();

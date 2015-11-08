@@ -3,15 +3,17 @@ function SpellbookScene() {
 	
 	this.bg = new Sprite('img/level/bg.png');
 	
+	
+	
 	var i = 0;
 	for(var name in spells) {
 		var spellOverlay = new SpellOverlay(name, 30, true);
 		spellOverlay.position = new V2(0, 0);
 		spellOverlay.size = new V2(0, 0);
-		spellOverlay.setSize(700, 600);
+		spellOverlay.setSize(650, 530);
 		this.entities.push(spellOverlay);
 
-		spellOverlay.setPosition((700+43)*(i%3), 50 + 650*Math.floor(i/3));
+		spellOverlay.setPosition((630+43)*(i%3), 50 + 555*Math.floor(i/3));
 		i++;
 	}
 	
@@ -39,10 +41,12 @@ function SpellbookScene() {
 	this.dragable.update = function(delta) {
 		this.__update(delta);
 		
-		this.position.x = 43;
-		this.position.y = Math.min(Math.max(this.position.y, self.getArea().height()-this.getArea().height() - 50), 0);
+		this.position.x = 180;
+		this.position.y = 50;//Math.min(Math.max(this.position.y, self.getArea().height()-this.getArea().height() - 50), 0);
 	};
 	this.entities = [this.dragable];
+	
+	AddBackbutton(scenes.main, this.entities);		
 }
 
 

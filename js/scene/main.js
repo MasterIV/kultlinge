@@ -1,10 +1,10 @@
 g.add("img/ui/start-button.png");
 g.add("img/ui/credits-button.png");
-g.add("img/ui/bg.png");
+g.add("img/level/bg.png");
 
 function MainScene() {
 	
-	this.bg = new Sprite("img/ui/bg.png");
+	this.bg = new Sprite("img/level/bg.png");
 	
 	this.entities = [
 			new Button("img/ui/start-button.png", 
