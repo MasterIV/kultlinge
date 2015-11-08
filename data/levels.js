@@ -107,8 +107,8 @@ var levels = [
 		bronze: 3,
 
 		ingredients: {
-			chicken: 0,
-			sausage: 2,
+			chicken: 2,
+			sausage: 0,
 			voodoo: 1,
 			pretzel: 2,
 			vegetable: 2,
