@@ -1,6 +1,7 @@
 g.add('img/kultling.png');
 g.add('img/kultling_m.png');
 g.add('img/kultling_tot.png');
+g.add('img/kultling_fire.png');
 g.add('img/explosion.png');
 
 function Kultling( parent ) {
@@ -11,6 +12,7 @@ function Kultling( parent ) {
 	this.position = this.grid.prd(m.t);
 	this.sprite = new AnimationSprite('img/kultling.png', 4);
 	this.spriteM = new AnimationSprite('img/kultling_m.png', 4);
+	this.spriteB = new AnimationSprite('img/kultling_fire.png', 2);
 	this.counter = new Framecounter(200);
 
 	this.speed = 50;
@@ -24,6 +26,7 @@ function Kultling( parent ) {
 }
 
 Kultling.prototype.draw = function( ctx ) {
+	if( this.burning ) this.spriteB.draw(ctx, this.position.x, this.position.y, this.counter.frame % 2);
 	if( this.horizontal < 0 ) this.spriteM.draw(ctx, this.position.x, this.position.y, this.counter.frame % 4);
 	else this.sprite.draw(ctx, this.position.x, this.position.y, this.counter.frame % 4);
 };
