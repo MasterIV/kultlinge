@@ -36,8 +36,8 @@ Kultling.prototype.click = function(pos) {
 	if( area.inside( pos )) {
 		if( this.level.consumeSpell('burn')) {
 			this.burning = true;
-			this.ttl = 1200;
 			this.speed *= 1.5;
+			this.ttl = 1000 * ( 400 / this.speed );
 			this.horizontal *= 1.5;
 		}
 

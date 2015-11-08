@@ -78,7 +78,7 @@ Rect.prototype.inside = function( v ) {
 			&& this.p2.x > v.x
 			&& this.p1.y < v.y
 			&& this.p2.y > v.y;
-}
+};
 
 function limit( v, m ) {
 	return Math.min( m, Math.max( -m, v ));
@@ -104,4 +104,9 @@ function arrayRemove( arr, element ) {
 
 function rand( min, max ) {
 	return min+Math.round(Math.random()*(max-min));
+}
+
+function shuffle(o) {
+	for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+	return o;
 }

@@ -20,7 +20,7 @@ function LevelScene( i ) {
 			self.blocking = [];
 			s.play('sound/button.mp3');
 			AddBackbutton(scenes.levelselection, self.entities);
-		}
+		};
 		
 		var text = new Text("Start");
 		text.color = "#333333";
@@ -35,8 +35,26 @@ function LevelScene( i ) {
 
 	this.entities = [
 		this.level = new Level(level, this),
-		this.mix = new ThermoMix(level.ingredients, this)
+		this.mix = new ThermoMix(level.shuffle ? this.shuffle(level.ingredients) : level.ingredients, this)
 	];
 }
 
 LevelScene.prototype = new Scene();
+
+LevelScene.prototype.shuffle = function( ingredients ) {
+	var keys = [];
+	var shuffled = {};
+
+	for( var i in ingredients )
+		keys.push(i);
+
+	keys = shuffle(keys);
+
+	for( var i = 0; i < keys.length; i++ )
+		shuffled[keys[i]] = ingredients[keys[i]];
+
+	console.log( 'everey day im shufflein...');
+	console.log( ingredients, shuffled );
+
+	return shuffled;
+};
