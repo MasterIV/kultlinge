@@ -13,6 +13,10 @@ function AddBackbutton(action, entities) {
 	entities.push(area);
 	
 	area.onClick = function() {
+		if(action instanceof LevelSelectionScene) {
+			action.updateLevels();
+		}
+		
 		game.scene = action;
 		s.play('sound/button.mp3');
 	};
