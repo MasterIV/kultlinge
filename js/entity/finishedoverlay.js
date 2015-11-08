@@ -1,9 +1,9 @@
 function FinishedOverlay(stars, level) {
-	this.size = new V2(800, 400);
-	this.position = new V2(game.width / 2 - 400 , game.height / 2 - 200);
+	this.size = new V2(800, 600);
+	this.position = new V2(game.width / 2 - 400 , game.height / 2 - 300);
 	
 	var background = new Placeholder();
-	background.color = 'yellow';
+	background.color = 'rgba(255,255,255,0.9)';
 	background.size = this.size;
 	var text = stars > 0 ? 'Victory!' : "Failed!";
 	
@@ -16,25 +16,25 @@ function FinishedOverlay(stars, level) {
 		looseText,
 		new TextButton(
 			"Try again", 
-			new V2(this.size.x / 2 - 270, 330), 
-			new V2(250, 50), 
-			{background: 'green'}, 
+			new V2(this.size.x / 2 - 300, 370), 
+			new V2(280, 160), 
+			{background: 'rgba(0,0,0,0.2)'}, 
 			function() {
 				game.scene = new LevelScene(level);
 			},
-			null,
+			{font:'#333333'},
 			'sound/button.wav'
 		),
 		new TextButton(
 			"Level selecttion",  
-			new V2(this.size.x / 2 , 330), 
-			new V2(250, 50), 
-			{background: 'green'},
+			new V2(this.size.x / 2 + 20, 370), 
+			new V2(280, 160), 
+			{background: 'rgba(0,0,0,0.2)'},
 			function() {
 				scenes.levelselection.updateLevels();
 				game.scene = scenes.levelselection;
 			},
-			null,
+			{font:'#333333'},
 			'sound/button.wav'
 		)
 	];

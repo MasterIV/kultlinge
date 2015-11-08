@@ -59,7 +59,7 @@ function SpellOverlay(spell, maxChars, slim) {
 			description.size = new V2(this.getArea().width()-100, 40);
 		}
 		
-		var offsetLeft = (this.getArea().width() - (256*3 + 20*2))/2 + (slim?100:32);
+		var offsetLeft = (this.getArea().width() - (256*3 + 20*2))/2 + (slim?125:32);
 		for(var i = 0; i < this.slots.length; i++) {
 			var slot = this.slots[i];
 			slot.position = new V2((slim?200:256)*i + offsetLeft, 140);

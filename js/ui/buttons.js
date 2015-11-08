@@ -43,7 +43,7 @@ SpriteButton.prototype.draw = function(ctx ) {
 };
 
 /* Text Button */
-function TextButton(text, pos, size, colors, callback, hover, sound ) {
+function TextButton(text, pos, size, colors, callback, hover, sound, font ) {
 	this.position = pos;
 	this.size = size;
 	this.text = text;
@@ -51,6 +51,7 @@ function TextButton(text, pos, size, colors, callback, hover, sound ) {
 	this.hover = hover;
 	this.sound = sound;
 	this.callback = callback;
+	this.font = font;
 }
 
 TextButton.prototype = new Entity();
@@ -66,7 +67,8 @@ TextButton.prototype.draw = function(ctx ) {
 
 	ctx.fillStyle = c.text ? c.text : 'black';
 	ctx.textAlign = 'center';
-	ctx.font = '30px sans-serif';
+	ctx.font = this.font||'30px sans-serif';
+	ctx.textBaseline = 'middle';
 	ctx.fillText( this.text, this.getArea().p1.x + this.getArea().width() / 2, this.getArea().p1.y + this.getArea().height() / 2, this.getArea().width());
 };
 

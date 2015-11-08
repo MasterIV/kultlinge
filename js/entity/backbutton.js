@@ -1,5 +1,5 @@
 function AddBackbutton(action, entities) {
-	var back = new PlaceholderCircle(80, 80, 44, 'rgba(255, 255, 255, 0.6)');
+	var back = new PlaceholderCircle(80, 80, 44, 'rgba(255, 255, 255, 0.9)');
 	entities.push(back);
 	
 	var text = new Text("◀", new V2(75, 100));
