@@ -1,5 +1,6 @@
 g.add('img/ui/opfergabe.png');
 g.add('img/ui/opferschale.png');
+g.add('img/spells/poof_red.png');
 
 function ThermoMix(levelIngredients, levelScene) {
 	var self = this;
@@ -97,6 +98,11 @@ ThermoMix.prototype.handleDrop = function(dragable) {
 				this.levelIngredients[this.slots[i]]++;
 			}
 		}
+		
+		for(var i = 1; i <= 3; i++) {
+			this.entities.push( new Animation('img/spells/poof'+(found?'':'_red')+'.png', new V2(game.width/2 - 150*2.5 + 150*i + 10, game.height - 250), 5, 100, this ));
+		}
+		
 		this.slots = [];
 		this.entities = this.entities.filter(function(el){ return !el.deleteonclean });
 	}	
