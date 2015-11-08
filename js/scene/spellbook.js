@@ -5,7 +5,7 @@ function SpellbookScene() {
 
 	var i = 0;
 	for(var name in spells) {
-		var spellOverlay = new SpellOverlay(name, 30, true);
+		var spellOverlay = new SpellOverlay(name, 28, true);
 		spellOverlay.position = new V2(0, 0);
 		spellOverlay.size = new V2(0, 0);
 		spellOverlay.setSize(650, 530);
