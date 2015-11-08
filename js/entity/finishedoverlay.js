@@ -26,7 +26,7 @@ function FinishedOverlay(stars, level) {
 			'sound/button.wav'
 		),
 		new TextButton(
-			"Level selecttion",  
+			"Level selection",  
 			new V2(this.size.x / 2 + 20, 370), 
 			new V2(280, 160), 
 			{background: 'rgba(0,0,0,0.2)'},

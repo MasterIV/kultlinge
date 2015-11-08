@@ -43,6 +43,6 @@ var spells = {
 	wall: {
 		name: "Wall",
 		ingredients: ['pretzel', 'vegetable', 'tongue'],
-		description: "Sometimes we do not need do free a way but to block it."
+		description: "Sometimes we do not need to free a way but to block it."
 	}
 };
