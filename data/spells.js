@@ -22,7 +22,7 @@ var spells = {
 	},
 	wall: {
 		name: "Wall",
-		ingredients: ['sausage', 'pretzel', 'vegetable'],
+		ingredients: ['voodoo', 'pretzel', 'vegetable'],
 		description: "Sometimes we do not need to free a way but to block it."
 	},
 	burn: {
@@ -32,7 +32,7 @@ var spells = {
 	},
 	detonate: {
 		name: "Cadaver explosion",
-		ingredients: ['voodoo', 'pretzel', 'vegetable'],
+		ingredients: ['sausage', 'pretzel', 'vegetable'],
 		description: "Now also works on living beings!"
 	},
 	ladder: {
