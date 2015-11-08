@@ -1,7 +1,3 @@
-g.add("img/ui/start-button.png");
-g.add("img/ui/credits-button.png");
-g.add("img/ui/start-button-hover.png");
-g.add("img/ui/credits-button-hover.png");
 g.add("img/level/bg.png");
 
 function MainScene() {
