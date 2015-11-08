@@ -82,6 +82,7 @@ Kultling.prototype.update = function( delta ) {
 };
 
 Kultling.prototype.die = function() {
+	s.play('sound/death.wav');
 	arrayRemove( this.level.entities, this );
 	this.level.entities.push( new Animation('img/kultling_tot.png', this.position, 6, 120, this.level));
 	this.level.killKultling();

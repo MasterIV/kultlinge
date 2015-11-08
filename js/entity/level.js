@@ -68,6 +68,7 @@ function Level( level, parent ) {
 	this.consumeSpell = function( spell ) {
 		if( spell == this.spell ) {
 			this.spell = null;
+			s.play('sound/spell.wav');
 			return true;
 		}
 
