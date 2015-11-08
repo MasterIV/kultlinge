@@ -8,10 +8,10 @@ function SpellbookScene() {
 		var spellOverlay = new SpellOverlay(name, 28, true);
 		spellOverlay.position = new V2(0, 0);
 		spellOverlay.size = new V2(0, 0);
-		spellOverlay.setSize(1000, 530);
+		spellOverlay.setSize(950, 530);
 		this.entities.push(spellOverlay);
 
-		spellOverlay.setPosition((1000+25)*(i%2), 50 + 555*Math.floor(i/2));
+		spellOverlay.setPosition((1000+25)*(i%2),  30 + 585*Math.floor(i/2));
 		i++;
 	}
 

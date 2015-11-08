@@ -20,10 +20,7 @@ function LevelSelectionScene() {
 	this.starXOffset = 50;
 	this.starYOffset = -37;
 	
-	this.updateLevels();
-	
-	AddBackbutton(scenes.main, this.entities);
-	
+	this.updateLevels();	
 }
 
 LevelSelectionScene.prototype = new Scene();
