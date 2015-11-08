@@ -26,12 +26,12 @@ function FinishedOverlay(stars, level) {
 			'sound/button.wav'
 		),
 		new TextButton(
-			stars && level < levels.length ? "Next Level": "Level selection",
+			stars && level < levels.length -1 ? "Next Level": "Level selection",
 			new V2(this.size.x / 2 + 20, 370), 
 			new V2(280, 160), 
 			{background: 'rgba(0,0,0,0.2)'},
 			function() {
-				if( stars && level < levels.length  ) {
+				if( stars && level < levels.length-1  ) {
 					game.scene = new LevelScene(level+1);
 				} else {
 					scenes.levelselection.updateLevels();
