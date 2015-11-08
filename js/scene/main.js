@@ -12,6 +12,7 @@ function MainScene() {
 			{ background: 'rgba(255,255,255,0.8)' }, 
 			function() {
 				game.scene = scenes.levelselection;
+				backgroundsound.play('sound/bg.mp3');
 			},
 			{ background: 'rgba(255,255,255,1)' },
 			'sound/button.mp3',
