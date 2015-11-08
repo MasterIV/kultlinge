@@ -112,8 +112,8 @@ function Level( level, parent ) {
 				this.map[x][y] = "platform";
 				var t = 0;
 
-				if (x < 1 || data[x - 1][y].p) t += 2;
-				if (x > m.w - 2 || data[x + 1][y].p) t += 1;
+				if (x > 0 && data[x - 1][y].p) t += 2;
+				if (x < m.w - 1 && data[x + 1][y].p) t += 1;
 
 				if (t == 1) placeTile(x, y, 0);
 				else if (t == 2) placeTile(x, y, imgFrames - 1);
