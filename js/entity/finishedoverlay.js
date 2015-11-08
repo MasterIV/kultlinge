@@ -9,6 +9,7 @@ function FinishedOverlay(stars, level) {
 	
 	var looseText = new Text(text, new V2(this.size.x / 2, 180));
 	looseText.font = "140px sans-serif";
+	looseText.color = 'green';
 	looseText.setSize(700, 140);
 
 	this.entities = [
@@ -18,18 +19,19 @@ function FinishedOverlay(stars, level) {
 			"Try again", 
 			new V2(this.size.x / 2 - 600, 800-160-100), 
 			new V2(580, 160), 
-			{background: 'rgba(0,0,0,0.2)', border: 'rgba(0,0,0,0.2)'}, 
+			{background: 'rgba(0,0,0,0.2)', border: 'rgba(0,0,0,0.2)', text:'#333333'}, 
 			function() {
 				game.scene = new LevelScene(level);
 			},
-			{font:'#333333'},
-			'sound/button.wav'
+			null,
+			'sound/button.wav', 
+			'50px sans-serif'
 		),
 		new TextButton(
 			stars && level < levels.length -1 ? "Next Level": "Level selection",
 			new V2(this.size.x / 2 + 20, 800-160-100), 
 			new V2(580, 160), 
-			{background: 'rgba(0,0,0,0.2)', border: 'rgba(0,0,0,0.2)'},
+			{background: 'rgba(0,0,0,0.2)', border: 'rgba(0,0,0,0.2)', text:'#333333'},
 			function() {
 				if( stars && level < levels.length-1  ) {
 					game.scene = new LevelScene(level+1);
@@ -38,8 +40,9 @@ function FinishedOverlay(stars, level) {
 					game.scene = scenes.levelselection;
 				}
 			},
-			{font:'#333333'},
-			'sound/button.wav'
+			null,
+			'sound/button.wav',
+			'50px sans-serif'
 		)
 	];
 
