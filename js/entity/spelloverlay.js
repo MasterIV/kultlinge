@@ -14,6 +14,7 @@ function SpellOverlay(spell, maxChars, slim) {
 	this.background.color = 'rgba(255,255,255,.9)';
 	
 	this.heading = new Text(spell.name);
+	this.heading.font = slim?'70px sans-serif':'90px sans-serif';
 	this.heading.color = 'green';
 
 	this.entities = [this.background, this.heading];
@@ -50,19 +51,19 @@ function SpellOverlay(spell, maxChars, slim) {
 	this.setSize = function(w, h){
 		this._setSize(w, h);
 		this.background.size = this.size;
-		this.heading.position = new V2(this.getArea().width()/2, 90);
+		this.heading.position = new V2(this.getArea().width()/2, slim?120:140);
 		this.heading.size = this.size;
 
 		for(var i = 0; i < this.descriptions.length; i++) {
 			var description = this.descriptions[i];
-			description.position = new V2(this.getArea().width()/2, 426 + 50*i - (slim?50:0));
+			description.position = new V2(this.getArea().width()/2, 476 + 50*i - (slim?50:0));
 			description.size = new V2(this.getArea().width()-100, 40);
 		}
 		
 		var offsetLeft = (this.getArea().width() - (256*3 + 20*2))/2 + (slim?125:32);
 		for(var i = 0; i < this.slots.length; i++) {
 			var slot = this.slots[i];
-			slot.position = new V2((slim?200:256)*i + offsetLeft, 140);
+			slot.position = new V2((slim?200:256)*i + offsetLeft, 190);
 		}
 	}
 }
