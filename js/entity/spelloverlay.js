@@ -11,7 +11,7 @@ function SpellOverlay(spell, maxChars, slim) {
 	
 	this.background = new Placeholder();
 	this.background.size = this.size;
-	this.background.color = 'rgba(0,0,0,.8)';
+	this.background.color = 'rgba(0,0,0,0)';
 	
 	this.heading = new Text(spell.name);
 	this.heading.font = slim?'70px sans-serif':'90px sans-serif';

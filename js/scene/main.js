@@ -1,17 +1,24 @@
 g.add('img/ui/menu.png');
 g.add('img/ui/fullscreen.png');
+g.add('img/ui/resize-button.png');
 
 function MainScene() {
 	var self = this;
 	
 	this.bg = new Sprite("img/ui/menu.png");
 	
-	
+	var buttonBgs = [
+		new AnimatedImage('img/ui/main_menu_button.png', new V2(140, 850), 1, 10000),
+		new AnimatedImage('img/ui/main_menu_button.png', new V2(840, 850), 1, 10000),
+		new AnimatedImage('img/ui/main_menu_button.png', new V2(1540, 850), 1, 10000),
+	];
+		
 	this.entities = [
+		buttonBgs[0], buttonBgs[1], buttonBgs[2],
 		new TextButton(
 			"Start", 
 			new V2(game.width/2 - 1000, 850), 
-			new V2(600, 200), 
+			new V2(600, 300), 
 			buttonColors, 
 			function() {
 				backgroundsound.play('sound/bg2.mp3');
@@ -24,7 +31,7 @@ function MainScene() {
 		new TextButton(
 			"Spellbook", 
 			new V2(game.width/2 - 300, 850), 
-			new V2(600, 200), 
+			new V2(600, 300), 
 			buttonColors, 
 			function() {
 				game.scene = scenes.spellbook;
@@ -36,7 +43,7 @@ function MainScene() {
 		new TextButton(
 			"Credits", 
 			new V2(game.width/2 +400, 850), 
-			new V2(600, 200), 
+			new V2(600, 300), 
 			buttonColors, 
 			function() {
 				game.scene = scenes.credits;
@@ -47,12 +54,9 @@ function MainScene() {
 		),
 		];	
 		
+	
+	this.entities.push(new AnimatedImage('img/ui/resize-button.png', new V2(game.width-128, 45), 1, 10000));
 		
-	var back = new PlaceholderCircle(game.width - 92, 80, 44, 'rgba(255, 255, 255, 0.9)');
-	this.entities.push(back);
-	
-	this.entities.push(new ImageEntity('img/ui/fullscreen.png', new V2(game.width-108,64)));
-	
 	var area = new Placeholder(game.width-148, 20, 128, 128);
 	area.color = "rgba(45,45,45,0)";
 	this.entities.push(area);

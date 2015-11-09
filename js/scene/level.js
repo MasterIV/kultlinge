@@ -4,6 +4,7 @@ g.add('img/spells/spell_ready_rain.png');
 g.add('img/spells/spell_ready_burn.png');
 g.add('img/spells/spell_ready_detonate.png');
 g.add('img/ui/main_menu_button.png');
+g.add('img/ui/victory_overlay.png');
 
 function LevelScene( i ) {
 	var self = this;
@@ -29,12 +30,15 @@ function LevelScene( i ) {
 		var bimage = new AnimatedImage('img/ui/main_menu_button.png', new V2(985, 840), 1, 10000);
 		bimage.scale = 0.5;
 		
+		var bgimage = new AnimatedImage('img/ui/victory_overlay.png', new V2(335, 240), 1, 10000);
+		//bimage.scale = 0.5;
+		
 		var text = new Text("Start");
 		text.color = "white";
 		text.size = goButton.size;
 		text.position = new V2(overlay.position.x + overlay.getArea().width()/2, overlay.position.y + overlay.getArea().height()-100);
 		
-		this.blocking = [overlay, bimage, goButton, text];
+		this.blocking = [bgimage, overlay, bimage, goButton, text];
 	
 	} else {
 		AddBackbutton(scenes.levelselection, this.entities);
