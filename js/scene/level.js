@@ -25,7 +25,7 @@ function LevelScene( i ) {
 	];
 
 	if( i == 0 ) {
-		this.hint = new AnimatedImage('img/klickme.png', new V2(48+128*9,128*3), 6, 150 );
+		this.hint = new AnimatedImage('img/klickme.png', new V2(20+128*9, 128*3), 6, 150 );
 		this.hint.visible = false;
 		this.entities.push(this.hint);
 	}
