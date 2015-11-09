@@ -12,7 +12,7 @@ function LevelScene( i ) {
 	var level = levels[i];
 	this.bg = new Sprite('img/level/bg.png');
 	this.i = i;
-
+	
 	if( level.spell ) {
 		var overlay = new SpellOverlay(level.spell);
 		overlay.setPosition(350, 250);
@@ -26,6 +26,7 @@ function LevelScene( i ) {
 			self.blocking = [];
 			s.play('sound/button.mp3');
 			AddBackbutton(scenes.levelselection, self.entities);
+			if(self.i == 0) { game.scene = new TutorialScene(self); }
 		};
 		var bimage = new AnimatedImage('img/ui/main_menu_button.png', new V2(985, 840), 1, 10000);
 		bimage.scale = 0.5;

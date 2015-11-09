@@ -30,6 +30,7 @@ var game = {
 		fh = window.innerHeight / 1280;
 
 		this.scale = Math.min(fw, fh);
+		
 		this.display.width = this.width*this.scale;
 		this.display.height = this.height*this.scale;
 	},
