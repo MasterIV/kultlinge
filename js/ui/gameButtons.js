@@ -25,6 +25,28 @@ function GameButton( pos, caption, callback, scale ) {
 
 GameButton.prototype = new Entity();
 
+function FlatButton( pos, caption, callback, scale ) {
+	this.scale = scale || 1;
+	this.position = pos;
+	this.size = new V2(600*this.scale, 150*this.scale);
+
+	this.entities = [
+		this.img = new ImageEntity('img/ui/main_menu_button_half.png', null, this.scale),
+		this.caption = new Text(caption, new V2(this.size.x*this.scale *.5, this.size.y*this.scale*.6), (60*this.scale)+'px sans-serif', buttonColors.text )
+	];
+
+	this.onClick = function() {
+		s.play('sound/button.mp3');
+		callback();
+	};
+
+	this.update = function() {
+		this.caption.color = this.getArea().inside(mouse) ?  buttonColorsHover.text : buttonColors.text;
+	}
+}
+
+FlatButton.prototype = new Entity();
+
 function BackButton( scene ) {
 	this.position = new V2(45, 45);
 	this.size = new V2(80, 80);

@@ -12,14 +12,8 @@ function LevelScene( i ) {
 	this.i = i;
 
 	if( level.spell ) {
-		var overlay = new SpellOverlay(new V2(661, 250), level.spell);
-
-		overlay.entities.push( new GameButton(new V2(320,460), "Start", function(){
-			self.blocking = [];
-		}, 0.5));
-
-		this.blocking = [overlay];
-	
+		this.blocking = [ new SpellOverlay(new V2(336, 200), level.spell, 50,
+				new FlatButton(new V2(500, 600), "Start", function() { self.blocking = []; }))];
 	}
 
 	this.entities = [
