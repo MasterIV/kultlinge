@@ -1,12 +1,10 @@
-g.add('img/ui/main_menu_button_half.png');
+g.add('img/ui/victory_overlay.png');
 
 function FinishedOverlay(stars, level) {
 	this.size = new V2(1600, 800);
 	this.position = new V2(game.width / 2 - 800 , game.height / 2 - 400);
 	
-	var background = new Placeholder();
-	background.color = 'rgba(255,255,255,0)';
-	background.size = this.size;
+
 	var text = stars > 0 ? 'Victory!' : "Failed!";
 	
 	var looseText = new Text(text, new V2(this.size.x / 2, 180));

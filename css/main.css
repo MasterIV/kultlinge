@@ -21,6 +21,13 @@ body {
 	background:url(../img/loading.gif);
 }
 
+@font-face {
+	font-family: 'Bones';
+	src: url('../img/font/Bones.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
 
 *:fullscreen, *:-webkit-full-screen, *:-moz-full-screen {
     background-color: black!important;

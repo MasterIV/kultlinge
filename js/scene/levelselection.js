@@ -20,15 +20,13 @@ function LevelSelectionScene() {
 	this.starXOffset = 50;
 	this.starYOffset = -37;
 	
-	this.updateLevels();	
+	this.updateLevels();
 }
 
 LevelSelectionScene.prototype = new Scene();
 LevelSelectionScene.prototype.updateLevels = function() {
 	var self = this;
-	this.entities = [];
-
-	AddBackbutton(scenes.main, this.entities);
+	this.entities = [new BackButton(scenes.main)];
 	
 	var i = 0;
 	for(var y = 0; y < this.gridY; y++) {

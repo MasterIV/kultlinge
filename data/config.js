@@ -2,12 +2,12 @@ var m = {w: 17, h: 10, t: 128};
 
 var buttonColors = { 
 	background: 'rgba(0,0,0,0)',
-	text: 'white'
+	text: '#CCC'
 };
 
 var buttonColorsHover = { 
 	background: 'rgba(0,0,0,0)',
-	text: 'white'
+	text: '#FFF'
 };
 
-var headingColor = 'green';
+var headingColor = '#222';

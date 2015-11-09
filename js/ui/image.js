@@ -1,6 +1,11 @@
-function ImageEntity( img, pos ) {
+function ImageEntity( img, pos, scale ) {
+	this.position = pos || new V2(0,0);
+	this.scale = scale ||  1;
+	this.w = g[img].width;
+	this.h = g[img].height;
+
 	this.draw = function( ctx ) {
-		ctx.drawImage( g[img], pos.x, pos.y );
+		ctx.drawImage( g[img], 0, 0, this.w, this.h, this.position.x, this.position.y, this.w*this.scale, this.h*this.scale );
 	}
 }
 

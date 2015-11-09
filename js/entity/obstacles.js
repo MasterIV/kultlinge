@@ -61,7 +61,7 @@ Thorns.prototype.onKultistTouch = function(kultling) {
 	else kultling.die();
 };
 
-// =================================================================== //
+/* =================================================================== //
 
 g.add('img/obstacles/water.png');
 function Water(level, x, y) {
@@ -78,7 +78,7 @@ Water.prototype.onKultistCollisionBelow = function(kultling) {
 	kultling.die();
 };
 
-// =================================================================== //
+// =================================================================== */
 
 g.add('img/obstacles/stone.png');
 function Stone(level, x, y) {
@@ -94,7 +94,7 @@ Stone.prototype.detonate = function() {
 	this.remove();
 };
 
-// =================================================================== //
+/* =================================================================== //
 
 g.add('img/obstacles/rock.png');
 function Rock(level, x, y) {
@@ -120,7 +120,7 @@ Saw.prototype.onKultistTouch = function(kultling) {
 	kultling.die();
 };
 
-// =================================================================== //
+// =================================================================== */
 
 g.add('img/obstacles/chest_closed.png');
 g.add('img/obstacles/chest_open.png');

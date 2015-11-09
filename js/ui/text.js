@@ -18,7 +18,7 @@ Text.prototype.draw = function(ctx) {
 	ctx.font = oldFont;
 };
 
-Text.prototype.wordwrap = function(text, maxLength){
+Text.wordwrap = function(text, maxLength){
 	var words = text.split(' ');
 	
 	var lines = [];
@@ -38,4 +38,4 @@ Text.prototype.wordwrap = function(text, maxLength){
 	lines.push(buffer.join(" "));
 	
 	return lines;
-}
+};

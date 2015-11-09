@@ -3,51 +3,30 @@ g.add('img/spells/spell_ready_wall.png');
 g.add('img/spells/spell_ready_rain.png');
 g.add('img/spells/spell_ready_burn.png');
 g.add('img/spells/spell_ready_detonate.png');
-g.add('img/ui/main_menu_button.png');
-g.add('img/ui/victory_overlay.png');
 
 function LevelScene( i ) {
-	var self = this;
-	
 	var level = levels[i];
+	var self = this;
+
 	this.bg = new Sprite('img/level/bg.png');
 	this.i = i;
 
 	if( level.spell ) {
-		var overlay = new SpellOverlay(level.spell);
-		overlay.setPosition(350, 250);
-		overlay.setSize(this.getArea().width()-700, this.getArea().height()-500);
-		
-		var goButton = new Placeholder();
-		goButton.color = 'rgba(0,0,0,0)';
-		goButton.setPosition(overlay.position.x + overlay.getArea().width()/2 - 200, overlay.position.y + overlay.getArea().height() - 200);
-		goButton.setSize(400, 160);
-		goButton.onClick = function(){
+		var overlay = new SpellOverlay(new V2(661, 250), level.spell);
+
+		overlay.entities.push( new GameButton(new V2(320,460), "Start", function(){
 			self.blocking = [];
-			s.play('sound/button.mp3');
-			AddBackbutton(scenes.levelselection, self.entities);
-		};
-		var bimage = new AnimatedImage('img/ui/main_menu_button.png', new V2(985, 840), 1, 10000);
-		bimage.scale = 0.5;
-		
-		var bgimage = new AnimatedImage('img/ui/victory_overlay.png', new V2(335, 240), 1, 10000);
-		//bimage.scale = 0.5;
-		
-		var text = new Text("Start");
-		text.color = "white";
-		text.size = goButton.size;
-		text.position = new V2(overlay.position.x + overlay.getArea().width()/2, overlay.position.y + overlay.getArea().height()-100);
-		
-		this.blocking = [bgimage, overlay, bimage, goButton, text];
+		}, 0.5));
+
+		this.blocking = [overlay];
 	
-	} else {
-		AddBackbutton(scenes.levelselection, this.entities);
 	}
 
 	this.entities = [
-		this.level = new Level(level, this),
-		this.mix = new ThermoMix(level.shuffle ? this.shuffle(level.ingredients) : level.ingredients, this),
-		this.ready = new AnimatedImage('img/spells/spell_ready_wall.png', new V2(1010, 960), 10, 100 )
+			this.level = new Level(level, this),
+			this.mix = new ThermoMix(level.shuffle ? this.shuffle(level.ingredients) : level.ingredients, this),
+			this.ready = new AnimatedImage('img/spells/spell_ready_wall.png', new V2(1010, 960), 10, 100 ),
+			new BackButton(scenes.levelselection)
 	];
 
 	this.ready.visible = false;

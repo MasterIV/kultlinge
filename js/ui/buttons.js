@@ -3,7 +3,7 @@ function Button(img, hover, x, y, callback, sound ) {
 	this.img = new Sprite( img );
 	this.hover = new Sprite( hover );
 	this.sound = sound;
-	this.position = new V2(x, y)
+	this.position = new V2(x, y);
 	this.size = new V2(this.img.width, this.img.height);
 	this.callback = callback;
 	this.x = x;
@@ -15,7 +15,7 @@ Button.prototype = new Entity;
 Button.prototype.draw = function(ctx ) {
 	if( this.hover &&  this.getArea().inside( mouse )) this.hover.draw( ctx, this.x, this.y );
 	else this.img.draw( ctx, this.x, this.y );
-}
+};
 
 /* Sprite Button */
 function SpriteButton(img, position, spriteRect, hoverRect, callback, sound ) {
