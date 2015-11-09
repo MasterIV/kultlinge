@@ -1,6 +1,6 @@
 # Kultlinge
 
-Das wird voll das krasse spiel
+Kultlinge ist ein krasses Spiel von Anni Runge, Tobias Rojahn, Lennart Franke und Kevin Kub. Mehr Informationen gibt es bei [InnoGames](https://gamejam.innogames.com/jams/innogames-game-jam-9/77/).
 
 ## Dimensions
 
