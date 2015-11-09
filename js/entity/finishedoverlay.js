@@ -23,7 +23,6 @@ function FinishedOverlay(stars, level) {
 			if( stars && level < levels.length-1  ) {
 				game.scene = new LevelScene(level+1);
 			} else {
-				scenes.levelselection.updateLevels();
 				game.scene = scenes.levelselection;
 			}
 		})
@@ -37,7 +36,7 @@ function FinishedOverlay(stars, level) {
 	if(stars > 0 && stars > Number(ScoreRegister.get(level))) {
 		ScoreRegister.put(level, stars);
 		scenes.levelselection.updateLevels();
-	}		
+	}
 }
 
 FinishedOverlay.prototype = new Entity();
