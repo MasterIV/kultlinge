@@ -36,6 +36,7 @@ function FinishedOverlay(stars, level) {
 	
 	if(stars > 0 && stars > Number(ScoreRegister.get(level))) {
 		ScoreRegister.put(level, stars);
+		scenes.levelselection.updateLevels();
 	}		
 }
 
