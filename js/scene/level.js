@@ -3,6 +3,7 @@ g.add('img/spells/spell_ready_wall.png');
 g.add('img/spells/spell_ready_rain.png');
 g.add('img/spells/spell_ready_burn.png');
 g.add('img/spells/spell_ready_detonate.png');
+g.add('img/klickme.png');
 
 function LevelScene( i ) {
 	var level = levels[i];
@@ -22,6 +23,12 @@ function LevelScene( i ) {
 			this.ready = new AnimatedImage('img/spells/spell_ready_wall.png', new V2(1010, 960), 10, 100 ),
 			new BackButton(scenes.levelselection)
 	];
+
+	if( i == 0 ) {
+		this.hint = new AnimatedImage('img/klickme.png', new V2(48+128*9,128*3), 6, 150 );
+		this.hint.visible = false;
+		this.entities.push(this.hint);
+	}
 
 	this.ready.visible = false;
 	this.ready.scale = 2;

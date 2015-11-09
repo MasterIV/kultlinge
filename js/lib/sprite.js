@@ -16,8 +16,9 @@ Sprite.prototype.center = function(ctx, x, y ) {
 	ctx.drawImage( this.img, x-this.img.width/2, y-this.img.height/2 );
 };
 
-Sprite.prototype.area = function(ctx, sx, sy, sw, sh, x, y ) {
-	ctx.drawImage( this.img, sx, sy, sw, sh, x, y, sw, sh );
+Sprite.prototype.area = function(ctx, sx, sy, sw, sh, x, y, s ) {
+	var scale = s || 1
+	ctx.drawImage( this.img, sx, sy, sw, sh, x, y, sw*scale, sh*scale );
 };
 
 function AnimationSprite(img, frames ) {

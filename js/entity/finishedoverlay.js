@@ -5,52 +5,32 @@ function FinishedOverlay(stars, level) {
 	this.position = new V2(game.width / 2 - 800 , game.height / 2 - 400);
 	
 
-	var text = stars > 0 ? 'Victory!' : "Failed!";
+	var text = stars > 0 ? 'Victory' : "Failed";
 	
-	var looseText = new Text(text, new V2(this.size.x / 2, 180));
-	looseText.font = "140px sans-serif";
-	looseText.color = 'green';
-	looseText.setSize(700, 140);
+	var headline = new Text(text, new V2(this.size.x / 2, 200));
+	headline.font = "200px Bones";
+	headline.color = '#222';
 
 	this.entities = [
-		new AnimatedImage('img/ui/victory_overlay.png', new V2(0, 0), 1, 10000),			
-		//background,
-		looseText,
-		new AnimatedImage('img/ui/main_menu_button_half.png', new V2(this.size.x / 2 - 600, 800-160-85), 1, 10000),
-		new AnimatedImage('img/ui/main_menu_button_half.png', new V2(this.size.x / 2 +20, 800-160-85), 1, 10000),
-		new TextButton(
-			"Try again", 
-			new V2(this.size.x / 2 - 600, 800-160-100), 
-			new V2(580, 160), 
-			{background: 'rgba(0,0,0,0)', border: 'rgba(0,0,0,0)', text:'white'}, 
-			function() {
-				game.scene = new LevelScene(level);
-			},
-			null,
-			'sound/button.mp3',
-			'50px sans-serif'
-		),
-		new TextButton(
-			stars && level < levels.length -1 ? "Next Level": "Level selection",
-			new V2(this.size.x / 2 + 20, 800-160-100), 
-			new V2(580, 160), 
-			{background: 'rgba(0,0,0,0)', border: 'rgba(0,0,0,0)', text:'white'},
-			function() {
-				if( stars && level < levels.length-1  ) {
-					game.scene = new LevelScene(level+1);
-				} else {
-					scenes.levelselection.updateLevels();
-					game.scene = scenes.levelselection;
-				}
-			},
-			null,
-			'sound/button.mp3',
-			'50px sans-serif'
-		)
+		new ImageEntity('img/ui/victory_overlay.png'),
+		headline,
+
+		new FlatButton(new V2(this.size.x / 2 - 650, 600), "Try again", function() {
+			game.scene = new LevelScene(level);
+		}),
+
+		new FlatButton(new V2(this.size.x / 2 + 50, 600), stars && level < levels.length -1 ? "Next Level": "Level selection", function() {
+			if( stars && level < levels.length-1  ) {
+				game.scene = new LevelScene(level+1);
+			} else {
+				scenes.levelselection.updateLevels();
+				game.scene = scenes.levelselection;
+			}
+		})
 	];
 
 	for(var s = 0; s < 3; s++) {	
-		var star = new Star(2 - (stars >= s + 1), new V2( s * 150 + this.size.x/2 - (150*3)/2 + 20, 300 ));
+		var star = new Star(2 - (stars >= s + 1), new V2( s * 300 + this.size.x/2 - 400, 280 ), 2);
 		this.entities.push(star);
 	}
 	
