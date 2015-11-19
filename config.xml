@@ -31,6 +31,7 @@
         <preference name="phonegap-version"       value="3.5.0" />
     -->
 
+	<content src="scaled.html" />
 
     <!-- Define app icon for each platform. -->
     <icon src="phonegap/iconoriginal.png" />
