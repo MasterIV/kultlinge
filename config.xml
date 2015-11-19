@@ -34,25 +34,14 @@
 	<content src="scaled.html" />
 
     <!-- Define app icon for each platform. -->
-    <icon src="phonegap/iconoriginal.png" />
-    <icon src="phonegap/res/icon/android/ldpi.png"   gap:platform="android"    gap:qualifier="ldpi" />
-    <icon src="phonegap/res/icon/android/mdpi.png"   gap:platform="android"    gap:qualifier="mdpi" />
-    <icon src="phonegap/res/icon/android/hdpi.png"   gap:platform="android"    gap:qualifier="hdpi" />
-    <icon src="phonegap/res/icon/android/xhdpi.png"  gap:platform="android"    gap:qualifier="xhdpi" />
-    <icon src="phonegap/res/icon/bb10/icon-86.png"     gap:platform="blackberry" />
-    <icon src="phonegap/res/icon/bb10/icon-86.png"     gap:platform="blackberry" gap:state="hover"/>
-    <icon src="phonegap/res/icon/ios/icon.png"            gap:platform="ios"        width="57" height="57" />
-    <icon src="phonegap/res/icon/ios/icon-72.png"            gap:platform="ios"        width="72" height="72" />
-    <icon src="phonegap/res/icon/ios/icon_2x.png"         gap:platform="ios"        width="114" height="114" />
-    <icon src="phonegap/res/icon/ios/icon-72_2x.png"         gap:platform="ios"        width="144" height="144" />
-	
+    <icon src="phonegap/iconoriginal.png" />	
 
     <!-- Define app splash screen for each platform. -->
-    <gap:splash src="phonegap/res/screen/android/ldpi-portrait.png"       gap:platform="android" gap:qualifier="port-ldpi" />
+    <!--<gap:splash src="phonegap/res/screen/android/ldpi-portrait.png"       gap:platform="android" gap:qualifier="port-ldpi" />
     <gap:splash src="phonegap/res/screen/android/mdpi-portrait.png"       gap:platform="android" gap:qualifier="port-mdpi" />
     <gap:splash src="phonegap/res/screen/android/hdpi-portrait.png"       gap:platform="android" gap:qualifier="port-hdpi" />
     <gap:splash src="phonegap/res/screen/android/xhdpi-portrait.png"      gap:platform="android" gap:qualifier="port-xhdpi" />
     <gap:splash src="phonegap/res/screen/bb10/splash-1280x768.png"              gap:platform="blackberry" />
-    <gap:splash src="phonegap/res/screen/ios/Default-Landscape-568h_2x.png"          gap:platform="ios"     width="1136" height="640" />
+    <gap:splash src="phonegap/res/screen/ios/Default-Landscape-568h_2x.png"          gap:platform="ios"     width="1136" height="640" />-->
 	
 </widget>
