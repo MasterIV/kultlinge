@@ -37,6 +37,42 @@
     <icon src="phonegap/iconoriginal.png" />	
 
     <!-- Define app splash screen for each platform. -->
-    <gap:splash src="phonegap/iconoriginal.png" />
+    <!--<gap:splash src="phonegap/iconoriginal.png" />-->
+	<platform name="android">
+    <!-- you can use any density that exists in the Android project -->
+    <splash src="phonegap/iconoriginal.png" density="land-hdpi"/>
+    <splash src="phonegap/iconoriginal.png" density="land-ldpi"/>
+    <splash src="phonegap/iconoriginal.png" density="land-mdpi"/>
+    <splash src="phonegap/iconoriginal.png" density="land-xhdpi"/>
+
+    <splash src="phonegap/iconoriginal.png" density="port-hdpi"/>
+    <splash src="phonegap/iconoriginal.png" density="port-ldpi"/>
+    <splash src="phonegap/iconoriginal.png" density="port-mdpi"/>
+    <splash src="phonegap/iconoriginal.png" density="port-xhdpi"/>
+</platform>
+
+<platform name="ios">
+    <!-- images are determined by width and height. The following are supported -->
+    <splash src="phonegap/iconoriginal.png" width="320" height="480"/>
+    <splash src="phonegap/iconoriginal.png" width="640" height="960"/>
+    <splash src="phonegap/iconoriginal.png" width="768" height="1024"/>
+    <splash src="phonegap/iconoriginal.png" width="1536" height="2048"/>
+    <splash src="phonegap/iconoriginal.png" width="1024" height="768"/>
+    <splash src="phonegap/iconoriginal.png" width="2048" height="1536"/>
+    <splash src="phonegap/iconoriginal.png" width="640" height="1136"/>
+    <splash src="phonegap/iconoriginal.png" width="750" height="1334"/>
+    <splash src="phonegap/iconoriginal.png" width="1242" height="2208"/>
+    <splash src="phonegap/iconoriginal.png" width="2208" height="1242"/>
+</platform>
+
+<platform name="wp8">
+    <!-- images are determined by width and height. The following are supported -->
+    <splash src="phonegap/iconoriginal.png" width="768" height="1280"/>
+</platform>
+
+<platform name="windows8">
+    <!-- images are determined by width and height. The following are supported -->
+    <splash src="phonegap/iconoriginal.png" width="620" height="300"/>
+</platform>
 	
 </widget>
