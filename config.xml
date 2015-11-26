@@ -37,6 +37,6 @@
     <icon src="phonegap/iconoriginal.png" />	
 
     <!-- Define app splash screen for each platform. -->
-    <gap:splash src="phonegap/splash.png" />
+    <gap:splash src="phonegap/iconoriginal.png" />
 	
 </widget>
